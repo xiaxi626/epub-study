@@ -2,10 +2,10 @@
 ## 推荐软件
 
 **排版**
-[_Sigil_](https://sigil-ebook.com/)、[_Calibre_](https://calibre-ebook.com/)、_Word_、_Dobby_、[_Jutoh_](https://www.jutoh.com/index.html)
+[_Sigil_](https://sigil-ebook.com/)、[_Calibre_](https://calibre-ebook.com/)、_Word_、[_Dobby_](https://github.com/xiaxi626/Dobby_beta)、[_Jutoh_](https://www.jutoh.com/index.html)
 
 **转换**
-_EasyPub_、_Calibre_
+_EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 ## 教程
 
 [**台灣 EPUB 3 製作指引**](https://github.com/dpublishing/epub3guide)
