@@ -14,4 +14,4 @@ _EasyPub_、_Calibre_
 
 [**epubcheck批处理简易版见本仓库**](https://github.com/xiaxi626/epub-study/tree/master/epubcheck)
 
-**《ePub指南——从入门到放弃》编著：赤霓（第2版）**
+[**《ePub指南——从入门到放弃》编著：赤霓（第2版）**](https://zhuanlan.zhihu.com/p/29954562)
