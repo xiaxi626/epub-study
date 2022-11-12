@@ -11,8 +11,8 @@ _EasyPub_、_Calibre_
 [**台灣 EPUB 3 製作指引**](https://github.com/dpublishing/epub3guide)
 epub3guide
 
-[產生 EPUB 封裝檔 epubcheck](https://github.com/w3c/epubcheck)
+[**產生 EPUB 封裝檔 epubcheck**](https://github.com/w3c/epubcheck)
 
-[epubcheck批处理简易版见本仓库](https://github.com/xiaxi626/epub-study/edit/)
+[**epubcheck批处理简易版见本仓库**]([https://github.com/xiaxi626/epub-study/edit/](https://github.com/xiaxi626/epub-study/tree/master/epubcheck))
 
 **《ePub指南——从入门到放弃》编著：赤霓（第2版）**
