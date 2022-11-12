@@ -2,7 +2,7 @@
 ## 推荐软件
 
 **排版**
-_Sigil_、_Calibre_、_Word_、_Dobby_
+_Sigil_、_Calibre_、_Word_、_Dobby_、_Jutoh_
 
 **转换**
 _EasyPub_、_Calibre_
