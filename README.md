@@ -17,3 +17,5 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 [**《ePub指南——从入门到放弃》编著：赤霓（第2版）**](https://zhuanlan.zhihu.com/p/29954562)
 
 [**书伴-BOOKFREE**](https://bookfere.com/category/skills/typesetting/page/2)
+
+[**sigil吧**](https://jump2.bdimg.com/f?kw=sigil&ie=utf-8)
