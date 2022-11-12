@@ -1,0 +1,9 @@
+java -jar C:\Users\Administrator\Desktop\epub3guide-master\epubcheck-4.2.2\epubcheck.jar C:\Users\Administrator\Desktop\epub3guide-master\practices\04_Image_Table_And_Footnote -mode exp -save 
+java -jar C:\Users\Administrator\Desktop\epub3guide-master\epubcheck-4.2.2\epubcheck.jar C:\Users\Administrator\Desktop\epub3guide-master\practices\05_Wrap_Text_Around_Image -mode exp -save 
+java -jar C:\Users\Administrator\Desktop\epub3guide-master\epubcheck-4.2.2\epubcheck.jar C:\Users\Administrator\Desktop\epub3guide-master\practices\06_Fixed_Layout_Image -mode exp -save 
+java -jar C:\Users\Administrator\Desktop\epub3guide-master\epubcheck-4.2.2\epubcheck.jar C:\Users\Administrator\Desktop\epub3guide-master\practices\07_Reflow_FXL_Mixed -mode exp -save 
+java -jar C:\Users\Administrator\Desktop\epub3guide-master\epubcheck-4.2.2\epubcheck.jar C:\Users\Administrator\Desktop\epub3guide-master\practices\08_Audio_Video -mode exp -save 
+java -jar C:\Users\Administrator\Desktop\epub3guide-master\epubcheck-4.2.2\epubcheck.jar C:\Users\Administrator\Desktop\epub3guide-master\practices\09_Media_Overlay -mode exp -save 
+java -jar C:\Users\Administrator\Desktop\epub3guide-master\epubcheck-4.2.2\epubcheck.jar C:\Users\Administrator\Desktop\epub3guide-master\practices\10_RWD_Experimental -mode exp -save 
+java -jar C:\Users\Administrator\Desktop\epub3guide-master\epubcheck-4.2.2\epubcheck.jar C:\Users\Administrator\Desktop\epub3guide-master\practices\01_Reflow_Text_Horizontal -mode exp -save 
+java -jar C:\Users\Administrator\Desktop\epub3guide-master\epubcheck-4.2.2\epubcheck.jar C:\Users\Administrator\Desktop\epub3guide-master\practices\02_Reflow_Text_Vertical -mode exp -save 
