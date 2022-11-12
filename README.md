@@ -30,3 +30,41 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 - [【sigil插件】小说标题序号更改插件](https://jump2.bdimg.com/p/8090227142)
 - [【sigil插件】TXT分章助手](https://jump2.bdimg.com/p/8090340277)
 - [请问sigil能制作复杂表格么？](https://jump2.bdimg.com/p/5149499911)
+
+## Recommended software
+
+**Typesetting** Sigil, Calibre, Word, Dobby, Jutoh
+
+**Convert** EasyPub, Calibre
+
+## Tutorial
+
+**Taiwan EPUB 3 Production Guide**
+
+**Generate EPUB package file epubcheck**
+
+**The simple version of epubcheck batch processing can be found in this repository**
+
+**Epub production book: Word+Jutoh**
+
+**EPub Guide - From Getting Started to Giving Up: Red Ni (2nd Edition)**
+
+**Book companion - BOOKFREE**
+
+**Sigil**
+
+- [sigil plug-in] Annotation processing plug-in+tutorial
+
+- [sigil plug-in] Image compression tool
+
+- [sigil plug-in] Font subset plug-in (latest)
+
+- [epub Tool] Reconstruct epub to a standard format
+
+- [sigil Plug in] Rare Phonetic Tools
+
+- [sigil plug-in] plug-in for changing the serial number of novel title
+
+- [sigil plug-in] TXT chapter assistant
+
+- Can Sigil make complex forms?
