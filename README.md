@@ -20,6 +20,12 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 
 [**书伴-BOOKFREE**](https://bookfere.com/category/skills/typesetting/page/2)
 
+- [如何利用 Sigil 和 EpubCheck 插件检查和修复 EPUB 文件](https://bookfere.com/post/1004.html)
+
+[**知乎**]
+
+- [ePub电子书排版](https://www.zhihu.com/column/epubmake)
+
 [**sigil吧**](https://jump2.bdimg.com/f?kw=sigil&ie=utf-8)
 
 - [【sigil插件】注释处理插件+使用教程](https://jump2.bdimg.com/p/7703714395)
