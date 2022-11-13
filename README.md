@@ -36,6 +36,11 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 - [【sigil插件】小说标题序号更改插件](https://jump2.bdimg.com/p/8090227142)
 - [【sigil插件】TXT分章助手](https://jump2.bdimg.com/p/8090340277)
 - [请问sigil能制作复杂表格么？](https://jump2.bdimg.com/p/5149499911)
+- [【新手向教程】一步步教你用Sigil制作图文并茂的EPUB电子书。](https://tieba.baidu.com/p/2571469080/)
+
+[**书苑网文精排社**](https://nicepub.top/)
+
+- [分类 📁排版教程 下的文章](https://nicepub.top/category/study/)
 
 ## Recommended software
 
@@ -80,3 +85,10 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 - [sigil plug-in] TXT chapter assistant
 
 - Can Sigil make complex forms?
+
+- [tutorial for beginners] step by step, I will teach you how to use Sigil to make ePub e-books with pictures and texts.
+
+**Shuyuan.com fine typesetting Club**
+
+- Classification 📁 Articles under the typesetting tutorial
+
