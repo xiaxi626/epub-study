@@ -22,7 +22,7 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 
 - [如何利用 Sigil 和 EpubCheck 插件检查和修复 EPUB 文件](https://bookfere.com/post/1004.html)
 
-[**知乎**]
+[**知乎**](https://www.zhihu.com)
 
 - [ePub电子书排版](https://www.zhihu.com/column/epubmake)
 
