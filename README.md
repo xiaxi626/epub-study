@@ -57,11 +57,11 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 
 **Book companion - BOOKFREE**
 
-How to use Sigil and EpubCheck plug-ins to check and repair EPUB files
+- How to use Sigil and EpubCheck plug-ins to check and repair EPUB files
 
 **zhihu**
 
-EPub e-book typesetting
+- EPub e-book typesetting
 
 **Sigil**
 
