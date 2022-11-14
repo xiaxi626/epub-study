@@ -119,9 +119,9 @@ tips文件夹存放了一些建议和诀窍的说明文件。（详情请见READ
 
     - Sigil Plugin Index - MobileRead Forums
 
-[Get started writing Sigil plugins](https://spaceskynet.top/posts/1109187256.html)
+**Get started writing Sigil plugins**
 
-[**Sigil official documentation**](https://github.com/Sigil-Ebook/Sigil/tree/master/docs)
+**Sigil official documentation**
 ## Description of each folder in this repository
 
 The book folder stores epub e-books that I personally feel are of good quality, and the folder name is Maker.
