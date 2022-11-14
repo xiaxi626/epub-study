@@ -79,21 +79,21 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 
 [**Epub production book: Word+Jutoh**](http://www.jebook.org/index.php/archives/422)
 
-**EPub Guide - From Getting Started to Giving Up: Red Ni (2nd Edition)**
+[**EPub Guide - From Getting Started to Giving Up: Red Ni (2nd Edition)**](https://zhuanlan.zhihu.com/p/29954562)
 
-**Regular expression tutorial**
+[**Regular expression tutorial**](https://github.com/xiaxi626/epub-study/blob/master/tips/About_regular_expression.md)
 
-**Book companion - BOOKFREE**
+[**Book companion - BOOKFREE**](https://bookfere.com/category/skills/typesetting/page/2)
 
-- How to use Sigil and EpubCheck plug-ins to check and repair EPUB files
+- [How to use Sigil and EpubCheck plug-ins to check and repair EPUB files](https://bookfere.com/post/1004.html)
 
-**zhihu**
+[**zhihu**](https://www.zhihu.com)
 
-- EPub e-book typesetting
+- [EPub e-book typesetting](https://www.zhihu.com/column/epubmake)
 
-**Sigil**
+[**Sigil tieba**](https://jump2.bdimg.com/f?kw=sigil&ie=utf-8)
 
-- [sigil plug-in] Annotation processing plug-in+tutorial
+- [[sigil plug-in] Annotation processing plug-in+tutorial](https://jump2.bdimg.com/p/7703714395)
 
 - [sigil plug-in] Image compression tool
 
