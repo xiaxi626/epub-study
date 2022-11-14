@@ -51,6 +51,8 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
     - [Sigil Plugin Index - MobileRead Forums](https://www.mobileread.com/forums/showthread.php?t=247431)
 
 [**Sigil 插件编写入门**](https://spaceskynet.top/posts/1109187256.html)
+
+[**Sigil 官方文档**](https://github.com/Sigil-Ebook/Sigil/tree/master/docs)
 ## 本仓库中各个文件夹说明
 
 book文件夹存放个人觉得质量不错的epub电子书，文件夹名为制作者。
@@ -118,6 +120,8 @@ tips文件夹存放了一些建议和诀窍的说明文件。（详情请见READ
     - Sigil Plugin Index - MobileRead Forums
 
 [Get started writing Sigil plugins](https://spaceskynet.top/posts/1109187256.html)
+
+[**Sigil official documentation**](https://github.com/Sigil-Ebook/Sigil/tree/master/docs)
 ## Description of each folder in this repository
 
 The book folder stores epub e-books that I personally feel are of good quality, and the folder name is Maker.
