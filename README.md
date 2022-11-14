@@ -52,7 +52,7 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 
 [**Sigil 插件编写入门**](https://spaceskynet.top/posts/1109187256.html)
 
-[**官方插件开发文档**](https://github.com/Sigil-Ebook/Sigil/tree/master/docs)
+[**官方插件开发文档** docs/Sigil_Plugin_Framework_revXX.epub](https://github.com/Sigil-Ebook/Sigil/tree/master/docs)
 
 ## 本仓库中各个文件夹说明
 
@@ -124,7 +124,7 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 
 [**Get started writing Sigil plugins**](https://spaceskynet.top/posts/1109187256.html)
 
-[**Official plugin development documentation**](https://github.com/Sigil-Ebook/Sigil/tree/master/docs)
+[**Official plugin development documentation** docs/Sigil_Plugin_Framework_revXX.epub](https://github.com/Sigil-Ebook/Sigil/tree/master/docs)
 
 ## Description of each folder in this repository
 
