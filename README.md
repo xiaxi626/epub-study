@@ -44,9 +44,9 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 
 [**E-Book Software - MobileRead Forums**](https://www.mobileread.com/forums/forumdisplay.php?f=165)
 
-- [**Sigil - MobileRead Forums**](https://www.mobileread.com/forums/forumdisplay.php?f=203)
+- [Sigil - MobileRead Forums](https://www.mobileread.com/forums/forumdisplay.php?f=203)
 
-    - [**Sigil Plugin Index - MobileRead Forums**](https://www.mobileread.com/forums/showthread.php?t=247431)
+    - [Sigil Plugin Index - MobileRead Forums](https://www.mobileread.com/forums/showthread.php?t=247431)
 ## 本仓库中各个文件夹说明
 
 book文件夹存放个人觉得质量不错的epub电子书，文件夹名为制作者。
@@ -107,7 +107,7 @@ tips文件夹存放了一些建议和诀窍的说明文件。（详情请见READ
 
 **E-Book Software - MobileRead Forums**
 
-- **Sigil - MobileRead Forums**
+- Sigil - MobileRead Forums
 
     - Sigil Plugin Index - MobileRead Forums
 ## Description of each folder in this repository
