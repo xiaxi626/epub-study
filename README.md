@@ -106,4 +106,4 @@ The book folder stores epub e-books that I personally feel are of good quality, 
 
 The epubcheck folder holds the epubcheck batch code.
 
-The tips folder stores documentation of some tips and tricks. (See the reademe document for details)
+The tips folder stores documentation of some tips and tricks. (See the README document for details)
