@@ -75,6 +75,8 @@ tips文件夹存放了一些建议和诀窍的说明文件。（详情请见READ
 
 **EPub Guide - From Getting Started to Giving Up: Red Ni (2nd Edition)**
 
+**Regular expression tutorial**
+
 **Book companion - BOOKFREE**
 
 - How to use Sigil and EpubCheck plug-ins to check and repair EPUB files
