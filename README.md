@@ -42,6 +42,11 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 
 - [分类 📁排版教程 下的文章](https://nicepub.top/category/study/)
 
+[**E-Book Software - MobileRead Forums**](https://www.mobileread.com/forums/forumdisplay.php?f=165)
+
+- [**Sigil - MobileRead Forums**](https://www.mobileread.com/forums/forumdisplay.php?f=203)
+
+    - [**Sigil Plugin Index - MobileRead Forums](https://www.mobileread.com/forums/showthread.php?t=247431)
 ## 本仓库中各个文件夹说明
 
 book文件夹存放个人觉得质量不错的epub电子书，文件夹名为制作者。
@@ -100,6 +105,11 @@ tips文件夹存放了一些建议和诀窍的说明文件。（详情请见READ
 
 - Classification 📁 Articles under the typesetting tutorial
 
+[**E-Book Software - MobileRead Forums**](https://www.mobileread.com/forums/forumdisplay.php?f=165)
+
+- [**Sigil - MobileRead Forums**](https://www.mobileread.com/forums/forumdisplay.php?f=203)
+
+    - [**Sigil Plugin Index - MobileRead Forums](https://www.mobileread.com/forums/showthread.php?t=247431)
 ## Description of each folder in this repository
 
 The book folder stores epub e-books that I personally feel are of good quality, and the folder name is Maker.
