@@ -53,6 +53,7 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 [**Sigil 插件编写入门**](https://spaceskynet.top/posts/1109187256.html)
 
 [**Sigil 官方文档**](https://github.com/Sigil-Ebook/Sigil/tree/master/docs)
+
 ## 本仓库中各个文件夹说明
 
 book文件夹存放个人觉得质量不错的epub电子书，文件夹名为制作者。
@@ -95,35 +96,36 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 
 - [[sigil plug-in] Annotation processing plug-in+tutorial](https://jump2.bdimg.com/p/7703714395)
 
-- [sigil plug-in] Image compression tool
+- [[sigil plug-in] Image compression tool](https://jump2.bdimg.com/p/7544696485)
 
-- [sigil plug-in] Font subset plug-in (latest)
+- [[sigil plug-in] Font subset plug-in (latest)](https://jump2.bdimg.com/p/7858874352)
 
-- [epub Tool] Reconstruct epub to a standard format
+- [[epub Tool] Reconstruct epub to a standard format](https://jump2.bdimg.com/p/8090221625)
 
-- [sigil Plug in] Rare Phonetic Tools
+- [[sigil Plug in] Rare Phonetic Tools](https://jump2.bdimg.com/p/8090234097)
 
-- [sigil plug-in] plug-in for changing the serial number of novel title
+- [[sigil plug-in] plug-in for changing the serial number of novel title](https://jump2.bdimg.com/p/8090227142)
 
-- [sigil plug-in] TXT chapter assistant
+- [[sigil plug-in] TXT chapter assistant](https://jump2.bdimg.com/p/8090340277)
 
-- Can Sigil make complex forms?
+- [Can Sigil make complex forms?](https://jump2.bdimg.com/p/5149499911)
 
-- [tutorial for beginners] step by step, I will teach you how to use Sigil to make ePub e-books with pictures and texts.
+- [[tutorial for beginners] step by step, I will teach you how to use Sigil to make ePub e-books with pictures and texts.](https://tieba.baidu.com/p/2571469080/)
 
-**Shuyuan.com fine typesetting Club**
+[**Shuyuan.com fine typesetting Club**](https://nicepub.top/)
 
-- Classification 📁 Articles under the typesetting tutorial
+- [Classification 📁 Articles under the typesetting tutorial](https://nicepub.top/category/study/)
 
-**E-Book Software - MobileRead Forums**
+[**E-Book Software - MobileRead Forums**](https://www.mobileread.com/forums/forumdisplay.php?f=165)
 
-- Sigil - MobileRead Forums
+- [Sigil - MobileRead Forums](https://www.mobileread.com/forums/forumdisplay.php?f=203)
 
-    - Sigil Plugin Index - MobileRead Forums
+    - [Sigil Plugin Index - MobileRead Forums](https://www.mobileread.com/forums/showthread.php?t=247431)
 
-**Get started writing Sigil plugins**
+[**Get started writing Sigil plugins**](https://spaceskynet.top/posts/1109187256.html)
 
-**Sigil official documentation**
+[**Sigil official documentation**](https://github.com/Sigil-Ebook/Sigil/tree/master/docs)
+
 ## Description of each folder in this repository
 
 The book folder stores epub e-books that I personally feel are of good quality, and the folder name is Maker.
