@@ -105,11 +105,11 @@ tips文件夹存放了一些建议和诀窍的说明文件。（详情请见READ
 
 - Classification 📁 Articles under the typesetting tutorial
 
-[**E-Book Software - MobileRead Forums**](https://www.mobileread.com/forums/forumdisplay.php?f=165)
+**E-Book Software - MobileRead Forums**
 
-- [**Sigil - MobileRead Forums**](https://www.mobileread.com/forums/forumdisplay.php?f=203)
+- **Sigil - MobileRead Forums**
 
-    - [**Sigil Plugin Index - MobileRead Forums**](https://www.mobileread.com/forums/showthread.php?t=247431)
+    - **Sigil Plugin Index - MobileRead Forums**
 ## Description of each folder in this repository
 
 The book folder stores epub e-books that I personally feel are of good quality, and the folder name is Maker.
