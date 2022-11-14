@@ -48,7 +48,7 @@ book文件夹存放个人觉得质量不错的epub电子书，文件夹名为制
 
 epubcheck文件夹存放了epubcheck批处理代码。
 
-tips文件夹存放了一些建议和诀窍的说明文件。
+tips文件夹存放了一些建议和诀窍的说明文件。（详情请见README文件）
 
 ## Recommended software
 
@@ -106,4 +106,4 @@ The book folder stores epub e-books that I personally feel are of good quality, 
 
 The epubcheck folder holds the epubcheck batch code.
 
-The tips folder stores documentation of some tips and tricks.
+The tips folder stores documentation of some tips and tricks. (See the reademe document for details)
