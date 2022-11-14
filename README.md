@@ -42,6 +42,14 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 
 - [分类 📁排版教程 下的文章](https://nicepub.top/category/study/)
 
+## 本仓库中各个文件夹说明
+
+book文件夹存放个人觉得质量不错的epub电子书，文件夹名为制作者。
+
+epubcheck文件夹存放了epubcheck批处理代码。
+
+tips文件夹存放了一些建议和诀窍的说明文件。
+
 ## Recommended software
 
 **Typesetting** Sigil, Calibre, Word, Dobby, Jutoh
@@ -92,3 +100,10 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 
 - Classification 📁 Articles under the typesetting tutorial
 
+## Description of each folder in this repository
+
+The book folder stores epub e-books that I personally feel are of good quality, and the folder name is Maker.
+
+The epubcheck folder holds the epubcheck batch code.
+
+The tips folder stores documentation of some tips and tricks.
