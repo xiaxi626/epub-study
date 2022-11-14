@@ -19,3 +19,24 @@
 id="(?:[^"\\]|\\.)*"
 ```
 **正则表达式之数字**
+## Getting started with regular expressions
+
+Get started with Sigil regular expressions
+
+Regular expression tutorial
+
+Regular expression online generation tool
+
+Regular expression manual
+
+### Personally commonly used regular expressions
+
+**Regular expressions match quoted strings**
+
+If there are a lot of elements on the page, and you want to match all the id and subsequent strings, remove the id of all elements and the id value that follows
+
+You can use a regular expression like the following for matching
+```
+id="(?:[^"]|.) *"
+```
+**The number of the regular expression**
