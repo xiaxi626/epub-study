@@ -63,19 +63,21 @@ tips文件夹存放了一些建议和诀窍的说明文件。（详情请见READ
 
 ## Recommended software
 
-**Typesetting** Sigil, Calibre, Word, Dobby, Jutoh
+**Typesetting**
+[_Sigil_](https://sigil-ebook.com/)、[_Calibre_](https://calibre-ebook.com/)、_Word_、[_Dobby_](https://github.com/xiaxi626/Dobby_beta)、[_Jutoh_](https://www.jutoh.com/index.html)
 
-**Convert** EasyPub, Calibre
+**Convert**
+_EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 
 ## Tutorial
 
-**Taiwan EPUB 3 Production Guide**
+[**Taiwan EPUB 3 Production Guide**](https://github.com/dpublishing/epub3guide)
 
-**Generate EPUB package file epubcheck**
+[**Generate EPUB package file epubcheck**](https://github.com/w3c/epubcheck)
 
-**The simple version of epubcheck batch processing can be found in this repository**
+[**The simple version of epubcheck batch processing can be found in this repository**](https://github.com/xiaxi626/epub-study/tree/master/epubcheck)
 
-**Epub production book: Word+Jutoh**
+[**Epub production book: Word+Jutoh**](http://www.jebook.org/index.php/archives/422)
 
 **EPub Guide - From Getting Started to Giving Up: Red Ni (2nd Edition)**
 
