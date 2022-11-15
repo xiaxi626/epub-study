@@ -10,12 +10,25 @@ Calibre中使用DeDRM插件进行Kindle电子书解锁
 
 教程：https://www.cnblogs.com/wushaogui/p/9925686.html
 
+### Chinese Text Conversion
+
+转换繁体中文和简体中文文本的插件
+
+下载地址：https://github.com/Hopkins1/TradSimpChinese/releases
+
 ## Introduction to some of the sigil plugins
 
 You can go to the official website of calibre for a system understanding, and the developer has a functional introduction for each plugin: http://plugins.calibre-ebook.com/
 
 ### DeDRM
 Calibre uses the DeDRM plugin for Kindle e-book unlocking
+
 Download address: https://github.com/apprenticeharper/DeDRM_tools/releases
 
 Tutorial: https://www.cnblogs.com/wushaogui/p/9925686.html
+
+### Chinese Text Conversion
+
+A plugin to convert traditional and simplified Chinese text
+
+Download address: https://github.com/Hopkins1/TradSimpChinese/releases
