@@ -40,6 +40,19 @@
 
 ### Epub3 E-Reader Plugins for Sigil
 Epub3 电子阅读器插件 for Sigil
+为了帮助用户更好地了解他们的 epub 在某些基于浏览器的 epub2/epub3 电子阅读器中的外观，同时仍在 Sigil 中，我们为 Sigil 1.6.0 或更高版本创建了 3 个新的阅读器插件：
+
+https://github.com/Sigil-Ebook/ReadiumReader/
+- 基于Readium的云电子阅读器
+
+https://github.com/Sigil-Ebook/BibiReader/
+- 基于比比浏览器电子阅读器
+
+https://github.com/Sigil-Ebook/EpubJSReader/
+- 基于FuturePress的epubJS电子阅读器
+
+有关插件本身的直接链接，请参阅插件索引
+https://www.mobileread.com/forums/sh...d.php?t=247431
 
 ## Introduction to some of the sigil plugins
 
@@ -81,4 +94,16 @@ Plugin for manipulating footnotes in epub 2.0 publications.
 Regex match and replace it with a function.
 
 ### Epub3 E-Reader Plugins for Sigil
-Epub3 电子阅读器插件 for Sigil
+To help user's get a better feel for how their epubs will look in some browser-based epub2/epub3 e-readers while still inside Sigil, we have created 3 new Reader plugins for Sigil 1.6.0 or later:
+
+https://github.com/Sigil-Ebook/ReadiumReader/
+- based on Readium's cloud e-reader
+
+https://github.com/Sigil-Ebook/BibiReader/
+- based on Bibi browser e-reader
+
+https://github.com/Sigil-Ebook/EpubJSReader/
+- based on FuturePress's epubJS e-reader
+
+For direct links to the plugin's themselves, see the Plugin Index
+https://www.mobileread.com/forums/sh...d.php?t=247431
