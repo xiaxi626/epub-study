@@ -4,7 +4,7 @@
 检查并验证 epub2 或 epub 3 文件中的所有内部链接。
 
 ### [ConvertAbs2RelCSSValues](https://www.mobileread.com/forums/showthread.php?t=289473)
-将厘米、毫米、英寸、异食癖、点和像素值转换为 css
+将厘米、毫米、英寸、派卡、点和像素值转换为 css
 中的相对“em”值
 
 ### Search Plugin to compare epubs in Sigil
@@ -20,10 +20,10 @@
 ### [DOCXImport](https://www.mobileread.com/forums/showthread.php?t=273966)
 将DOCX文档导入Sigil作为epub。
 
-### Plugin to import text files
+### [TextImporter](https://www.mobileread.com/forums/showthread.php?t=285771)
 此插件会将文本文件导入 ePub 并对其进行格式化。
 
-### epubcheck plugin
+### [epubcheck plugin](https://www.mobileread.com/forums/showthread.php?p=2950625#post2950625)
 简单的 epubcheck 包装器
 
 ### FixHeadStyles
@@ -75,10 +75,10 @@ Inserts the required CSS entries from Embedded Font Files
 ### [DOCXImport](https://www.mobileread.com/forums/showthread.php?t=273966)
 Import DOCX document into Sigil as epubs.
 
-### Plugin to import text files
-This plugin will import a text file into an ePub and format it.
+### [TextImporter](https://www.mobileread.com/forums/showthread.php?t=285771)
+Import a text file into an ePub and format it
 
-### epubcheck plugin
+### [epubcheck plugin](https://www.mobileread.com/forums/showthread.php?p=2950625#post2950625)
 Simple epubcheck wrapper
 
 ### FixHeadStyles
