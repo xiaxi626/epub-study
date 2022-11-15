@@ -30,7 +30,7 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 
 [**sigil吧**](https://jump2.bdimg.com/f?kw=sigil&ie=utf-8)
 
-- [【sigil插件】注释处理插件+使用教程](https://jump2.bdimg.com/p/7703714395)
+- [【sigil插件】注释处理插件+使用教程](https://tieba.baidu.com/p/7703714395)
 - [【sigil插件】图片压缩工具](https://jump2.bdimg.com/p/7544696485)
 - [【sigil插件】字体子集化插件（最新）](https://jump2.bdimg.com/p/7858874352)
 - [【epub工具】重构epub为规范格式](https://jump2.bdimg.com/p/8090221625)
@@ -95,7 +95,7 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 
 [**Sigil tieba**](https://jump2.bdimg.com/f?kw=sigil&ie=utf-8)
 
-- [[sigil plug-in] Annotation processing plug-in+tutorial](https://jump2.bdimg.com/p/7703714395)
+- [[sigil plug-in] Annotation processing plug-in+tutorial](https://tieba.baidu.com/p/7703714395)
 
 - [[sigil plug-in] Image compression tool](https://jump2.bdimg.com/p/7544696485)
 
