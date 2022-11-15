@@ -25,11 +25,11 @@ id="(?:[^"\\]|\\.)*"
 ```
 **正则表达式之数字**
 
-## [Getting started with regular expressions](http://www.360doc.com/content/14/1205/19/9152906_430669102.shtml)
+## Getting started with regular expressions
 
-Get started with Sigil regular expressions
+[Get started with Sigil regular expressions](http://www.360doc.com/content/14/1205/19/9152906_430669102.shtml)
 
-Regular expression tutorial
+[Regular expression tutorial](https://tieba.baidu.com/p/3493107610)
 
 [Use regular expressions to match "without certain characters" - "look around" the door](https://tieba.baidu.com/p/5175723212)
 
