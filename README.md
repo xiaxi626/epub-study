@@ -37,6 +37,7 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 - [【sigil插件】生僻字注音工具](https://jump2.bdimg.com/p/8090234097)
 - [【sigil插件】小说标题序号更改插件](https://jump2.bdimg.com/p/8090227142)
 - [【sigil插件】TXT分章助手](https://jump2.bdimg.com/p/8090340277)
+- [【Sigil插件】繁简转化工具](https://tieba.baidu.com/p/6882642246 )
 - [请问sigil能制作复杂表格么？](https://jump2.bdimg.com/p/5149499911)
 - [【新手向教程】一步步教你用Sigil制作图文并茂的EPUB电子书。](https://tieba.baidu.com/p/2571469080/)
 
@@ -107,6 +108,8 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 - [[sigil plug-in] plug-in for changing the serial number of novel title](https://jump2.bdimg.com/p/8090227142)
 
 - [[sigil plug-in] TXT chapter assistant](https://jump2.bdimg.com/p/8090340277)
+
+- [[sigil plug-in]Simplified and complex chinese characters conversion tool](https://tieba.baidu.com/p/6882642246 )
 
 - [Can Sigil make complex forms?](https://jump2.bdimg.com/p/5149499911)
 
