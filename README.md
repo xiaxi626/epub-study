@@ -5,7 +5,7 @@
 [_Sigil_](https://sigil-ebook.com/)、[_Calibre_](https://calibre-ebook.com/)、_Word_、[_Dobby_](https://github.com/xiaxi626/Dobby_beta)、[_Jutoh_](https://www.jutoh.com/index.html)
 
 **转换**
-_EasyPub_、[_Calibre_](https://calibre-ebook.com/)、[_kepubify_](https://github.com/pgaskin/kepubify) (converts EPUBs to Kobo EPUBs.)
+_EasyPub_、[_Calibre_](https://calibre-ebook.com/)、[_kepubify_](https://github.com/pgaskin/kepubify) (epub转换到kepub)
 ## 教程
 
 [**台灣 EPUB 3 製作指引**](https://github.com/dpublishing/epub3guide)
