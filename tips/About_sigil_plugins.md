@@ -46,7 +46,7 @@ https://github.com/Sigil-Ebook/ReadiumReader/
 - 基于Readium的云电子阅读器
 
 https://github.com/Sigil-Ebook/BibiReader/
-- 基于比比浏览器电子阅读器
+- 基于 Bibi 浏览器电子阅读器
 
 https://github.com/Sigil-Ebook/EpubJSReader/
 - 基于FuturePress的epubJS电子阅读器
