@@ -1,6 +1,6 @@
 ## 一点小诀窍
 包含以下内容
-- 关于软件
+- [关于软件](https://github.com/xiaxi626/epub-study/blob/master/tips/About_software.md)
 - 关于制作书籍
 - 关于正则表达式
 - 关于部分sigil插件的介绍
@@ -9,7 +9,7 @@
 
 ## A little tips
 Contains the following
-- About the software
+- [About the software](https://github.com/xiaxi626/epub-study/blob/master/tips/About_software.md)
 - About making books
 - About regular expressions
 - About some sigil plugins
