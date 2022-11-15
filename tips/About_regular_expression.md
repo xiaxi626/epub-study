@@ -3,6 +3,10 @@
 
 [正则表达式教程](https://tieba.baidu.com/p/3493107610)
 
+[用正则表达式匹配「不含某些字符」的内容——「环视」人门](https://tieba.baidu.com/p/5175723212)
+
+[【教程】【两条代码教你用 sigil 一键拆分章节】](https://tieba.baidu.com/p/3392701280)
+
 [正则表达式在线生成工具](https://www.w3cschool.cn/tools/index?name=create_reg)
 
 [正则表达式手册](https://www.w3cschool.cn/regexp/)
@@ -24,6 +28,10 @@ id="(?:[^"\\]|\\.)*"
 Get started with Sigil regular expressions
 
 Regular expression tutorial
+
+[Use regular expressions to match "without certain characters" - "look around" the door](https://tieba.baidu.com/p/5175723212)
+
+[[Tutorial] [Two codes teach you how to split with sigil one click chapter]](https://tieba.baidu.com/p/3392701280)
 
 Regular expression online generation tool
 
