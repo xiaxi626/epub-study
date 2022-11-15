@@ -128,8 +128,8 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 
 ## Description of each folder in this repository
 
-The book folder stores epub e-books that I personally feel are of good quality, and the folder name is Maker.
+The _book_ folder stores epub e-books that I personally feel are of good quality, and the folder name is Maker.
 
-The epubcheck folder holds the epubcheck batch code.
+The _epubcheck_ folder holds the epubcheck batch code.
 
-The tips folder stores documentation of some tips and tricks. (See the README document for details)
+The _tips_ folder stores documentation of some tips and tricks. (See the README document for details)
