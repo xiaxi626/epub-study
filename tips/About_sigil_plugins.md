@@ -26,19 +26,19 @@
 ### [epubcheck plugin](https://www.mobileread.com/forums/showthread.php?p=2950625#post2950625)
 简单的 epubcheck 包装器
 
-### FixHeadStyles
+### [FixHeadStyles](https://www.mobileread.com/forums/showthread.php?t=344383)
 插件将 <style> 标签中的样式信息复制到样式表文件并用样式表链接替换它们。
 
-### FootnoteLinker
+### [FootnoteLinker](https://www.mobileread.com/forums/showthread.php?t=288193)
 自动生成指向尾注的链接和指向脚注锚点的反向链接。
 
-### FootnoteManipulator
+### [FootnoteManipulator](https://www.mobileread.com/forums/showthread.php?t=324637)
 用于操作 epub 2.0 出版物中的脚注的插件。
 
-### RegexFunctionReplace
+### [RegexFunctionReplace](https://www.mobileread.com/forums/showthread.php?t=346049)
 正则表达式匹配并用函数替换它。
 
-### Epub3 E-Reader Plugins for Sigil
+### [Epub3 E-Reader Plugins for Sigil](https://www.mobileread.com/forums/showthread.php?t=339678)
 Epub3 电子阅读器插件 for Sigil
 为了帮助用户更好地了解他们的 epub 在某些基于浏览器的 epub2/epub3 电子阅读器中的外观，同时仍在 Sigil 中，我们为 Sigil 1.6.0 或更高版本创建了 3 个新的阅读器插件：
 
@@ -81,19 +81,19 @@ Import a text file into an ePub and format it
 ### [epubcheck plugin](https://www.mobileread.com/forums/showthread.php?p=2950625#post2950625)
 Simple epubcheck wrapper
 
-### FixHeadStyles
+### [FixHeadStyles](https://www.mobileread.com/forums/showthread.php?t=344383)
 plugin to copy the style information in <style> tags to stylesheet files and replace them with stylesheet links.
 
-### FootnoteLinker
+### [FootnoteLinker](https://www.mobileread.com/forums/showthread.php?t=288193)
 Automatically generate links to endnotes and backlinks to footnote anchors.
 
-### FootnoteManipulator
+### [FootnoteManipulator](https://www.mobileread.com/forums/showthread.php?t=324637)
 Plugin for manipulating footnotes in epub 2.0 publications.
 
-### RegexFunctionReplace
+### [RegexFunctionReplace](https://www.mobileread.com/forums/showthread.php?t=346049)
 Regex match and replace it with a function.
 
-### Epub3 E-Reader Plugins for Sigil
+### [Epub3 E-Reader Plugins for Sigil](https://www.mobileread.com/forums/showthread.php?t=339678)
 To help user's get a better feel for how their epubs will look in some browser-based epub2/epub3 e-readers while still inside Sigil, we have created 3 new Reader plugins for Sigil 1.6.0 or later:
 
 https://github.com/Sigil-Ebook/ReadiumReader/
