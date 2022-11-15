@@ -7,7 +7,7 @@
 将厘米、毫米、英寸、派卡、点和像素值转换为 css
 中的相对“em”值
 
-### Search Plugin to compare epubs in Sigil
+### [Search Plugin to compare epubs in Sigil](https://www.mobileread.com/forums/showthread.php?t=348943)
 已经作为 Sigil 的内置功能存在。使用Sigil检查点功能。在进行更改之前，请创建检查点。更改后，将当前版本
 
 与任何检查点进行比较。
@@ -62,7 +62,7 @@ Checks and validates all internal links in epub2 or epub 3 files.
 ### [ConvertAbs2RelCSSValues](https://www.mobileread.com/forums/showthread.php?t=289473)
 Converts cm, mm, inch, pica, point and pixel values to relative 'em' values in the css
 
-### Search Plugin to compare epubs in Sigil
+### [Search Plugin to compare epubs in Sigil](https://www.mobileread.com/forums/showthread.php?t=348943)
 Already exists as a built in feature of Sigil. Use Sigil Checkpoint features. Before making changes, 
 
 make a CheckPoint. After changes, compare current version to any Checkpoint.
