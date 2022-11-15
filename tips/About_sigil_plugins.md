@@ -1,6 +1,6 @@
 ## 部分sigil插件的介绍
 
-### CheckInternalLinks
+### [CheckInternalLinks](https://www.mobileread.com/forums/sh...d.php?t=331788)
 检查并验证 epub2 或 epub 3 文件中的所有内部链接。
 
 ### ConvertAbs2RelCSSValues
@@ -56,7 +56,7 @@ https://www.mobileread.com/forums/sh...d.php?t=247431
 
 ## Introduction to some of the sigil plugins
 
-### CheckInternalLinks
+### [CheckInternalLinks](https://www.mobileread.com/forums/sh...d.php?t=331788)
 Checks and validates all internal links in epub2 or epub 3 files.
 
 ### ConvertAbs2RelCSSValues
