@@ -23,7 +23,7 @@
 ### Plugin to import text files
 此插件会将文本文件导入 ePub 并对其进行格式化。
 
-### epubcheck 插件
+### epubcheck plugin
 简单的 epubcheck 包装器
 
 ### FixHeadStyles
