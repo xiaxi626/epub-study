@@ -12,5 +12,6 @@ Contains the following
 - About the software
 - About making books
 - About regular expressions
+- About some sigil plugins
 - About some calibre plugins
 - About some epub generators on github
