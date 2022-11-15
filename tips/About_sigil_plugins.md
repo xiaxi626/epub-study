@@ -3,7 +3,7 @@
 ### [CheckInternalLinks](https://www.mobileread.com/forums/sh...d.php?t=331788)
 检查并验证 epub2 或 epub 3 文件中的所有内部链接。
 
-### ConvertAbs2RelCSSValues
+### [ConvertAbs2RelCSSValues](https://www.mobileread.com/forums/showthread.php?t=289473)
 将厘米、毫米、英寸、异食癖、点和像素值转换为 css
 中的相对“em”值
 
@@ -14,10 +14,10 @@
 
 有关详细信息，请参阅 Sigil 用户指南中的检查点章节。
 
-### CSSFromFonts
+### [CSSFromFonts](https://www.mobileread.com/forums/showpost.php?p=3332590&postcount=17)
 选取嵌入的字体文件，插入所需的字体CSS条目
 
-### DOCXImport
+### [DOCXImport](https://www.mobileread.com/forums/showthread.php?t=273966)
 将DOCX文档导入Sigil作为epub。
 
 ### Plugin to import text files
@@ -59,7 +59,7 @@ https://www.mobileread.com/forums/sh...d.php?t=247431
 ### [CheckInternalLinks](https://www.mobileread.com/forums/sh...d.php?t=331788)
 Checks and validates all internal links in epub2 or epub 3 files.
 
-### ConvertAbs2RelCSSValues
+### [ConvertAbs2RelCSSValues](https://www.mobileread.com/forums/showthread.php?t=289473)
 Converts cm, mm, inch, pica, point and pixel values to relative 'em' values in the css
 
 ### Search Plugin to compare epubs in Sigil
@@ -69,10 +69,10 @@ make a CheckPoint. After changes, compare current version to any Checkpoint.
 
 See the Checkpoint chapter in the Sigil User Guide for details.
 
-### CSSFromFonts
+### [CSSFromFonts](https://www.mobileread.com/forums/showpost.php?p=3332590&postcount=17)
 Inserts the required CSS entries from Embedded Font Files
 
-### DOCXImport
+### [DOCXImport](https://www.mobileread.com/forums/showthread.php?t=273966)
 Import DOCX document into Sigil as epubs.
 
 ### Plugin to import text files
