@@ -56,11 +56,11 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)
 
 ## 本仓库中各个文件夹说明
 
-book文件夹存放个人觉得质量不错的epub电子书，文件夹名为制作者。
+_book_ 文件夹存放个人觉得质量不错的epub电子书，文件夹名为制作者。
 
-epubcheck文件夹存放了epubcheck批处理代码。
+_epubcheck_ 文件夹存放了epubcheck批处理代码。
 
-tips文件夹存放了一些建议和诀窍的说明文件。（详情请见README文件）
+_tips_ 文件夹存放了一些建议和诀窍的说明文件。（详情请见README文件）
 
 ## Recommended software
 
