@@ -7,6 +7,7 @@
 Calibre中使用DeDRM插件进行Kindle电子书解锁
 
 下载地址：https://github.com/apprenticeharper/DeDRM_tools/releases
+
 教程：https://www.cnblogs.com/wushaogui/p/9925686.html
 
 ## Introduction to some of the sigil plugins
@@ -16,4 +17,5 @@ You can go to the official website of calibre for a system understanding, and th
 ### DeDRM
 Calibre uses the DeDRM plugin for Kindle e-book unlocking
 Download address: https://github.com/apprenticeharper/DeDRM_tools/releases
+
 Tutorial: https://www.cnblogs.com/wushaogui/p/9925686.html
