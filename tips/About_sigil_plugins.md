@@ -23,6 +23,21 @@
 ### Plugin to import text files
 此插件会将文本文件导入 ePub 并对其进行格式化。
 
+### epubcheck 插件
+简单的 epubcheck 包装器
+
+### FixHeadStyles
+插件将 <style> 标签中的样式信息复制到样式表文件并用样式表链接替换它们。
+
+### FootnoteLinker
+自动生成指向尾注的链接和指向脚注锚点的反向链接。
+
+### FootnoteManipulator
+用于操作 epub 2.0 出版物中的脚注的插件。
+
+### RegexFunctionReplace
+正则表达式匹配并用函数替换它。
+
 ## Introduction to some of the sigil plugins
 
 ### CheckInternalLinks
@@ -46,3 +61,18 @@ Import DOCX document into Sigil as epubs.
 
 ### Plugin to import text files
 This plugin will import a text file into an ePub and format it.
+
+### epubcheck plugin
+Simple epubcheck wrapper
+
+### FixHeadStyles
+plugin to copy the style information in <style> tags to stylesheet files and replace them with stylesheet links.
+
+### FootnoteLinker
+Automatically generate links to endnotes and backlinks to footnote anchors.
+
+### FootnoteManipulator
+Plugin for manipulating footnotes in epub 2.0 publications.
+
+### RegexFunctionReplace
+Regex match and replace it with a function.
