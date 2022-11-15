@@ -35,9 +35,9 @@ id="(?:[^"\\]|\\.)*"
 
 [[Tutorial] [Two codes teach you how to split with sigil one click chapter]](https://tieba.baidu.com/p/3392701280)
 
-Regular expression online generation tool
+[Regular expression online generation tool](https://www.w3cschool.cn/tools/index?name=create_reg)
 
-Regular expression manual
+[Regular expression manual](https://www.w3cschool.cn/regexp/)
 
 ### Personally commonly used regular expressions
 
