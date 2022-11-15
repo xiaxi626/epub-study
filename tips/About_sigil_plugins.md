@@ -38,6 +38,9 @@
 ### RegexFunctionReplace
 正则表达式匹配并用函数替换它。
 
+### Epub3 E-Reader Plugins for Sigil
+Epub3 电子阅读器插件 for Sigil
+
 ## Introduction to some of the sigil plugins
 
 ### CheckInternalLinks
@@ -76,3 +79,6 @@ Plugin for manipulating footnotes in epub 2.0 publications.
 
 ### RegexFunctionReplace
 Regex match and replace it with a function.
+
+### Epub3 E-Reader Plugins for Sigil
+Epub3 电子阅读器插件 for Sigil
