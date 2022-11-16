@@ -71,7 +71,7 @@ _tips_ 文件夹存放了一些建议和诀窍的说明文件。（详情请见R
 
 ## Recommended software
 
-![flow-process_diagram](https://github.com/xiaxi626/epub-study/blob/master/image/flow-process_diagram.jpg)
+![flow-process_diagram](https://github.com/xiaxi626/epub-study/blob/master/image/flow-process_diagram.png)
 
 Excerpted from [zhihu](https://zhuanlan.zhihu.com/p/26860836?utm_id=0), author [凤采](https://www.zhihu.com/people/feng-cai-50)
 
