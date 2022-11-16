@@ -2,7 +2,7 @@
 下图是ePub排版需要掌握的知识，并且我把一般制作流程列出来，供你参考。
 
 ![flow-process_diagram.png](https://github.com/xiaxi626/epub-study/raw/master/flow-process_diagram.png)
-
+![flow-process_diagram.png](https://pic4.zhimg.com/80/v2-cdccfdcd3dbbf9a5ca28dfe7d5fa17ef_1440w.png)
 摘自[知乎](https://zhuanlan.zhihu.com/p/26860836?utm_id=0)，作者[凤采](https://www.zhihu.com/people/feng-cai-50)
 ## 推荐软件
 
