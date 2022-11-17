@@ -69,6 +69,8 @@ _epubcheck_ 文件夹存放了epubcheck批处理代码。
 
 _tips_ 文件夹存放了一些建议和诀窍的说明文件。（详情请见README文件）
 
+_Jutoh_ 文件夹存放了JinE Jutoh word模板
+
 ## Recommended software
 
 ![flow-process_diagram_EN](https://github.com/xiaxi626/epub-study/blob/master/image/flow-process_diagram_EN.jpg)
@@ -147,3 +149,5 @@ The _book_ folder stores epub e-books that I personally feel are of good quality
 The _epubcheck_ folder holds the epubcheck batch code.
 
 The _tips_ folder stores documentation of some tips and tricks. (See the README document for details)
+
+The _Jutoh_ folder contains JinE Jutoh word templates
