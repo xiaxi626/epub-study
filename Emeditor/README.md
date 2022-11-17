@@ -1,6 +1,7 @@
 ## 用Sigil和Emeditor制作电子书
 ### 正则表达式工具/EmEditor脚本
-文件：https://github.com/xiaxi626/epub-study/blob/master/Emeditor/Emeditor_script
+文件：https://github.com/xiaxi626/epub-study/blob/master/Emeditor/EmEditor_scripts
+
 链接：https://pan.baidu.com/s/1pJsocGz#list/path=%2F
 ### Emeditor和Sigil搜索模版
 视频教程：https://www.bilibili.com/video/BV17G411V777
