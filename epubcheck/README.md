@@ -4,11 +4,11 @@ run.bat→packaging.bat
 
 **注意：**
 
-使用前需修改run.bat中epubcheck.jar的路径
+使用前需修改 _run.bat_ 中 _epubcheck.jar_ 的路径。
 
-一次可封装多个文件夹，选中需要封装的文件夹，右键复制为路径。按_run.bat_提示进行操作。
+一次可封装多个文件夹，选中需要封装的文件夹，右键复制为路径。按 _run.bat_ 提示进行操作。
 
-运行_packaging.bat_前需要打开文件批量删除引号。封装后清空_packaging.bat_。
+运行 _packaging.bat_ 前需要打开文件批量删除引号。封装后清空 _packaging.bat_ 。
 
 ## 欢迎使用EPUBCheck[维基](https://github.com/w3c/epubcheck/wiki)！
 
@@ -35,7 +35,7 @@ run.bat→packaging.bat
 
 **Note:**
 
-Before using it, you need to modify the path of the epubcheck .jar in the run.bat
+Before using it, you need to modify the path of the _epubcheck .jar_ in the _run.bat_.
 
 Multiple folders can be encapsulated at a time. Select the folder to be encapsulated and right-click to copy it as a path. Follow the _run.bat_ prompt. 
 
