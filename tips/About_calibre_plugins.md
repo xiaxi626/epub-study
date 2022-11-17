@@ -28,6 +28,12 @@ Calibre中使用DeDRM插件进行Kindle电子书解锁
 
 下载地址：https://www.mobileread.com/forums/showthread.php?t=169744
 
+EpubSplit
+
+用于将epub的一部分拆分为新书的 UI 插件。
+
+下载地址：https://www.mobileread.com/forums/showthread.php?t=178799
+
 ## Introduction to some of the sigil plugins
 
 You can go to the official website of calibre for a system understanding, and the developer has a functional introduction for each plugin: http://plugins.calibre-ebook.com/
@@ -56,3 +62,9 @@ Download address: https://www.mobileread.com/forums/showthread.php?t=333817
 UI plugin to concatenate multiple epubs into one.
 
 Download address: https://www.mobileread.com/forums/showthread.php?t=169744
+
+### EpubSplit
+
+UI plugin to split off parts of an epub into a new book.
+
+Download address: https://www.mobileread.com/forums/showthread.php?t=178799
