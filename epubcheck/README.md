@@ -6,9 +6,9 @@ run.bat→packaging.bat
 
 使用前需修改run.bat中epubcheck.jar的路径
 
-运行packaging.bat前需要打开文件批量删除引号
+一次可封装多个文件夹，选中需要封装的文件夹，右键复制为路径。按_run.bat_提示进行操作。
 
-批量处理运行一次packaging.bat后应清空
+运行_packaging.bat_前需要打开文件批量删除引号。封装后清空_packaging.bat_。
 
 ## 欢迎使用EPUBCheck[维基](https://github.com/w3c/epubcheck/wiki)！
 
@@ -37,9 +37,9 @@ run.bat→packaging.bat
 
 Before using it, you need to modify the path of the epubcheck .jar in the run.bat
 
-Before running the packaging .bat, you need to open the file to remove the quotation marks in bulk
+Multiple folders can be encapsulated at a time. Select the folder to be encapsulated and right-click to copy it as a path. Follow the _run.bat_ prompt. 
 
-Batch processing should be cleared after running a packaging .bat
+Before running _packaging.bat_, you need to open the file and delete quotation marks in batch. Empty _packaging.bat_ after packaging.
 
 ##  Welcome to the epubcheck [wiki](https://github.com/w3c/epubcheck/wiki) ! 
 
