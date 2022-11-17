@@ -1,0 +1,309 @@
+menu= CreatePopupMenu(); 
+段落整理 = CreatePopupMenu();
+章节排序 = CreatePopupMenu();
+章节转换 = CreatePopupMenu();
+if (document.selection.isempty)    
+    nFlags=eeFindNext | eeReplaceAll | eeFindReplaceRegExp;
+else 
+    nFlags=eeFindNext | eeReplaceSelOnly | eeReplaceAll | eeFindReplaceRegExp;
+
+menu.AddPopup( "错乱章节排序", 章节排序 );
+章节排序.Add( "第X章节名重新整理", 1 );
+章节排序.Add( "第X卷集 第X章节重新整理", 2 );
+章节排序.Add( "整理(1 xxx 2.xxx)标题章节名", 3 );
+章节排序.Add( "", 0, eeMenuSeparator );
+章节排序.Add( "章节重新排列(先删除重复和整理）", 4 );
+章节排序.Add( "从鼠标指定内容后面插入顺序数字", 5 );
+menu.Add( "", 0, eeMenuSeparator );
+
+
+menu.AddPopup( "删除空行整理段落", 段落整理 );
+段落整理.Add( "删除重复章节标题", 8 );
+段落整理.Add( "删除空行", 9 );
+段落整理.Add( "删除空行的空格（不含空行）", 10 );
+段落整理.Add( "段落间统一为两个空行（去除空格）", 11 );
+menu.Add( "", 0, eeMenuSeparator );
+
+
+menu.AddPopup( "章节数字转换", 章节转换 );
+章节转换.Add( "章节大写转换小写", 6 );
+章节转换.Add( "章节小写转换大写", 7 );
+menu.Add( "", 0, eeMenuSeparator );
+
+
+result = menu.Track( 0 );
+if (result>40) nFlags=nFlags=eeFindNext | eeReplaceAll | eeFindReplaceRegExp;
+switch(result){
+
+
+
+case 1: //第X章节名重新整理
+		document.selection.Replace("^([ 　\t]?|[ 　\t]+)([第]?)+[ ]?([一二两三四五六七八九十○零百千0-9０-９]{1,9})([ ]?)([章节])([ ]?)+","第\\3\\5 ",nFlags);
+		document.selection.Replace("[ 　]$","",nFlags);
+		break;
+
+
+case 2: //第X卷 第X章节名重新整理
+		document.selection.Replace("^([ 　\t]?|[ 　\t]+)([第]?)+([一二两三四五六七八九十○零百千0-9０-９]{1,9})([集卷])[ ]?([第]?)+([一二两三四五六七八九十○零百千0-9０-９]{1,9})([章节])([ ]?)+","第\\3\\4 第\\6\\7 ",nFlags);
+		document.selection.Replace("[ 　]$","",nFlags);
+		break;
+
+
+case 3: //X.章节名重新整理
+		document.selection.Replace("^([0-9一二三四五六七八九十两百千零〇]{1,7})(([ ]?)|([\.、]?)([ ]?))+([\(A-Za-z0-9一-龥\)]+)$","第\\1章 \\6",nFlags);
+		document.selection.Replace("[ 　]$","",nFlags);
+		document.selection.Replace("([章节])([ 　]+)","\\1 ",nFlags);
+		break;
+
+
+case 4: //章节名数字序列重新排列
+		document.selection.StartOfDocument();
+
+		var insert=prompt("请输入段首插入的文本","第")
+		if (insert!="")
+		var title=prompt("请输入段尾插入的文本","[集册部卷章节回]")
+		if (title!="")
+
+var n=prompt("请输入起始序号，建议操作前先章节名重新排列下，否则有可能错误：","1");
+var nPaddingLength=prompt("请输入数位扩展长度（数字位数长度）：","1");
+var found=0;
+
+var PaddingString = function(sText, nPaddingLength)
+{
+    for(var i = sText.length; i < nPaddingLength; i++)
+        sText = "0" + sText;
+    return(sText);
+}
+
+do {                              //
+    found=document.selection.Replace("^("+insert+")(.{1,7})("+title+")([ 　]+)","\\1"+PaddingString(n.toString(), nPaddingLength)+"\\3 ",eeFindReplaceRegExp);
+    n++;
+} while (found);
+		document.selection.Replace("[ 　]$","",nFlags);
+		break;
+
+
+case 5: //数字序列插入
+
+		var insert=prompt("请输入段首插入的文本","第")
+		if (insert!="")
+		var title=prompt("请输入段尾插入的文本","[集册部卷章节回]")
+		if (title!="")
+
+var n=prompt("请输入起始序号（从鼠标选择的位置开始排序）（默认从1开始排列）：","1");
+var nPaddingLength=prompt("请输入数位扩展长度（数字位数长度）：","3");
+var found=0;
+
+var PaddingString = function(sText, nPaddingLength)
+{
+    for(var i = sText.length; i < nPaddingLength; i++)
+        sText = "0" + sText;
+    return(sText);
+}
+
+do {                              //
+    found=document.selection.Replace("^("+insert+")(.{1,7})("+title+")([ 　]+)","\\1"+PaddingString(n.toString(), nPaddingLength)+"\\3",eeFindReplaceRegExp);
+    n++;
+} while (found);
+		document.selection.Replace("("+title+")([ 　]+)","\\1 ",nFlags);
+		break;
+
+
+case 6://第一章→第1章
+		var num=2
+		while(num)
+		{
+			num--;
+			document.selection.Replace("(第[一二三四五六七八九十两百零〇千]{0,6})一([册集部卷章节回])","\\11\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九十两百零〇千]{0,6})二([册集部卷章节回])","\\12\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九十两百零〇千]{0,6})三([册集部卷章节回])","\\13\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九十两百零〇千]{0,6})四([册集部卷章节回])","\\14\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九十两百零〇千]{0,6})五([册集部卷章节回])","\\15\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九十两百零〇千]{0,6})六([册集部卷章节回])","\\16\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九十两百零〇千]{0,6})七([册集部卷章节回])","\\17\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九十两百零〇千]{0,6})八([册集部卷章节回])","\\18\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九十两百零〇千]{0,6})九([册集部卷章节回])","\\19\\2",nFlags);
+			//document.selection.Replace("(第[一二三四五六七八九十两百零〇千]{0,6})十([册集部卷章节回])","\\10\\2",nFlags);
+
+
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})一十([册集部卷章节回])","\\110\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})二十([册集部卷章节回])","\\120\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})三十([册集部卷章节回])","\\130\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})四十([册集部卷章节回])","\\140\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})五十([册集部卷章节回])","\\150\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})六十([册集部卷章节回])","\\160\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})七十([册集部卷章节回])","\\170\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})八十([册集部卷章节回])","\\180\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})九十([册集部卷章节回])","\\190\\2",nFlags);
+
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})一十(\\d[册集部卷章节回])","\\11\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})二十(\\d[册集部卷章节回])","\\12\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})三十(\\d[册集部卷章节回])","\\13\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})四十(\\d[册集部卷章节回])","\\14\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})五十(\\d[册集部卷章节回])","\\15\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})六十(\\d[册集部卷章节回])","\\16\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})七十(\\d[册集部卷章节回])","\\17\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})八十(\\d[册集部卷章节回])","\\18\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})九十(\\d[册集部卷章节回])","\\19\\2",nFlags);
+			document.selection.Replace("第十([0-9][册集部卷章节回])","第1\\1",nFlags);
+
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,3})一[佰百]零(\\d[册集部卷章节回])","\\110\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,3})二[佰百]零(\\d[册集部卷章节回])","\\120\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,3})三[佰百]零(\\d[册集部卷章节回])","\\130\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,3})四[佰百]零(\\d[册集部卷章节回])","\\140\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,3})五[佰百]零(\\d[册集部卷章节回])","\\150\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,3})六[佰百]零(\\d[册集部卷章节回])","\\160\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,3})七[佰百]零(\\d[册集部卷章节回])","\\170\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,3})八[佰百]零(\\d[册集部卷章节回])","\\180\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,3})九[佰百]零(\\d[册集部卷章节回])","\\190\\2",nFlags);
+
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})一[佰百]([册集部卷章节回])","\\1100\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})二[佰百]([册集部卷章节回])","\\1200\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})三[佰百]([册集部卷章节回])","\\1300\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})四[佰百]([册集部卷章节回])","\\1400\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})五[佰百]([册集部卷章节回])","\\1500\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})六[佰百]([册集部卷章节回])","\\1600\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})七[佰百]([册集部卷章节回])","\\1700\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})八[佰百]([册集部卷章节回])","\\1800\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})九[佰百]([册集部卷章节回])","\\1900\\2",nFlags);
+
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})一[佰百](\\d\\d[册集部卷章节回])","\\11\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})二[佰百](\\d\\d[册集部卷章节回])","\\12\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})三[佰百](\\d\\d[册集部卷章节回])","\\13\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})四[佰百](\\d\\d[册集部卷章节回])","\\14\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})五[佰百](\\d\\d[册集部卷章节回])","\\15\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})六[佰百](\\d\\d[册集部卷章节回])","\\16\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})七[佰百](\\d\\d[册集部卷章节回])","\\17\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})八[佰百](\\d\\d[册集部卷章节回])","\\18\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})九[佰百](\\d\\d[册集部卷章节回])","\\19\\2",nFlags);
+
+			document.selection.Replace("第一千([册集部卷章节回])","第1000\\1",nFlags);
+			document.selection.Replace("第[两二]千([册集部卷章节回])","第2000\\1",nFlags);
+			document.selection.Replace("第三千([册集部卷章节回])","第3000\\1",nFlags);
+			document.selection.Replace("第四千([册集部卷章节回])","第4000\\1",nFlags);
+			document.selection.Replace("第五千([册集部卷章节回])","第5000\\1",nFlags);
+
+			document.selection.Replace("第一千零(\\d[册集部卷章节回])","第100\\1",nFlags);
+			document.selection.Replace("第[两二]千零(\\d[册集部卷章节回])","第200\\1",nFlags);
+			document.selection.Replace("第三千零(\\d[册集部卷章节回])","第300\\1",nFlags);
+			document.selection.Replace("第四千零(\\d[册集部卷章节回])","第400\\1",nFlags);
+			document.selection.Replace("第五千零(\\d[册集部卷章节回])","第500\\1",nFlags);
+
+			document.selection.Replace("第一千零(\\d{2}[册集部卷章节回])","第10\\1",nFlags);
+			document.selection.Replace("第[两二]千零(\\d{2}[册集部卷章节回])","第20\\1",nFlags);
+			document.selection.Replace("第三千零(\\d{2}[册集部卷章节回])","第30\\1",nFlags);
+			document.selection.Replace("第四千零(\\d{2}[册集部卷章节回])","第40\\1",nFlags);
+			document.selection.Replace("第五千零(\\d{2}[册集部卷章节回])","第50\\1",nFlags);
+
+			document.selection.Replace("第一千(\\d\\d\\d[册集部卷章节回])","第1\\1",nFlags);
+			document.selection.Replace("第[两二]千(\\d\\d\\d[册集部卷章节回])","第2\\1",nFlags);
+			document.selection.Replace("第三千(\\d\\d\\d[册集部卷章节回])","第3\\1",nFlags);
+			document.selection.Replace("第四千(\\d\\d\\d[册集部卷章节回])","第4\\1",nFlags);
+			document.selection.Replace("第五千(\\d\\d\\d[册集部卷章节回])","第5\\1",nFlags);
+		}
+
+		break;
+
+
+case 7: //第123章 → 第一百二十三章
+			document.selection.Replace("第[oO0]{1,3}","第",nFlags);
+			document.selection.Replace("第(.)[oO]","第\\10",nFlags);
+			document.selection.Replace("第(..)[oO]","第\\10",nFlags);
+			document.selection.Replace("第(...)[oO]","第\\10",nFlags);
+			document.selection.Replace("第(.)[oO](.)","第\\10\\2",nFlags);
+			document.selection.Replace("第(..)[oO](.)","第\\10\\2",nFlags);
+			document.selection.Replace("第(.)[oO](..)","第0\\10",nFlags);
+		var title=prompt("输入标题的章节量词，可自行添删需要的量词。","[集册部卷章节回]")
+		if (title!="")
+		{
+		var num=5
+		while(num)
+		{
+			num--;
+			document.selection.Replace("第([0-9]{0,3})1("+title+")","第\\1一\\2",nFlags);//末位数
+			document.selection.Replace("第([0-9]{0,3})2("+title+")","第\\1二\\2",nFlags);
+			document.selection.Replace("第([0-9]{0,3})3("+title+")","第\\1三\\2",nFlags);
+			document.selection.Replace("第([0-9]{0,3})4("+title+")","第\\1四\\2",nFlags);
+			document.selection.Replace("第([0-9]{0,3})5("+title+")","第\\1五\\2",nFlags);
+			document.selection.Replace("第([0-9]{0,3})6("+title+")","第\\1六\\2",nFlags);
+			document.selection.Replace("第([0-9]{0,3})7("+title+")","第\\1七\\2",nFlags);
+			document.selection.Replace("第([0-9]{0,3})8("+title+")","第\\1八\\2",nFlags);
+			document.selection.Replace("第([0-9]{0,3})9("+title+")","第\\1九\\2",nFlags);
+			document.selection.Replace("第([0-9]{0,3})0("+title+")","第\\1零\\2",nFlags);
+			document.selection.Replace("第([0-9]{0,2})1([一二三四五六七八九零])("+title+")","第\\1一十\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,2})2([一二三四五六七八九零])("+title+")","第\\1二十\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,2})3([一二三四五六七八九零])("+title+")","第\\1三十\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,2})4([一二三四五六七八九零])("+title+")","第\\1四十\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,2})5([一二三四五六七八九零])("+title+")","第\\1五十\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,2})6([一二三四五六七八九零])("+title+")","第\\1六十\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,2})7([一二三四五六七八九零])("+title+")","第\\1七十\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,2})8([一二三四五六七八九零])("+title+")","第\\1八十\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,2})9([一二三四五六七八九零])("+title+")","第\\1九十\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,2})0([一二三四五六七八九零])("+title+")","第\\1零\\2\\3",nFlags);
+			document.selection.Replace("第([0-9一二三四五六七八九]{0,3})十零("+title+")","第\\1十\\2",nFlags);
+			document.selection.Replace("第([0-9]{0,1})1([一二三四五六七八九十零]{2,3})("+title+")","第\\1一百\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,1})2([一二三四五六七八九十零]{2,3})("+title+")","第\\1二百\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,1})3([一二三四五六七八九十零]{2,3})("+title+")","第\\1三百\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,1})4([一二三四五六七八九十零]{2,3})("+title+")","第\\1四百\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,1})5([一二三四五六七八九十零]{2,3})("+title+")","第\\1五百\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,1})6([一二三四五六七八九十零]{2,3})("+title+")","第\\1六百\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,1})7([一二三四五六七八九十零]{2,3})("+title+")","第\\1七百\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,1})8([一二三四五六七八九十零]{2,3})("+title+")","第\\1八百\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,1})9([一二三四五六七八九十零]{2,3})("+title+")","第\\1九百\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,1})0([一二三四五六七八九十零]{2,3})("+title+")","第\\1零\\2\\3",nFlags);
+			document.selection.Replace("第([1-9一二三四五六七八九十]{0,1})百零零("+title+")","第\\1百\\2",nFlags);
+			document.selection.Replace("第1([一二三四五六七八九十零百]{3,5})("+title+")","第一千\\1\\2",nFlags);
+			document.selection.Replace("第2([一二三四五六七八九十零百]{3,5})("+title+")","第二千\\1\\2",nFlags);
+			document.selection.Replace("第3([一二三四五六七八九十零百]{3,5})("+title+")","第三千\\1\\2",nFlags);
+			document.selection.Replace("第4([一二三四五六七八九十零百]{3,5})("+title+")","第四千\\1\\2",nFlags);
+			document.selection.Replace("第5([一二三四五六七八九十零百]{3,5})("+title+")","第五千\\1\\2",nFlags);
+			document.selection.Replace("第6([一二三四五六七八九十零百]{3,5})("+title+")","第六千\\1\\2",nFlags);
+			document.selection.Replace("第7([一二三四五六七八九十零百]{3,5})("+title+")","第七千\\1\\2",nFlags);
+			document.selection.Replace("第8([一二三四五六七八九十零百]{3,5})("+title+")","第八千\\1\\2",nFlags);
+			document.selection.Replace("第9([一二三四五六七八九十零百]{3,5})("+title+")","第九千\\1\\2",nFlags);
+			document.selection.Replace("第([1-9一二三四五六七八九]{0,1})千零零零("+title+")","第\\1千\\2",nFlags);
+			document.selection.Replace("第([1-9一二三四五六七八九]{0,1})千零零("+title+")","第\\1千零\\2",nFlags);
+			document.selection.Replace("第([一]{0,1})十([一二三四五六七八九]{0,1})("+title+")","第十\\2\\3",nFlags);
+			document.selection.Replace("第([一二三四五六七八九]{0,1})千([1-9一二三四五六七八九]{0,1})百零零("+title+")","第\\1千\\2百\\3",nFlags);
+		}
+		}
+		break;
+
+
+case 8: //删除重复标题
+		var title=prompt("请输入标题的表达式（.*关键词.*）","第[0-9一二三四五六七八九十两百千零〇]{1,5}[册集部卷章回节]")
+		if (title!="")
+		{
+	     	document.selection.Replace("("+title+")\\n("+title+")\\n","\\1\\n",nFlags);
+		 	document.selection.Replace("(.*)("+title+")(.*)\\n(.*)("+title+")(.*)\\n","\\1\\2\\3\\n",nFlags);
+		}
+				break;
+
+
+case 9: //删除空行
+			document.selection.Replace("^[ 　\t]*\\n","",nFlags);
+			document.selection.Replace("[ 　\t]+$","",nFlags);
+		break;
+
+
+case 10: //删除空行的空格，不含空行
+		document.selection.Replace("^[ 　]*$","",nFlags);
+		break;
+
+
+case 11: //段落间统一为两个空行（去除空格）
+		document.selection.Replace("^[ 　]+\\n","",nFlags);//去空行
+		document.selection.Replace("(.+)\\n\\n(.+)","\\1\\n\\2",nFlags);
+		document.selection.Replace("^\\n\\n\\n\\n\\n","\\n\\n",nFlags);
+		document.selection.Replace("^\\n\\n\\n\\n","\\n\\n",nFlags);
+		document.selection.Replace("^\\n\\n\\n","\\n\\n",nFlags);
+		document.selection.Replace("(.+)\\n\\n(.+)","\\1\\n\\2",nFlags);
+			var title=prompt("在段间增加两空行，输入标题的表达式（或.*关键词.*），否则取消。","第[0-9一二三四五六七八九十两百千零〇]{1,5}[册集部卷章回节]")
+		if (title!="")
+		{
+			document.selection.Replace("^\\n","",nFlags);
+		document.selection.Replace("^(.*)("+title+")(.*)$","\\n\\n\\0",nFlags);
+		}
+		break;
+		
+                 }

@@ -1,0 +1,731 @@
+menu= CreatePopupMenu(); 
+文本= CreatePopupMenu();
+符号 = CreatePopupMenu();
+段落 = CreatePopupMenu();
+章名 = CreatePopupMenu();
+其他 = CreatePopupMenu();
+if (document.selection.isempty)    
+    nFlags=eeFindNext | eeReplaceAll | eeFindReplaceRegExp;
+else 
+    nFlags=eeFindNext | eeReplaceSelOnly | eeReplaceAll | eeFindReplaceRegExp;
+
+menu.Add( "排版脚本·塞班精校组专用版", 0 );
+menu.Add( "", 0, eeMenuSeparator );
+
+menu.AddPopup( "文本", 文本 );
+文本.Add( "起点公众下载TXT", 1 );
+文本.Add( "", 0, eeMenuSeparator );
+文本.Add( "纵横全本下载TXT", 2 );
+文本.Add( "", 0, eeMenuSeparator );
+文本.Add( "无错全本下载TXT", 3);
+文本.Add( "", 0, eeMenuSeparator );
+文本.Add( "奇书全本下载TXT", 4);
+
+
+menu.AddPopup( "符号", 符号 );
+符号.Add( "全角字母→半角", 5 );
+符号.Add( "", 0, eeMenuSeparator );
+符号.Add( "半角空格→全角", 6 );
+符号.Add( "", 0, eeMenuSeparator );
+符号.Add( "全角数字→半角", 7 );
+符号.Add( "", 0, eeMenuSeparator );
+符号.Add( "半角标点→全角", 11 );
+
+
+menu.AddPopup( "段落", 段落 );
+段落.Add( "段落间加一空行", 13 );
+段落.Add( "", 0, eeMenuSeparator );
+段落.Add( "规范段首（2全角空格）", 14 );
+段落.Add( "", 0, eeMenuSeparator );
+段落.Add( "删除所有空行", 15 );
+
+
+menu.AddPopup( "章名", 章名 );
+章名.Add( "章节数处理---第一百二十三章 → 第123章", 19 );
+章名.Add( "", 0, eeMenuSeparator );
+章名.Add( "章节数处理---第123章 → 第一百二十三章", 20 );
+
+
+menu.AddPopup( "其他", 其他 );
+其他.Add( "CHM电子书反编译排版(合并后)", 16 );
+其他.Add( "", 0, eeMenuSeparator );
+其他.Add( "TXT文本合并(分章节的文本合并)", 17 );
+其他.Add( "", 0, eeMenuSeparator );
+其他.Add( "章节序列重整(先转为数字序号)", 18 );
+
+
+result = menu.Track( 0 );
+if (result>40) nFlags=nFlags=eeFindNext | eeReplaceAll | eeFindReplaceRegExp;
+switch(result){
+
+
+case 1: //起点下载TXT公众版
+			document.selection.Replace("　　\\[(.+) \\/ .+com 起点中文网作品全文阅读.+","\\1",nFlags);
+			document.selection.Replace("--小说原创门户--起点中文网.+","",nFlags);
+			document.selection.Replace("起点首页.+返回书目 ","",nFlags);
+			document.selection.Replace("起点首页.+返回书页 ","",nFlags);
+			document.selection.Replace(".+更新时间：20","更新时间：",nFlags);
+			document.selection.Replace("^\\n\\n更新时间：","更新时间：",nFlags);
+			document.selection.Replace("^\\n更新时间：","更新时间：",nFlags);
+			document.selection.Replace("起..点..中..文..网","",nFlags);
+			document.selection.Replace("好书尽在www.cmfu.com","",nFlags);
+			document.selection.Replace("本书正在连载.+最新的章节请看起点中文网.+com","",nFlags);
+			document.selection.Replace(".+opyright.+All Rights Reserv.+\\n","",nFlags);
+			document.selection.Replace(".+授权在起点中文网.+\\n","",nFlags);
+			document.selection.Replace(".+与起点中文网立场无关.+\\n","",nFlags);
+			document.selection.Replace(".+起点中文网均不负任何.+\\n","",nFlags);
+			document.selection.Replace(".+更精彩在后面，欢迎订阅.+\\n","",nFlags);
+			document.selection.Replace(".+授权发布.*\\n","",nFlags);
+			document.selection.Replace(".+电子书适用于在PC电脑中阅读.+\\n","",nFlags);
+			document.selection.Replace("感谢作者授权发布 共同保护作者权益","",nFlags);
+			document.selection.Replace(".*点击察看图片链接.*\\n","",nFlags);
+			document.selection.Replace(".+进行前后翻页阅读.+\\n","",nFlags);
+			document.selection.Replace(".+qidian.com 立刻体验.+","",nFlags);
+			document.selection.Replace("<div style=.display.+com发布.+div>","",nFlags);
+			document.selection.Replace("&amp;nbsp;"," ",nFlags);
+			document.selection.Replace("&amp;#8226;","·",nFlags);
+			document.selection.Replace("<br>","\\n",nFlags);
+			document.selection.StartOfDocument(false);
+			document.selection.Find("^(.+)\\n更新时间.+",eeFindNext | eeFindReplaceRegExp);
+			document.selection.StartOfDocument(true);
+			document.selection.LineDown(true,1);
+			document.selection.Delete(1);
+			document.selection.StartOfDocument(false);
+			document.selection.Replace("^\\n","",nFlags);
+			document.selection.Replace(".+迎广大书友光临阅读.+最火的连载作品尽在起点.+\\n","",nFlags);
+			document.selection.Replace("^(.+)\\n更新时间.+字数.+\\n","\\n\\n\\1\\n",nFlags);
+			document.selection.Replace("^　{1,}","　　",nFlags);
+			document.selection.StartOfDocument(false);
+            document.selection.text=("◇更多免费电子书，请到塞班论坛下载http://bbs.dospy.com◇ \r\n◇声明：本电子书仅供读者预览,请在下载24小时内删除，不得用作商业用途；如果喜欢请购买正版图书！◇\r\n\r\n")
+		    document.selection.EndOfDocument(false);
+            document.selection.text=("\r\n◇更多免费电子书，请到塞班论坛下载http://bbs.dospy.com◇ \r\n◇声明：本电子书仅供读者预览,请在下载24小时内删除，不得用作商业用途；如果喜欢请购买正版图书！◇\r\n\r\n")
+		break;
+
+
+case 2: //纵横小说网下载TXT排版
+        	document.selection.Replace("本书纵横中文网首发，欢迎读者登录www.zongheng.com查看更多优秀作品。","",eeReplaceAll);
+			document.selection.Replace("^[ 　]+$","",nFlags);
+			document.selection.Replace("[ 　    ]+$","",nFlags);
+			document.selection.Replace("^([^ 　])","　　\\1",nFlags);
+			document.selection.Replace("^[  ]+","　　",nFlags);
+			document.selection.Replace("^[　]{3,8}","　　",nFlags);
+			document.selection.Replace("\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n　　","\\n\\n\\n",nFlags);
+        	document.selection.Replace("\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n　　","\\n\\n\\n",nFlags);
+        	document.selection.Replace("\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n　　","\\n\\n\\n",nFlags);
+        	document.selection.Replace("\\n\\n\\n\\n\\n\\n\\n\\n\\n　　","\\n\\n\\n",nFlags);
+        	document.selection.Replace("\\n\\n\\n\\n\\n\\n\\n\\n　　","\\n\\n\\n",nFlags);
+        	document.selection.Replace("\\n\\n\\n\\n\\n\\n\\n　　","\\n\\n\\n",nFlags);
+        	document.selection.Replace("\\n\\n\\n\\n\\n\\n　　","\\n\\n\\n",nFlags);
+        	document.selection.Replace("\\n\\n\\n\\n\\n　　","\\n\\n\\n",nFlags);
+        	document.selection.Replace("\\n\\n\\n\\n　　","\\n\\n\\n",nFlags);
+        	document.selection.Replace("\\n\\n\\n　　","\\n\\n\\n",nFlags);
+			document.selection.StartOfDocument(false);
+            document.selection.text=("◇更多免费电子书，请到塞班论坛下载http://bbs.dospy.com◇ \r\n◇声明：本电子书仅供读者预览,请在下载24小时内删除，不得用作商业用途；如果喜欢请购买正版图书！◇\r\n\r\n")
+		    document.selection.EndOfDocument(false);
+            document.selection.text=("\r\n◇更多免费电子书，请到塞班论坛下载http://bbs.dospy.com◇ \r\n◇声明：本电子书仅供读者预览,请在下载24小时内删除，不得用作商业用途；如果喜欢请购买正版图书！◇\r\n\r\n")
+		break;
+
+
+case 3: //无错小说网
+        //和谐还原
+		document.selection.Replace("ju花","菊花",nFlags);
+		document.selection.Replace("风liu","风流",nFlags);
+　　　　document.selection.Replace("暧mei","暧昧",nFlags);
+　　　　document.selection.Replace("yu望","欲望",nFlags);
+　　　　document.selection.Replace("亵du","亵渎",nFlags);
+　　　　document.selection.Replace("抚mo","抚摸",nFlags);
+		document.selection.Replace("ling辱","凌辱",nFlags);
+		document.selection.Replace("推dao","推倒",nFlags);
+		document.selection.Replace("zhan有","占有",nFlags);
+		document.selection.Replace("上chuang","上床",nFlags);
+		document.selection.Replace("乱xing","乱性",nFlags);
+		document.selection.Replace("shi身","失身",nFlags);
+		document.selection.Replace("缠mian","缠绵",nFlags);
+		document.selection.Replace("zuo爱","做爱",nFlags);
+		document.selection.Replace("旖ni","旖旎",nFlags);
+		document.selection.Replace("发qing","发情",nFlags);
+		document.selection.Replace("赤luo","赤裸",nFlags);
+		document.selection.Replace("我x","我日",nFlags);
+		document.selection.Replace("ji院","妓院",nFlags);
+		document.selection.Replace("脱guang","脱光",nFlags);
+		document.selection.Replace("yin威","淫威",nFlags);
+		document.selection.Replace("意yin","意淫",nFlags);
+		document.selection.Replace("lun理","伦理",nFlags);
+		document.selection.Replace("yin乱","淫乱",nFlags);
+		document.selection.Replace("招J","召妓",nFlags);
+		document.selection.Replace("落shen","洛神",nFlags);
+		document.selection.Replace("宣yin","宣淫",nFlags);
+		document.selection.Replace("shu女","熟女",nFlags);
+		document.selection.Replace("乐ji","乐伎",nFlags);
+		document.selection.Replace("yu体","玉体",nFlags);
+		document.selection.Replace("歌ji","歌伎",nFlags);
+		document.selection.Replace("春xiao","春宵",nFlags);
+		document.selection.Replace("夏ri","夏日",nFlags);
+		document.selection.Replace("双fei","双飞",nFlags);
+		document.selection.Replace("quan家","全家",nFlags);
+		document.selection.Replace("春guang","春光",nFlags);
+		document.selection.Replace("奸yin","奸淫",nFlags);
+		document.selection.Replace("北shang","北上",nFlags);
+		document.selection.Replace("荒yin","荒淫",nFlags);
+		document.selection.Replace("yin乱","淫乱",nFlags);
+		document.selection.Replace("ri后","日后",nFlags);
+		document.selection.Replace("yin笑","淫笑",nFlags);
+		document.selection.Replace("绑shang","绑上",nFlags);
+		document.selection.Replace("yin逸","淫逸",nFlags);
+		document.selection.Replace("yin欲","淫欲",nFlags);
+		document.selection.Replace("奢yin","奢淫",nFlags);
+		document.selection.Replace("舞ji","舞姬",nFlags);
+		document.selection.Replace("yu动","欲动",nFlags);
+		document.selection.Replace("yin靡","淫靡",nFlags);
+		document.selection.Replace("yan照","艳照",nFlags);
+		document.selection.Replace("p瓣","臀瓣",nFlags);
+		document.selection.Replace("落ri","落日",nFlags);
+		document.selection.Replace("yin邪","淫邪",nFlags);
+		document.selection.Replace("玉feng","玉峰",nFlags);
+		document.selection.Replace("火yao","火药",nFlags);
+		document.selection.Replace("han住","含住",nFlags);
+		document.selection.Replace("qing动","情动",nFlags);
+		document.selection.Replace("Ru房","乳房",nFlags);
+		document.selection.Replace("xiong罩","胸罩",nFlags);
+		document.selection.Replace("jian货","贱货",nFlags);
+		document.selection.Replace("","",nFlags);
+		//校对勘误
+		document.selection.Replace("伏義","伏羲",nFlags);
+		document.selection.Replace("默淡","黯淡",nFlags);
+		document.selection.Replace("摸样","模样",nFlags);
+		document.selection.Replace("困挠","困扰",nFlags);
+		document.selection.Replace("禁铟","禁锢",nFlags);
+		document.selection.Replace("挑恤","挑衅",nFlags);
+		document.selection.Replace("攸尔","倏尔",nFlags);
+		document.selection.Replace("勾通","沟通",nFlags);
+		document.selection.Replace("罗嗦","啰嗦",nFlags);
+		document.selection.Replace("困绕","困扰",nFlags);
+		document.selection.Replace("膘悍","彪悍",nFlags);
+		document.selection.Replace("悲呛","悲怆",nFlags);
+		document.selection.Replace("锉锵","铿锵",nFlags);
+		document.selection.Replace("卤莽","鲁莽",nFlags);
+		document.selection.Replace("咋种","杂种",nFlags);
+		document.selection.Replace("迁徒","迁徙",nFlags);
+		document.selection.Replace("技俩","伎俩",nFlags);
+		document.selection.Replace("沾污","玷污",nFlags);
+        document.selection.Replace("恶耗","噩耗",nFlags);
+        document.selection.Replace("戏虐","戏谑",nFlags);
+        document.selection.Replace("","",nFlags);
+        document.selection.Replace("无的放失","无的放矢",nFlags);
+        document.selection.Replace("耳鬓斯磨","耳鬓厮磨",nFlags);
+        document.selection.Replace("独立特行","特立独行",nFlags);
+        document.selection.Replace("芶延残喘","苟延残喘",nFlags);
+        document.selection.Replace("数以百记","数以百计",nFlags);
+        document.selection.Replace("大放阙词","大放厥词",nFlags);
+        document.selection.Replace("波诡云黠","波诡云谲",nFlags);
+        document.selection.Replace("瞪目结舌","瞠目结舌",nFlags);
+        document.selection.Replace("色厉内茬","色厉内荏",nFlags);
+        document.selection.Replace("难以自持","难以自恃",nFlags);
+        document.selection.Replace("不折手段","不择手段",nFlags);
+        document.selection.Replace("刁斗森然","刁斗森严",nFlags);
+        document.selection.Replace("待价而估","待价而沽",nFlags);
+        document.selection.Replace("以警效尤","以儆效尤",nFlags);
+        document.selection.Replace("难言之瘾","难言之隐",nFlags);
+        document.selection.Replace("另辟奚径","另辟蹊径",nFlags);
+        document.selection.Replace("鼎礼膜拜","顶礼膜拜",nFlags);
+        document.selection.Replace("出谋画策","出谋划策",nFlags);
+        document.selection.Replace("同房丫鬟","通房丫鬟",nFlags);
+        document.selection.Replace("不折手段","不择手段",nFlags);
+        document.selection.Replace("摇摇欲堕","摇摇欲坠",nFlags);
+		document.selection.Replace("细细相关","息息相关",nFlags);
+		document.selection.Replace("胜败名列","身败名裂",nFlags);
+		document.selection.Replace("怎么会事","怎么回事",nFlags);
+		document.selection.Replace("希奇古怪","稀奇古怪",nFlags);
+		document.selection.Replace("声嘶力遏","声嘶力竭",nFlags);
+		document.selection.Replace("海市蛰楼","海市蜃楼",nFlags);
+		document.selection.Replace("斛筹交错","觥筹交错",nFlags);
+		document.selection.Replace("近在咫只","近在咫尺",nFlags);
+		document.selection.Replace("周公吐哺","周公吐脯",nFlags);
+		document.selection.Replace("貌不其扬","其貌不扬",nFlags);
+		document.selection.Replace("另避蹊径","另辟蹊径",nFlags);
+		document.selection.Replace("威言耸听","危言耸听",nFlags);
+		document.selection.Replace("拨苗助长","拔苗助长",nFlags);
+		document.selection.Replace("悖然大怒","勃然大怒",nFlags);
+		document.selection.Replace("自爆其短","自曝其短",nFlags);
+		document.selection.Replace("神定气闲","气定神闲",nFlags);
+		document.selection.Replace("谋取暴利","牟取暴利",nFlags);
+		document.selection.Replace("汗流夹背","汗流浃背",nFlags);
+		document.selection.Replace("细弱蚊蝇","细若蚊蝇",nFlags);
+		document.selection.Replace("舔着老脸","恬着老脸",nFlags);
+		document.selection.Replace("做壁上观","作壁上观",nFlags);
+		document.selection.Replace("粉雕玉彻","粉雕玉砌",nFlags);
+		document.selection.Replace("零零总总","林林总总",nFlags);
+		document.selection.Replace("曳然而止","戛然而止",nFlags);
+		document.selection.Replace("微不可查","微不可察",nFlags);
+		document.selection.Replace("官冕堂皇","冠冕堂皇",nFlags);
+		document.selection.Replace("亲亲我我","卿卿我我",nFlags);
+		document.selection.Replace("无的放失","无的放矢",nFlags);
+        document.selection.EndOfDocument(false);
+        document.selection.text=("\r\n◇更多免费电子书，请到塞班论坛下载http://bbs.dospy.com◇ \r\n◇声明：本电子书仅供读者预览,请在下载24小时内删除，不得用作商业用途；如果喜欢请购买正版图书！◇\r\n\r\n")
+        document.selection.StartOfDocument(false);
+        document.selection.text=("◇更多免费电子书，请到塞班论坛下载http://bbs.dospy.com◇ \r\n◇声明：本电子书仅供读者预览,请在下载24小时内删除，不得用作商业用途；如果喜欢请购买正版图书！◇\r\n\r\n")
+		break;
+
+
+
+case 4: //奇书网下载TXT
+			document.selection.Replace("更多好书尽在奇书网：www.qisuu.com\n","",nFlags);
+			document.selection.Replace("申明:本书由奇书网(Www.Qisuu.Com)自网络收集整理制作,仅供预览交流学习使用,版权归原作者和出版社所有,如果喜欢,请支持订阅购买正版.","",eeReplaceAll);
+			document.selection.Replace("更多精彩好书，更多原创手机电子书，请登陆奇书网--Www.Qisuu.Com","",eeReplaceAll);
+			document.selection.Replace("更多好书尽在奇书网：www.qisuu.com","",eeReplaceAll);
+
+			document.selection.Replace("^[ 　]+$","",nFlags);
+			document.selection.Replace("[ 　    ]+$","",nFlags);
+			document.selection.Replace("^([^ 　])","　　\\1",nFlags);
+			document.selection.Replace("^[  ]+","　　",nFlags);
+			document.selection.Replace("^[　]{3,8}","　　",nFlags);
+			document.selection.Replace("[奇奇][\\[﹕].+[\\]﹕][网網]","",nFlags);
+			document.selection.Replace("[【\\[\\]】（\\(\\)）｛｝‘’“”《》…。，！？\\{\\}～\x21-\x7e]奇[【（\\(\\)）\\[\\]】｛｝‘’“”《》…。，！？\\{\\}～\x21-\x7e]|[【\\[\\]】｛｝（\\(\\)）‘’“”《》…。，！？\\{\\}～\x21-\x7e]书[【\\[\\]】｛｝（\\(\\)）‘’“”《》…。，！？\\{\\}～\x21-\x7e]|[【\\[\\]】｛｝（\\(\\)）‘’“”《》…。，！？\\{\\}～\x21-\x7e]网[ｗ【\\[\\]】｛｝（\\(\\)）‘’“”《》…。，！？\\{\\}～\x21-\x7e]","",nFlags);
+			document.selection.Replace("电子书下载乐园﹕","",nFlags);
+			document.selection.Replace("[ｗω\x21-\x7e【]*奇[īｑｉｓｕＱＩＳＵс○mｏｍＣＯＭ \x21-\x7e]*[書书][īｑｉｓｕＱＩＳＵсｏｍ○mＣＯＭ﹕】 \x21-\x7e]*网[收集整理提﹕】供īｑｉｓｕＱＩＳＵсｏｍＣＯＭ○m \x21-\x7e]*","",nFlags);
+			document.selection.Replace("[ｗω\x21-\x7e【]*奇[īｑｉｓｕＱＩＳＵс○mｏｍＣＯＭ \x21-\x7e]*[書书][收集整理提供īｑｉｓｕＱＩＳＵс﹕】ｏｍ○mＣＯＭ \x21-\x7e]*","",nFlags);
+			document.selection.Replace("[ｗω\x21-\x7e【]*奇[īｑｉｓｕＱＩＳＵс○mｏｍＣＯＭ \x21-\x7e]*网[收集整理提供īｑ﹕】ｉｓｕＱＩＳＵсｏｍＣ○mＯＭ \x21-\x7e]*","",nFlags);
+			document.selection.Replace("[ｗω\x21-\x7e【]*[ＱｑqQ][ 　]*[iIＩīｉ][ 　]*[sSＳｓ][ 　]*[uUｕＵ][收集整理提供﹕】īｑｉｓｕＱＩＳＵсｏ○mｍＣＯＭ \x21-\x7e]*","",nFlags);
+			document.selection.Replace("\\n\\s*[#\\[_\\|\\(（=\\^\\.\\*-@]+[奇书网書網][#\\]_\\|\\)）=\\^\\.\\*-@]+","\\n　　",nFlags);
+			document.selection.Replace("^\\s*[#\\[_\\|\\(（=\\^\\.\\*-@]+(Qī|ω[ǎa]ng|sh[ūu])[#\\]_\\|\\)）=\\^\\.\\*-@]+","　　",nFlags);
+			document.selection.Replace("([#\\[\\(（_\\|=\\^\\.\\*-@ｗwω]+)?奇.*[书書].*[網网](收集整理)?(.*整.*理.*提.*供)?([#\\]\\)）_\\|=\\^\\.\\*-@]+)?","",nFlags);
+			document.selection.Replace("[\\[\\|]?Qī-sh[uū]-ω[aǎ]ng[\\|\\]]?|[ＱｑqQ][ＩｉiI][ＳSｓs][ｕＵuU]{1,2}.[ｃＣCc][Ｏｏ○oO][ＭｍmMm]","",nFlags);
+		    document.selection.Replace("/\\\整//理\\\\","",eeReplaceAll);
+			document.selection.StartOfDocument(false);
+            document.selection.text=("◇更多免费电子书，请到塞班论坛下载http://bbs.dospy.com◇ \r\n◇声明：本电子书仅供读者预览,请在下载24小时内删除，不得用作商业用途；如果喜欢请购买正版图书！◇\r\n\r\n")
+		    document.selection.EndOfDocument(false);
+            document.selection.text=("\r\n◇更多免费电子书，请到塞班论坛下载http://bbs.dospy.com◇ \r\n◇声明：本电子书仅供读者预览,请在下载24小时内删除，不得用作商业用途；如果喜欢请购买正版图书！◇\r\n\r\n")
+		break;
+
+case 5://全角字母转换为半角
+			document.selection.Replace("ｑ","q",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｗ","w",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｅ","e",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｒ","r",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｔ","t",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｙ","y",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｕ","u",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｉ","i",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｏ","o",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｐ","p",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ａ","a",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｓ","s",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｄ","d",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｆ","f",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｇ","g",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｈ","h",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｊ","j",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｋ","k",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｌ","l",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｚ","z",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｘ","x",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｃ","c",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｖ","v",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｂ","b",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｎ","n",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("ｍ","m",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｑ","Q",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｗ","W",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｅ","E",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｒ","R",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｔ","T",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｙ","Y",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｕ","U",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｉ","I",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｏ","O",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｐ","P",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ａ","A",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｓ","S",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｄ","D",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｆ","F",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｇ","G",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｈ","H",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｊ","J",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｋ","K",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｌ","L",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｚ","Z",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｘ","X",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｃ","C",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｖ","V",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｂ","B",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｎ","N",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+			document.selection.Replace("Ｍ","M",eeFindNext | eeFindReplaceCase | eeReplaceAll);
+		break;
+
+case 6://半角空格→全角
+			document.selection.Replace("[ 　	]+","　",nFlags);
+		break;
+		
+case 7://全角数字→半角
+			document.selection.Replace("１","1",eeFindNext | eeReplaceAll);
+			document.selection.Replace("２","2",eeFindNext | eeReplaceAll);
+			document.selection.Replace("３","3",eeFindNext | eeReplaceAll);
+			document.selection.Replace("４","4",eeFindNext | eeReplaceAll);
+			document.selection.Replace("５","5",eeFindNext | eeReplaceAll);
+			document.selection.Replace("６","6",eeFindNext | eeReplaceAll);
+			document.selection.Replace("７","7",eeFindNext | eeReplaceAll);
+			document.selection.Replace("８","8",eeFindNext | eeReplaceAll);
+			document.selection.Replace("９","9",eeFindNext | eeReplaceAll);
+			document.selection.Replace("０","0",eeFindNext | eeReplaceAll);
+		break;
+    		
+
+case 11: //半角标点符号 → 全角标点符号
+		alert( "引号部分的转换可能存在错误，脚本运行完毕后，会以绿色标示出来，请手动修改。");
+			document.selection.Replace(",","，",eeFindNext | eeReplaceAll);
+			document.selection.Replace(".","。",eeFindNext | eeReplaceAll);
+			document.selection.Replace("([0-9])，([0-9]{3})","\\1,\\2",nFlags);
+			document.selection.Replace("([0-9])。([0-9])","\\1\\.\\2",nFlags);
+			document.selection.Replace("?","？",eeFindNext | eeReplaceAll);
+			document.selection.Replace("!","！",eeFindNext | eeReplaceAll);
+			document.selection.Replace(":","：",eeFindNext | eeReplaceAll);
+			document.selection.Replace(";","；",eeFindNext | eeReplaceAll);
+			document.selection.Replace("(","（",eeFindNext | eeReplaceAll);
+			document.selection.Replace(")","）",eeFindNext | eeReplaceAll);
+			document.selection.Replace("┅","…",eeFindNext | eeReplaceAll);
+			document.selection.Replace("@","＠",eeFindNext | eeReplaceAll);
+			document.selection.Replace("#","＃",eeFindNext | eeReplaceAll);
+			document.selection.Replace("%","％",eeFindNext | eeReplaceAll);
+			document.selection.Replace("＜","《",eeFindNext | eeReplaceAll);
+			document.selection.Replace("＞","》",eeFindNext | eeReplaceAll);
+			document.selection.Replace("<","《",eeFindNext | eeReplaceAll);
+			document.selection.Replace(">","》",eeFindNext | eeReplaceAll);
+			document.selection.Replace("~","～",eeFindNext | eeReplaceAll);
+			document.selection.Replace("^","＾",eeFindNext | eeReplaceAll);
+			document.selection.Replace("&","＆",eeFindNext | eeReplaceAll);
+			document.selection.Replace("[。\\.]{2,30}","……",nFlags);
+			document.selection.Replace("。…","…",nFlags);
+			document.selection.Replace("…。","…",nFlags);
+			document.selection.Replace("”…","”\\n　　……",nFlags);
+			document.selection.Replace("([^…])…([”.）。])","\\1……\\2",nFlags);
+			document.selection.Replace("“…([^…])","“……\\1",nFlags);
+			//document.selection.Replace("…","……",nFlags);
+			//document.selection.Replace("[^…]…[^…]","……",nFlags);
+			document.selection.Replace("[…]{3,}","……",nFlags);
+			document.selection.Replace("……\\.","……",nFlags);
+			document.selection.Replace("([: ])\x22","\\1“",eeFindNext | eeReplaceAll)//x22为引号
+			document.selection.Replace("(。|？|！|…)\x22","\\1”",eeFindNext | eeFindReplaceEscSeq | eeReplaceAll | eeFindReplaceRegExp);
+			document.selection.Replace("\x22$","”",eeFindNext | eeFindReplaceEscSeq | eeReplaceAll | eeFindReplaceRegExp);
+			document.selection.Replace("\x22","“",eeFindNext | eeReplaceAll);
+			document.selection.Replace("“([^”]*)$\\n^\\s*([^“]*)”","“\\1\\2”",nFlags);
+			document.selection.Find("“[^”]*“|”[^“]*”|^[^“]*”|“[^”]*$|‘[^’]*$|^[^‘]*'|‘[^’]*‘|’[^‘]*’",eeFindNext | eeFindReplaceRegExp);
+		break;
+				
+				
+				
+case 13: //段落空行
+			document.selection.Replace("$","\\n",nFlags);
+		break;
+		
+		
+		
+case 14: //规范行首
+			document.selection.Replace("^[ 　]+$","",nFlags);
+			document.selection.Replace("[ 　    ]+$","",nFlags);
+			document.selection.Replace("^([^ 　])","　　\\1",nFlags);
+			document.selection.Replace("^[  ]+","　　",nFlags);
+			document.selection.Replace("^[　]{3,8}","　　",nFlags);
+		break;
+		
+		
+case 15: //删除空行（含空格）
+			document.selection.Replace("^[ 　]*\\n","",nFlags);
+		break;
+
+		bAnswer = confirm("本功能仅适用于“HP电子书制作软件”制作的chm文件.\n\n  1.先使用“CHM浏览器”反编译chm文件。\n  2.然后使用“文本合并”把txt文件合并。");
+		if (bAnswer==true)
+		{
+			document.selection.Replace("</b><p>\x22\\)\\;\\n\\n","\\n",nFlags);
+			document.selection.Replace("(<p>){1,2}","\\n",nFlags);
+			document.selection.Replace("</b>","",nFlags);
+			//document.selection.Replace("\x22\\);","",nFlags);
+			document.selection.Replace("document\\.write \\(\\x22","",nFlags);
+			document.selection.Replace("document\\.write.+'>","",nFlags);
+			document.selection.Replace("document\\.write \\('","",nFlags);
+			document.selection.Replace("'\\)","",nFlags);
+			document.selection.Replace("[」』]","”",nFlags);
+            document.selection.Replace("正文 ","",nFlags);
+            document.selection.Replace("<BR>","\\n",nFlags);
+            document.selection.Replace("<img src=.+>","",nFlags);
+			document.selection.Replace("<font.+\x22>","",nFlags);
+			document.selection.Replace("　　 <center>.+\x22>","",nFlags);
+			document.selection.Replace("</font>","",nFlags);
+			document.selection.Replace("<center>","",nFlags);
+			document.selection.Replace("</center>","",nFlags);
+			document.selection.Replace("<p>\\n\\n","\\n",nFlags);
+		 }
+
+		break;
+
+
+case 16: //hp制作的chm反编译得到的txt合并后排版
+		bAnswer = confirm("本功能仅适用于“HP电子书制作软件”制作的chm文件.\n\n  1.先反编译chm文件。\n  2.然后使用“文本合并”把txt文件合并。");
+		if (bAnswer==true)
+		{
+			document.selection.Replace("</b><p>\x22\\)\\;\\n\\n","\\n",nFlags);
+			document.selection.Replace("(<p>){1,2}","\\n",nFlags);
+			document.selection.Replace("</b>","",nFlags);
+			//document.selection.Replace("\x22\\);","",nFlags);
+			document.selection.Replace("document\\.write \\(\\x22","",nFlags);
+			document.selection.Replace("document\\.write.+'>","",nFlags);
+			document.selection.Replace("document\\.write \\('","",nFlags);
+			document.selection.Replace("'\\)","",nFlags);
+			document.selection.Replace("[」』]","”",nFlags);
+            document.selection.Replace("正文 ","",nFlags);
+            document.selection.Replace("<BR>","\\n",nFlags);
+            document.selection.Replace("<img src=.+>","",nFlags);
+			document.selection.Replace("<font.+\x22>","",nFlags);
+			document.selection.Replace("　　 <center>.+\x22>","",nFlags);
+			document.selection.Replace("</font>","",nFlags);
+			document.selection.Replace("<center>","",nFlags);
+			document.selection.Replace("</center>","",nFlags);
+			document.selection.Replace("<p>\\n\\n","\\n",nFlags);
+		 }
+
+		break;
+		
+
+
+case 17://TXT文件合并
+　　//说明：
+　　//1、本脚本改自狂鹰的HP还原脚本，由ZCQ101修改
+　　//2、添加了读取文件名的功能（适用于以章节名作文件名，但TXT内容中无章节名的情况）,去掉了原来的正则替换功能
+　　//3、文件合并后的内容保存在内容中，请自行保存
+　　/*-----------------------------------*/
+　　var InDir = prompt("原文本文件夹地址：","D:\\txt");
+　　var refer=confirm("是否将文件名加入合并后TXT文件中\n注意：适用于章节名作为文件名，且内容中无章节名的TXT文件")
+　　InDir.replace(/\\/g, "\\\\");
+　　if(InDir.charAt(InDir.length) != "\\") InDir += "\\";
+
+　　var WshShell = new ActiveXObject( "WScript.Shell" );
+　　WshShell.CurrentDirectory = InDir;
+    WshShell.Run("cmd /k dir /b *.txt > list.tmp & exit", 0, true);
+
+
+　　editor.OpenFile( InDir + "list.tmp", eeEncodingSystemDefault, eeOpenAllowNewWindow );
+
+　　if(document.selection.Text == "") document.selection.SelectAll();
+　　var s = document.selection.Text;
+　　var ss = s.split("\r\n");
+
+　　function asc(a,b)//
+　　{
+　　var a2d = a.match(/\d+/g);
+　　var b2d = b.match(/\d+/g);
+　　if (a2d == null || b2d == null)
+　　if (a == b) return 0;
+　　else return a > b ? 1 : -1;
+　　var nFlag = a2d.slice(0,1) - b2d.slice(0,1);
+　　if (nFlag == 0) nFlag = a2d.slice(1,2) - b2d.slice(1,2);
+　　return nFlag;
+　　}
+
+　　ss.sort(asc);
+　　ss.shift();
+
+
+　　editor.ExecuteCommandByID(4116);
+
+　　editor.NewFile();
+
+　　var i;
+　　for (i = 0; i < ss.length; i++)
+　　{
+　　if(ss[i] == "") continue;
+　　if(refer)document.selection.Text = ss[i]+"\r\n";
+　　document.selection.InsertFromFile( InDir + ss[i], eeEncodingSystemDefault , eeOpenAllowNewWindow );
+　　if(i != ss.length - 1)
+　　{
+　　document.selection.NewLine();
+　　document.selection.NewLine();
+　　document.selection.NewLine();
+　　}
+　　}
+　　if(refer){
+　　var nFlags = eeFindNext | eeReplaceAll | eeFindReplaceRegExp;
+　　document.selection.Replace(".txt","",nFlags);
+　　}
+
+　　Sleep( 500 );//睡觉0.5秒，然后继续
+
+　　WshShell.Run("cmd /k del list.tmp  & exit", 0);//删除临时文件
+　　WshShell.Popup("文件已经合并成功，请自行保存")
+		break;
+
+case 18: //章节序列重整
+		document.selection.StartOfDocument();//如果想从特定章节整理就去掉这句话
+var n=prompt("请输入起始章节序号：","1");
+var nPaddingLength=prompt("请输入数位扩展长度：","3");
+var found=0;
+
+var PaddingString = function(sText, nPaddingLength) //为数字文本 sText 进行数位补零扩展
+{
+    for(var i = sText.length; i < nPaddingLength; i++)
+        sText = "0" + sText;
+    return(sText);
+}
+
+do {                              //
+    found=document.selection.Replace("(第).{1,5}([章节])","\\1"+PaddingString(n.toString(), nPaddingLength)+"\\2",eeFindReplaceRegExp);
+    n++;
+} while (found);
+		break;
+
+case 19://第一章→第1章
+		var num=2
+		while(num)
+		{
+			num--;
+			document.selection.Replace("(第[一二三四五六七八九十两百零〇千]{0,6})一([册集部卷章节回])","\\11\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九十两百零〇千]{0,6})二([册集部卷章节回])","\\12\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九十两百零〇千]{0,6})三([册集部卷章节回])","\\13\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九十两百零〇千]{0,6})四([册集部卷章节回])","\\14\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九十两百零〇千]{0,6})五([册集部卷章节回])","\\15\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九十两百零〇千]{0,6})六([册集部卷章节回])","\\16\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九十两百零〇千]{0,6})七([册集部卷章节回])","\\17\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九十两百零〇千]{0,6})八([册集部卷章节回])","\\18\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九十两百零〇千]{0,6})九([册集部卷章节回])","\\19\\2",nFlags);
+			//document.selection.Replace("(第[一二三四五六七八九十两百零〇千]{0,6})十([册集部卷章节回])","\\10\\2",nFlags);
+
+
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})一十([册集部卷章节回])","\\110\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})二十([册集部卷章节回])","\\120\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})三十([册集部卷章节回])","\\130\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})四十([册集部卷章节回])","\\140\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})五十([册集部卷章节回])","\\150\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})六十([册集部卷章节回])","\\160\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})七十([册集部卷章节回])","\\170\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})八十([册集部卷章节回])","\\180\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})九十([册集部卷章节回])","\\190\\2",nFlags);
+
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})一十(\\d[册集部卷章节回])","\\11\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})二十(\\d[册集部卷章节回])","\\12\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})三十(\\d[册集部卷章节回])","\\13\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})四十(\\d[册集部卷章节回])","\\14\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})五十(\\d[册集部卷章节回])","\\15\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})六十(\\d[册集部卷章节回])","\\16\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})七十(\\d[册集部卷章节回])","\\17\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})八十(\\d[册集部卷章节回])","\\18\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两百零〇千]{0,4})九十(\\d[册集部卷章节回])","\\19\\2",nFlags);
+			document.selection.Replace("第十([0-9][册集部卷章节回])","第1\\1",nFlags);
+
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,3})一[佰百]零(\\d[册集部卷章节回])","\\110\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,3})二[佰百]零(\\d[册集部卷章节回])","\\120\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,3})三[佰百]零(\\d[册集部卷章节回])","\\130\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,3})四[佰百]零(\\d[册集部卷章节回])","\\140\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,3})五[佰百]零(\\d[册集部卷章节回])","\\150\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,3})六[佰百]零(\\d[册集部卷章节回])","\\160\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,3})七[佰百]零(\\d[册集部卷章节回])","\\170\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,3})八[佰百]零(\\d[册集部卷章节回])","\\180\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,3})九[佰百]零(\\d[册集部卷章节回])","\\190\\2",nFlags);
+
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})一[佰百]([册集部卷章节回])","\\1100\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})二[佰百]([册集部卷章节回])","\\1200\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})三[佰百]([册集部卷章节回])","\\1300\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})四[佰百]([册集部卷章节回])","\\1400\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})五[佰百]([册集部卷章节回])","\\1500\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})六[佰百]([册集部卷章节回])","\\1600\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})七[佰百]([册集部卷章节回])","\\1700\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})八[佰百]([册集部卷章节回])","\\1800\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})九[佰百]([册集部卷章节回])","\\1900\\2",nFlags);
+
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})一[佰百](\\d\\d[册集部卷章节回])","\\11\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})二[佰百](\\d\\d[册集部卷章节回])","\\12\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})三[佰百](\\d\\d[册集部卷章节回])","\\13\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})四[佰百](\\d\\d[册集部卷章节回])","\\14\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})五[佰百](\\d\\d[册集部卷章节回])","\\15\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})六[佰百](\\d\\d[册集部卷章节回])","\\16\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})七[佰百](\\d\\d[册集部卷章节回])","\\17\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})八[佰百](\\d\\d[册集部卷章节回])","\\18\\2",nFlags);
+			document.selection.Replace("(第[一二三四五六七八九两千]{0,2})九[佰百](\\d\\d[册集部卷章节回])","\\19\\2",nFlags);
+
+			document.selection.Replace("第一千([册集部卷章节回])","第1000\\1",nFlags);
+			document.selection.Replace("第[两二]千([册集部卷章节回])","第2000\\1",nFlags);
+			document.selection.Replace("第三千([册集部卷章节回])","第3000\\1",nFlags);
+			document.selection.Replace("第四千([册集部卷章节回])","第4000\\1",nFlags);
+			document.selection.Replace("第五千([册集部卷章节回])","第5000\\1",nFlags);
+
+			document.selection.Replace("第一千零(\\d[册集部卷章节回])","第100\\1",nFlags);
+			document.selection.Replace("第[两二]千零(\\d[册集部卷章节回])","第200\\1",nFlags);
+			document.selection.Replace("第三千零(\\d[册集部卷章节回])","第300\\1",nFlags);
+			document.selection.Replace("第四千零(\\d[册集部卷章节回])","第400\\1",nFlags);
+			document.selection.Replace("第五千零(\\d[册集部卷章节回])","第500\\1",nFlags);
+
+			document.selection.Replace("第一千零(\\d{2}[册集部卷章节回])","第10\\1",nFlags);
+			document.selection.Replace("第[两二]千零(\\d{2}[册集部卷章节回])","第20\\1",nFlags);
+			document.selection.Replace("第三千零(\\d{2}[册集部卷章节回])","第30\\1",nFlags);
+			document.selection.Replace("第四千零(\\d{2}[册集部卷章节回])","第40\\1",nFlags);
+			document.selection.Replace("第五千零(\\d{2}[册集部卷章节回])","第50\\1",nFlags);
+
+			document.selection.Replace("第一千(\\d\\d\\d[册集部卷章节回])","第1\\1",nFlags);
+			document.selection.Replace("第[两二]千(\\d\\d\\d[册集部卷章节回])","第2\\1",nFlags);
+			document.selection.Replace("第三千(\\d\\d\\d[册集部卷章节回])","第3\\1",nFlags);
+			document.selection.Replace("第四千(\\d\\d\\d[册集部卷章节回])","第4\\1",nFlags);
+			document.selection.Replace("第五千(\\d\\d\\d[册集部卷章节回])","第5\\1",nFlags);
+		}
+
+		break;
+		
+case 20: //第123章 → 第一百二十三章
+			document.selection.Replace("第[oO0]{1,3}","第",nFlags);
+			document.selection.Replace("第(.)[oO]","第\\10",nFlags);
+			document.selection.Replace("第(..)[oO]","第\\10",nFlags);
+			document.selection.Replace("第(...)[oO]","第\\10",nFlags);
+			document.selection.Replace("第(.)[oO](.)","第\\10\\2",nFlags);
+			document.selection.Replace("第(..)[oO](.)","第\\10\\2",nFlags);
+			document.selection.Replace("第(.)[oO](..)","第0\\10",nFlags);
+		var title=prompt("输入标题的章节量词，可自行添删需要的量词。","[集册部卷章节回]")
+		if (title!="")
+		{
+		var num=5
+		while(num)
+		{
+			num--;
+			document.selection.Replace("第([0-9]{0,3})1("+title+")","第\\1一\\2",nFlags);//末位数
+			document.selection.Replace("第([0-9]{0,3})2("+title+")","第\\1二\\2",nFlags);
+			document.selection.Replace("第([0-9]{0,3})3("+title+")","第\\1三\\2",nFlags);
+			document.selection.Replace("第([0-9]{0,3})4("+title+")","第\\1四\\2",nFlags);
+			document.selection.Replace("第([0-9]{0,3})5("+title+")","第\\1五\\2",nFlags);
+			document.selection.Replace("第([0-9]{0,3})6("+title+")","第\\1六\\2",nFlags);
+			document.selection.Replace("第([0-9]{0,3})7("+title+")","第\\1七\\2",nFlags);
+			document.selection.Replace("第([0-9]{0,3})8("+title+")","第\\1八\\2",nFlags);
+			document.selection.Replace("第([0-9]{0,3})9("+title+")","第\\1九\\2",nFlags);
+			document.selection.Replace("第([0-9]{0,3})0("+title+")","第\\1零\\2",nFlags);
+			document.selection.Replace("第([0-9]{0,2})1([一二三四五六七八九零])("+title+")","第\\1一十\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,2})2([一二三四五六七八九零])("+title+")","第\\1二十\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,2})3([一二三四五六七八九零])("+title+")","第\\1三十\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,2})4([一二三四五六七八九零])("+title+")","第\\1四十\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,2})5([一二三四五六七八九零])("+title+")","第\\1五十\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,2})6([一二三四五六七八九零])("+title+")","第\\1六十\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,2})7([一二三四五六七八九零])("+title+")","第\\1七十\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,2})8([一二三四五六七八九零])("+title+")","第\\1八十\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,2})9([一二三四五六七八九零])("+title+")","第\\1九十\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,2})0([一二三四五六七八九零])("+title+")","第\\1零\\2\\3",nFlags);
+			document.selection.Replace("第([0-9一二三四五六七八九]{0,3})十零("+title+")","第\\1十\\2",nFlags);
+			document.selection.Replace("第([0-9]{0,1})1([一二三四五六七八九十零]{2,3})("+title+")","第\\1一百\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,1})2([一二三四五六七八九十零]{2,3})("+title+")","第\\1二百\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,1})3([一二三四五六七八九十零]{2,3})("+title+")","第\\1三百\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,1})4([一二三四五六七八九十零]{2,3})("+title+")","第\\1四百\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,1})5([一二三四五六七八九十零]{2,3})("+title+")","第\\1五百\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,1})6([一二三四五六七八九十零]{2,3})("+title+")","第\\1六百\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,1})7([一二三四五六七八九十零]{2,3})("+title+")","第\\1七百\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,1})8([一二三四五六七八九十零]{2,3})("+title+")","第\\1八百\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,1})9([一二三四五六七八九十零]{2,3})("+title+")","第\\1九百\\2\\3",nFlags);
+			document.selection.Replace("第([0-9]{0,1})0([一二三四五六七八九十零]{2,3})("+title+")","第\\1零\\2\\3",nFlags);
+			document.selection.Replace("第([1-9一二三四五六七八九十]{0,1})百零零("+title+")","第\\1百\\2",nFlags);
+			document.selection.Replace("第1([一二三四五六七八九十零百]{3,5})("+title+")","第一千\\1\\2",nFlags);
+			document.selection.Replace("第2([一二三四五六七八九十零百]{3,5})("+title+")","第二千\\1\\2",nFlags);
+			document.selection.Replace("第3([一二三四五六七八九十零百]{3,5})("+title+")","第三千\\1\\2",nFlags);
+			document.selection.Replace("第4([一二三四五六七八九十零百]{3,5})("+title+")","第四千\\1\\2",nFlags);
+			document.selection.Replace("第5([一二三四五六七八九十零百]{3,5})("+title+")","第五千\\1\\2",nFlags);
+			document.selection.Replace("第6([一二三四五六七八九十零百]{3,5})("+title+")","第六千\\1\\2",nFlags);
+			document.selection.Replace("第7([一二三四五六七八九十零百]{3,5})("+title+")","第七千\\1\\2",nFlags);
+			document.selection.Replace("第8([一二三四五六七八九十零百]{3,5})("+title+")","第八千\\1\\2",nFlags);
+			document.selection.Replace("第9([一二三四五六七八九十零百]{3,5})("+title+")","第九千\\1\\2",nFlags);
+			document.selection.Replace("第([1-9一二三四五六七八九]{0,1})千零零零("+title+")","第\\1千\\2",nFlags);
+			document.selection.Replace("第([1-9一二三四五六七八九]{0,1})千零零("+title+")","第\\1千零\\2",nFlags);
+		}
+		}
+		break;
+		
+                 }

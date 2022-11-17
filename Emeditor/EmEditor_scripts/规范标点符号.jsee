@@ -1,0 +1,45 @@
+var nFlags = eeFindNext | eeReplaceAll | eeFindReplaceRegExp;
+
+			document.selection.Replace(",","£¬",eeFindNext | eeReplaceAll);
+			document.selection.Replace("([^0-9]).","\\1¡£",eeFindNext | eeReplaceAll);
+			document.selection.Replace("?","£¿",eeFindNext | eeReplaceAll);
+			document.selection.Replace("!","£¡",eeFindNext | eeReplaceAll);
+			document.selection.Replace(":","£º",eeFindNext | eeReplaceAll);
+			document.selection.Replace(";","£»",eeFindNext | eeReplaceAll);
+			document.selection.Replace("(","£¨",eeFindNext | eeReplaceAll);
+			document.selection.Replace(")","£©",eeFindNext | eeReplaceAll);
+			document.selection.Replace("©©","¡­",eeFindNext | eeReplaceAll);
+			document.selection.Replace("([: ])\x22","\\1¡°",eeFindNext | eeReplaceAll);//x22ÎªÒýºÅ
+			document.selection.Replace("(¡£|£¿|£¡|¡­)\x22","\\1¡±",eeFindNext | eeFindReplaceEscSeq | eeReplaceAll | eeFindReplaceRegExp);
+			document.selection.Replace("\x22$","¡±",eeFindNext | eeFindReplaceEscSeq | eeReplaceAll | eeFindReplaceRegExp);
+			document.selection.Replace("\x22","¡°",eeFindNext | eeReplaceAll);
+			document.selection.Replace("[£¿]{2,}","£¿",nFlags);
+			document.selection.Replace("[£¡]{2,}","£¡",nFlags);
+			document.selection.Replace("[£º]{2,}","£º",nFlags);
+			document.selection.Replace("[£¨]{2,}","£¨",nFlags);
+			document.selection.Replace("[£©]{2,}","£©",nFlags);
+			document.selection.Replace("[\\.]{2,}",".",nFlags);
+			document.selection.Replace("[\\\\]{2,}","\\",nFlags);
+			document.selection.Replace("[\\/]{2,}","/",nFlags);
+			document.selection.Replace("[@]{2,}","@",nFlags);
+			document.selection.Replace("[#]{2,}","#",nFlags);
+			document.selection.Replace("[$]{2,}","$",nFlags);
+			document.selection.Replace("[\\*]{2,}","*",nFlags);
+			document.selection.Replace("[\\^]{2,}","^",nFlags);
+			document.selection.Replace("[&]{2,}","&",nFlags);
+			document.selection.Replace("[\\*]{2,}","*",nFlags);
+			document.selection.Replace("[£¬]{2,}","£¬",nFlags);
+			document.selection.Replace("[¡£]{2,}","¡­",nFlags);
+			document.selection.Replace("[\\|]{2,}","|",nFlags);
+			document.selection.Replace("[ ¡¡	]{2,}","¡¡¡¡",nFlags);
+			document.selection.Replace("¡£¡­","¡­",nFlags);
+			document.selection.Replace("¡­¡£","¡­",nFlags);
+			document.selection.Replace("¡±¡­","¡±\\n¡­¡­",nFlags);
+			
+			document.selection.Replace("[^¡­][¡­][^¡­]","¡­¡­",nFlags);
+			document.selection.Replace("<<","¡¶",nFlags);
+			document.selection.Replace(">>","¡·",nFlags);
+			document.selection.Replace("^[ ¡¡	]+\\n","",nFlags);
+			document.selection.Replace("[ ]+$","",nFlags);
+			
+			document.selection.Replace("^\\n\\n\\n","\\n\\n",nFlags);

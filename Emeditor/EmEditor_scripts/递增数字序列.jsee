@@ -1,0 +1,144 @@
+menu= CreatePopupMenu(); 
+中间插入 = CreatePopupMenu();
+前面插入 = CreatePopupMenu();
+后面插入 = CreatePopupMenu();
+if (document.selection.isempty) 
+nFlags=eeFindNext | eeReplaceAll | eeFindReplaceRegExp;
+else 
+nFlags=eeFindNext | eeReplaceSelOnly | eeReplaceAll | eeFindReplaceRegExp;
+
+menu.AddPopup( "中间插入数字序列", 中间插入 );
+中间插入.Add( "匹配插入数字序列（重新排列）", 1 );
+中间插入.Add( "", 0, eeMenuSeparator );
+中间插入.Add( "从鼠标指定内容后面匹配插入顺序数字（重新排列）", 2 );
+中间插入.Add( "", 0, eeMenuSeparator );
+menu.AddPopup( "前面插入数字序列", 前面插入 );
+前面插入.Add( "匹配插入数字序列（只插入）不允许空行插入", 3 );
+前面插入.Add( "", 0, eeMenuSeparator );
+前面插入.Add( "从鼠标指定内容后面匹配插入顺序数字（只插入）", 4 );
+前面插入.Add( "", 0, eeMenuSeparator );
+menu.AddPopup( "后面插入数字序列", 后面插入 );
+后面插入.Add( "匹配插入数字序列（只插入）允许空行插入", 5 );
+后面插入.Add( "", 0, eeMenuSeparator );
+后面插入.Add( "从鼠标指定内容后面匹配插入顺序数字（只插入）", 6 );
+后面插入.Add( "", 0, eeMenuSeparator );
+
+result = menu.Track( 0 );
+if (result>40) nFlags=nFlags=eeFindNext | eeReplaceAll | eeFindReplaceRegExp;
+switch(result){
+
+case 1: //插入数字序列（重新排列）
+document.selection.StartOfDocument();
+var insert=prompt("起始位置","请输入段首插入的文本，比如行首为^")
+if (insert!="")
+var title=prompt("结束位置","在此内容之前插入的数字序列")
+if (title!="")
+var n=prompt("请输入插入起始数字：","1");
+var nPaddingLength=prompt("请输入数位扩展长度（数字位数长度）：","1");
+var found=0;
+var PaddingString = function(sText, nPaddingLength)
+{
+for(var i = sText.length; i < nPaddingLength; i++)
+sText = "0" + sText;
+return(sText);
+}
+do { //
+found=document.selection.Replace("("+insert+")(.{0,})("+title+")","$1"+PaddingString(n.toString(), nPaddingLength)+"$3",eeFindReplaceRegExp);
+n++;
+} while (found);
+break;
+
+case 2: //从鼠标指定内容后面插入顺序数字
+var insert=prompt("起始位置","请输入段首插入的文本")
+if (insert!="")
+var title=prompt("结束位置","在此内容之前插入的数字序列")
+if (title!="")
+var n=prompt("请输入插入起始数字：","1");
+var nPaddingLength=prompt("请输入数位扩展长度（数字位数长度）：","1");
+var found=0;
+var PaddingString = function(sText, nPaddingLength)
+{
+for(var i = sText.length; i < nPaddingLength; i++)
+sText = "0" + sText;
+return(sText);
+}
+do { //
+found=document.selection.Replace("("+insert+")(.{0,})("+title+")","$1"+PaddingString(n.toString(), nPaddingLength)+"$3",eeFindReplaceRegExp);
+n++;
+} while (found);
+break;
+
+case 3: //匹配插入数字序列
+document.selection.StartOfDocument();
+var insert=prompt("起始位置(如果行首递增只需输入^)不允许空行插入","在此内容前面插入")
+if (insert!="")
+var n=prompt("请输入插入起始数字：","1");
+var nPaddingLength=prompt("请输入数位扩展长度（数字位数长度）：","1");
+var found=0;
+var PaddingString = function(sText, nPaddingLength)
+{
+for(var i = sText.length; i < nPaddingLength; i++)
+sText = "0" + sText;
+return(sText);
+}
+do { //如果允许空行插入数字将(.{1,})改为(.{0,})即可
+found=document.selection.Replace("("+insert+")(.{1,})",+PaddingString(n.toString(), nPaddingLength)+"$1$2",eeFindReplaceRegExp);
+n++;
+} while (found);
+break;
+
+case 4: //从鼠标指定内容前面匹配插入顺序数字
+var insert=prompt("起始位置(如果行首递增只需输入^)不允许空行插入","在此内容前面插入")
+if (insert!="")
+var n=prompt("请输入插入起始数字：","1");
+var nPaddingLength=prompt("请输入数位扩展长度（数字位数长度）：","1");
+var found=0;
+var PaddingString = function(sText, nPaddingLength)
+{
+for(var i = sText.length; i < nPaddingLength; i++)
+sText = "0" + sText;
+return(sText);
+}
+do { //如果允许空行插入数字将(.{1,})改为(.{0,})即可
+found=document.selection.Replace("("+insert+")(.{1,})",+PaddingString(n.toString(), nPaddingLength)+"$1$2",eeFindReplaceRegExp);
+n++;
+} while (found);
+break;
+
+case 5: //匹配插入数字序列
+document.selection.StartOfDocument();
+var insert=prompt("起始位置(如果行首递增只需输入^，行尾递增只需输入$)允许空行插入","在此内容后面插入")
+if (insert!="")
+var n=prompt("请输入插入起始数字：","1");
+var nPaddingLength=prompt("请输入数位扩展长度（数字位数长度）：","1");
+var found=0;
+var PaddingString = function(sText, nPaddingLength)
+{
+for(var i = sText.length; i < nPaddingLength; i++)
+sText = "0" + sText;
+return(sText);
+}
+do { //如果不允许空行插入数字将(.{0,})改为(.{1,})即可
+found=document.selection.Replace("("+insert+")(.{0,})","$1"+PaddingString(n.toString(), nPaddingLength)+"$2",eeFindReplaceRegExp);
+n++;
+} while (found);
+break;
+
+case 6: //从鼠标指定内容后面匹配插入顺序数字
+var insert=prompt("起始位置(如果行首递增只需输入^，行尾递增只需输入$)允许空行插入","在此内容后面插入")
+if (insert!="")
+var n=prompt("请输入插入起始数字：","1");
+var nPaddingLength=prompt("请输入数位扩展长度（数字位数长度）：","1");
+var found=0;
+var PaddingString = function(sText, nPaddingLength)
+{
+for(var i = sText.length; i < nPaddingLength; i++)
+sText = "0" + sText;
+return(sText);
+}
+do { //如果不允许空行插入数字将(.{0,})改为(.{1,})即可
+found=document.selection.Replace("("+insert+")(.{0,})","$1"+PaddingString(n.toString(), nPaddingLength)+"$2",eeFindReplaceRegExp);
+n++;
+} while (found);
+break;
+}

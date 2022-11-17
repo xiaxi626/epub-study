@@ -1,0 +1,16 @@
+var nFlags = eeFindNext | eeReplaceAll | eeFindReplaceRegExp;
+ 		//var title=prompt("请复制以下正则表达式进行查找，修正双引号的部分错误匹配","(“)+([^”“]*)“")
+		document.selection.Find("“[^”]*“|”[^“]*”|^[^“]*”|“[^”]*$|‘[^’]*$|^[^‘]*'|‘[^’]*‘|’[^‘]*’|。…|…。|”…|[…]{3,}|[。.]{2,30}",nFlags);
+		//document.selection.Find("。…|…。|”…|[…]{3,}|[。.]{2,30}",nFlags);
+        /*bAnswer = confirm("替换请确定，寻找下一个请取消")
+		if (bAnswer==true)
+		{
+            document.selection.Replace("[。.]{2,30}","…",nFlags);
+			document.selection.Replace("。…|…。","…",nFlags);
+			document.selection.Replace("”…","”\\n　　……",nFlags);
+			document.selection.Replace("…","……",nFlags);
+			document.selection.Replace("[…]{3,}","……",nFlags);
+		} else {	
+		document.selection.Find("。…|…。|”…|[…]{3,}|[。.]{2,30}",nFlags);
+
+		}*/

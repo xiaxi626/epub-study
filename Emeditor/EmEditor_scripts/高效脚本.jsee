@@ -1,0 +1,934 @@
+/**
+* <p>Title: 高效脚本<／p>
+* <p>Copyright: Copyright (c) 2008<／p>
+* <p>首发: 我不知道中文论坛<／p>
+* @author 航星
+* @version 2.0
+*/
+
+var o = document.selection;
+var logFlag = true;
+
+var titleNum = "[0-9一二三四五六七八九十两百千零〇○壹贰叁肆伍陆柒捌玖拾]{1,7}"
+var titleGroup = "[部集卷章节回]"
+var titleAfter = "[\\r\\n\\t\\s:：、　]+"
+
+var splitFlag = "々splitFlag々";
+var vcsplitFlag = "々vcsplitFlag々";
+var titleFlag = "々titleFlag々";
+
+var vcsplitRegFlag = /々vcsplitFlag々/ig;
+var titleRegFlag = /々titleFlag々/ig;
+
+
+//卷章同行转分行正则
+var vcFullFlagMidNormal = /\r\n\r\n\r\n(.+) (第[0-9一二三四五六七八九十两百千零○〇壹贰叁肆伍陆柒捌玖拾]{1,7}[章节回]|内容简介|序[章言]*)/ig;
+var vcFullFlagStartNormal = /^(.+) (第[0-9一二三四五六七八九十两百千零〇○壹贰叁肆伍陆柒捌玖拾]{1,7}[章节回]|内容简介|序[章言]*)/ig;
+var vcFullFlagStartNormal_ = /^\r\n\r\n(.+) (第[0-9一二三四五六七八九十两百千零〇○壹贰叁肆伍陆柒捌玖拾]{1,7}[章节回]|内容简介|序[章言]*)/ig;
+var vcFullFlagMidUnnormal = /\r\n\r\n\r\n([^々].*?) /ig;
+var vcFullFlagStartUnnormal  = /(^[^々].*?) /ig;
+var vcFullFlagStartUnnormal_  = /(^\r\n\r\n[^々].*?) /ig;
+
+
+//卷章分行转同行正则
+var vsFlagMid = /(\r\n\r\n)(.+)(\r\n\r\n)/ig;
+var vsFlagStart = /^(.+)(\r\n\r\n)/ig;
+var csFlagMid = /(\r\n\r\n)(.+\r\n　　)/ig;
+    
+
+var volumeChpaterFlagMid = /\r\n　　(第[0-9一二三四五六七八九十两百千零〇壹贰叁肆伍陆柒捌玖拾]{1,7}[册集部卷章节回篇]|[卷章]*?[0-9一二三四五六七八九十两零〇○壹贰叁肆伍陆柒捌玖拾]{1,3}|正文|..相关|楔子[0-9一二三四五六七八九十两零〇壹贰叁肆伍陆柒捌玖拾]*|引子[0-9一二三四五六七八九十两零〇壹贰叁肆伍陆柒捌玖拾]*|自*序[章]*[0-9一二三四五六七八九十两零〇壹贰叁肆伍陆柒捌玖拾]*|..推荐|..简介|..介绍|[前后]记|精彩书评|卷首词|[引前序]言|最终卷)([:：　 \t\s\r\n])/ig;
+var volumeChpaterFlagStart =  /^　　(第[0-9一二三四五六七八九十两百千零〇壹贰叁肆伍陆柒捌玖拾]{1,7}[册集部卷章节回篇]|[卷章]*?[0-9一二三四五六七八九十两零〇○壹贰叁肆伍陆柒捌玖拾]{1,3}|正文|..相关|楔子[0-9一二三四五六七八九十两零〇壹贰叁肆伍陆柒捌玖拾]*|引子[0-9一二三四五六七八九十两零〇壹贰叁肆伍陆柒捌玖拾]*|自*序[章]*[0-9一二三四五六七八九十两零〇壹贰叁肆伍陆柒捌玖拾]*|..推荐|..简介|..介绍|[前后]记|精彩书评|卷首词|[引前序]言|最终卷)([:：　 \t\s\r\n])/ig;
+
+var cvHandle = {
+	chapterFlag: null,
+	volumeFlag: null,
+	sText: null,
+	oText: null,
+	nEncoding: null,
+	preHandleVolumeChapterInOneRow : function(){
+		this.sText = document.selection.Text;
+		this.sText = this.sText.replace(csFlagMid,"$1" + vcsplitFlag +"$2")
+							   .replace(vsFlagMid,"$1" + splitFlag +"$2").replace(vsFlagStart,splitFlag+"$1")
+							   .replace(/\r\n([\s\t　]*\r\n)+/ig,"\r\n").replace(/^[\s\t　]*\r\n/ig,"").replace(/\r\n[\s\t　]*$/ig,"");
+		this.oText = "";
+		this.nEncoding = document.Encoding;
+	},
+	volumeChapterInOneRow: function(){
+		var vArray = [];
+		var cArray = [];
+		var volumeName = "";
+		var name = document.Name;
+		editor.ExecuteCommandByID(4096);
+		sleep(500);
+		document.Encoding = this.nEncoding;
+		vArray = this.sText.split(splitFlag);
+		for(var i = 0; i < vArray.length; i++)
+		{
+			cArray = vArray[i].split(vcsplitFlag);
+
+			if(cArray.length == 1)
+			{
+				this.oText += "\r\n\r\n" + cArray[0];
+			}
+			else
+			{
+				for(var j = 1; j < cArray.length; j++)
+				{
+					this.oText += "\r\n\r\n" + cArray[0].replace(/\r\n/,"").replace(/[\s　]$/,"")+ " " + cArray[j];
+				}
+			}
+		}
+		document.selection.Text = this.oText.replace(/^[\r\n\s\t]+/ig,"");
+		document.selection.StartOfDocument();
+		document.Save("T"+ name);
+	},
+	preHandleVolumeChapterNotInOneRow : function(){
+		this.sText = document.selection.Text;
+		this.sText = this.sText.replace(vcFullFlagStartNormal,splitFlag + titleFlag + "$1" + vcsplitFlag + titleFlag + "$2")
+							   .replace(vcFullFlagStartNormal_,splitFlag + titleFlag + "$1" + vcsplitFlag + titleFlag + "$2")
+							   .replace(vcFullFlagMidNormal,"\r\n"+splitFlag + titleFlag + "$1" + vcsplitFlag + titleFlag + "$2")
+							   .replace(vcFullFlagMidUnnormal,splitFlag + titleFlag + "$1" + vcsplitFlag + titleFlag)
+							   .replace(vcFullFlagStartUnnormal,splitFlag + titleFlag + "$1" + vcsplitFlag + titleFlag)
+							   .replace(vcFullFlagStartUnnormal_,splitFlag + titleFlag + "$1" + vcsplitFlag + titleFlag);
+		this.oText = "";
+		this.nEncoding = document.Encoding;
+	},
+	volumeChapterNotInOneRow: function(){
+		var cArrayS = [];
+		var cArrayB = [];
+		var vArray = [];
+		var name = document.Name;
+		editor.ExecuteCommandByID(4096);
+		sleep(500);
+		document.Encoding = this.nEncoding;
+		vArray = this.sText.split(splitFlag);		
+		for(var i = vArray.length-1; i >0; i--)
+		{
+			cArrayB = vArray[i].split(vcsplitFlag);
+			
+			if(cArrayB.length == 1)
+			{
+				this.oText = cArrayB + this.oText;
+				continue;
+			}
+			
+			cArrayS = vArray[i-1].split(vcsplitFlag);
+			
+			if(cArrayB.length == 1)
+			{
+				this.oText = vArray[i] + this.oText;
+				this.oText = cArrayB + this.oText;
+				i--;
+				continue;
+			}
+			
+			if(cArrayB[0] == cArrayS[0])
+			{
+				this.oText = cArrayB[1] + this.oText;
+			}
+			else
+			{
+				this.oText = vArray[i] + this.oText;
+			}
+		}
+		
+		if(vArray[0].split(vcsplitFlag).length == 1)
+		{
+			this.oText = vArray[0] + this.oText;
+		}
+		document.selection.Text = this.oText.replace(vcsplitRegFlag, "").replace(titleRegFlag, "\r\n\r\n\r\n").replace(/^[\r\n\s\t]+|[\r\n\s\t　]+$/ig,"").replace(/\r\n\r\n\r\n\r\n/ig,"\r\n\r\n\r\n");
+		document.selection.StartOfDocument();
+		document.Save("T"+ name);
+	}
+};
+
+function regularTitlehp()
+{
+	document.selection.Text = document.selection.Text.replace(/\r\n[\s\t　]+/ig,"\r\n").replace(/^[\r\n\s\t　]+/ig,"").replace(/[\r\n\s\t　]+$/ig,"").replace(/[\s\t　]+\r\n/ig,"\r\n")
+					 .replace(/\r\n/ig,"\r\n　　").replace(/^/ig,"　　")
+					 .replace(volumeChpaterFlagMid,"\r\n\r\n\r\n$1$2")
+					 .replace(volumeChpaterFlagMid,"\r\n\r\n\r\n$1$2")
+					 .replace(volumeChpaterFlagStart,"\r\n\r\n$1$2");
+	document.selection.StartOfDocument();
+}
+
+function irregularTitlehp()
+{
+	document.selection.Text = document.selection.Text.replace(/\r\n[\s\t　]+/ig,"\r\n").replace(/^[\r\n\s\t　]+/ig,"").replace(/[\r\n\s\t　]+$/ig,"").replace(/[\s\t　]+\r\n/ig,"\r\n")
+					 .replace(/\r\n/ig,"\r\n　　").replace(/^/ig,"　　")
+					 .replace(/(\r\n)　　([:\u4e00-\u9fa5：]*?[\u4e00-\u9fa5])(\r\n)/ig,"$1$1$1$2$3")
+					 .replace(/^　　([:\u4e00-\u9fa5：]*?[\u4e00-\u9fa5])(\r\n)/ig,"\r\n\r\n$1$2")
+	document.selection.StartOfDocument();
+}
+
+function saveToCloud()
+{
+	document.selection.Text = document.selection.Text
+				.replace(/\r\n[\s\t　]+/ig,"\r\n").replace(/^[\r\n\s\t　]+/ig,"").replace(/[\r\n\s\t　]+$/ig,"").replace(/[\s\t　]+\r\n/ig,"\r\n")
+				.replace(/\r\n/ig,"\r\n　　").replace(/^/ig,"　　")
+				.replace(volumeChpaterFlagMid,"\r\n$1$2")
+				.replace(volumeChpaterFlagMid,"\r\n$1$2")
+				.replace(volumeChpaterFlagStart,"$1$2")
+				.replace(/\r\n/ig,"\r\n\r\n").replace(/^/ig,"\r\n");
+	document.selection.StartOfDocument();
+}
+
+function changeTitleToDigital()
+{
+	document.selection.Text = document.selection.Text
+				.replace(/(第.{1,7}章)(\r\n)/g,"$1 $2")
+				.replace(/廿(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"二十")
+				.replace(/(第)十(章[\s\t　]+)/ig,"$110$2")
+				.replace(/(第)十(.?章[\s\t　]+)/ig,"$11$2")
+				.replace(/十(?![^ ]*第)(?=章[\s\t　]+)/ig,"十0")
+				.replace(/百(?![^ ]*第)(?=章[\s\t　]+)/ig,"百00")
+				.replace(/千(?![^ ]*第)(?=章[\s\t　]+)/ig,"千000")
+				.replace(/十(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"")
+				.replace(/(第.+百)(.章[\s\t　]+)/ig,"$10$2")
+				.replace(/百(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"")
+				.replace(/(第.千)(.章[\s\t　]+)/ig,"$100$2")
+				.replace(/(第.千)(..章[\s\t　]+)/ig,"$10$2")
+				.replace(/千(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"")
+				.replace(/零(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"0")
+				.replace(/一(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"1")
+				.replace(/两(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"2")
+				.replace(/二(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"2")
+				.replace(/三(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"3")
+				.replace(/四(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"4")
+				.replace(/五(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"5")
+				.replace(/六(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"6")
+				.replace(/七(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"7")
+				.replace(/八(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"8")
+				.replace(/九(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"9")
+				.replace(/(章)\s(\r\n)/g,"$1$2");
+	document.selection.StartOfDocument();
+}
+
+function changeTitleToCharacters()
+{
+	document.selection.Text = document.selection.Text
+				.replace(/(第\d{1,4}章)(\r\n)/g,"$1 $2")
+				.replace(/(第\d)(\d)(\d)(\d章[\s\t　]+)/g,"$1千$2百$3十$4")
+				.replace(/(第\d)(\d)(\d章[\s\t　]+)/g,"$1百$2十$3")
+				.replace(/(第\d)(\d章[\s\t　]+)/g,"$1十$2")
+				.replace(/零(?![^ ]*第)(?=章[\s\t　]+)/g,"")
+				.replace(/(0百0十0|0十0)(?![^ ]*第)(?=章[\s\t　]+)/g,"")
+				.replace(/(0百0十|0百0?)(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"零")
+				.replace(/0(?![^ ]*第)(?=章[\s\t　]+)/g,"")
+				.replace(/(百0十)(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"百零")
+				.replace(/(第)1十(.?章[\s\t　]+)/g,"$1十$2")
+				.replace(/1(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"一")
+				.replace(/2(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"二")
+				.replace(/3(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"三")
+				.replace(/4(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"四")
+				.replace(/5(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"五")
+				.replace(/6(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"六")
+				.replace(/7(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"七")
+				.replace(/8(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"八")
+				.replace(/9(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"九")
+				.replace(/二千(?![^ ]*第)(?=[^第]*章[\s\t　]+)/g,"两千")
+				.replace(/(章)\s(\r\n)/g,"$1$2");
+	document.selection.StartOfDocument();
+}
+
+function saveTxt()
+{
+	var name = "";
+	document.selection.StartOfDocument();
+	document.selection.SelectLine();
+	name = document.selection.Text;
+	document.selection.Delete(1);
+	document.selection.SelectLine();
+	name += document.selection.Text;
+	document.selection.Delete(1);
+	name = name.replace(/[\r\n\s\t　]/ig,"").replace(/^/,"[").replace(/$/,"]").replace(/作者：/,"][").replace(/\[作者名\]/,"][").replace(/书名:|【|】/ig,"");
+	document.Save(name+".txt");
+	document.selection.StartOfDocument();
+}
+
+function pickUpTitleOfHP()
+{
+	var content = "";
+	var arr = document.selection.Text.match(/(\r\n[^　]|^[^　]).+/g);
+	if(arr == null)
+	{
+		Quit();
+	}
+	for(var i=0;i<arr.length;i++)
+	{
+		content += arr[i];
+	}
+	editor.ExecuteCommandByID(4096);
+	sleep(500);
+	document.selection.Text = content.replace(/(\r\n)+/g,"").replace(/\r/g,"\r\n");
+	document.selection.StartOfDocument();
+}
+
+function pickUpTitle()
+{
+	var content = "";
+	var arr = document.selection.Text.match(/\r\n[　 \t]*(第[0-9一二三四五六七八九十两百千零〇壹贰叁肆伍陆柒捌玖拾]{1,7}[册集部卷章节回篇]|[卷章]*?[0-9一二三四五六七八九十两零〇○壹贰叁肆伍陆柒捌玖拾]{1,3}|正文|..相关|楔子[0-9一二三四五六七八九十两零〇壹贰叁肆伍陆柒捌玖拾]*|引子[0-9一二三四五六七八九十两零〇壹贰叁肆伍陆柒捌玖拾]*|自*序[章]*[0-9一二三四五六七八九十两零〇壹贰叁肆伍陆柒捌玖拾]*|..推荐|..简介|..介绍|[前后]记|精彩书评|卷首词|[引前序]言|最终卷).+/g);
+	if(arr == null)
+	{
+		Quit();
+	}
+	for(var i=0;i<arr.length;i++)
+	{
+		content += arr[i];
+	}
+	editor.ExecuteCommandByID(4096);
+	sleep(500);
+	document.selection.Text = content.replace(/(\r\n)+/g,"").replace(/\r/g,"\r\n");
+	document.selection.StartOfDocument();
+}
+
+function insertFileName()
+{
+	var name = document.Name;
+	name = name.slice(0,name.lastIndexOf("."));
+	document.selection.Text = document.selection.Text.replace(/^/ig,name+"\r\n\r\n")
+	.replace(/\.txt/,"")
+	document.selection.StartOfDocument();
+}
+
+function delRepeatTitle()
+{
+	var lineTextPreS = "";
+	var lineTextNextS = "";
+	var lineTextPre = "";
+	var lineTextNext = "";
+	var deletContent = "";
+	document.selection.StartOfDocument();
+	var volumeChpaterFlagMid = "^[\s\t　]*第.{1,7}[章卷]\s*.+\\r\\n"
+	while(document.selection.Find( volumeChpaterFlagMid, eeFindNext | eeFindReplaceRegExp))
+	{
+		lineTextPreS = document.selection.Text;
+		document.selection.replace("第.{1,7}[章卷]","\\0 ",eeReplaceSelOnly | eeFindReplaceRegExp);
+		document.selection.SelectLine();
+		document.selection.replace("  "," ",eeReplaceSelOnly);
+		lineTextPre = lineTextPreS.replace(/[ 　\r\n\*\[\(\./]+/g,"").replace(/第.{1,7}[章卷] ?/g,"");
+		document.selection.StartOfLine();
+		document.selection.LineDown();
+		document.selection.SelectLine();
+		lineTextNextS = document.selection.Text;
+		lineTextNext = lineTextNextS.replace(/[ 　\r\n\*\[\(\.]+/g,"").replace(/第.{1,7}[章卷] ?/g,"");
+		if(lineTextPre.search(eval("/"+lineTextNext+"/")) !=-1)
+		{
+			deletContent += lineTextPreS+lineTextNextS + "\r\n";
+			document.selection.Delete();
+			continue;
+		}
+		if(lineTextNext.search(eval("/"+lineTextPre+"/")) !=-1)
+		{
+			deletContent += lineTextPreS+lineTextNextS + "\r\n";
+			document.selection.replace(lineTextPre,"",eeReplaceSelOnly);
+		}
+	}
+	editor.ExecuteCommandByID(4096);
+	sleep(500);
+	document.selection.Text = deletContent;
+}
+
+function deCompileHP()
+{
+	function FolderExits(Folder) {
+		var FSO = new ActiveXObject("Scripting.FileSystemObject");
+		if (FSO.FolderExists(Folder)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	function sortNumber(a, b) {
+		var a2d = a.match(/\d+/g);
+		var b2d = b.match(/\d+/g);
+		if (a2d == null || b2d == null) if (a == b) return 0;
+		else return a > b ? 1 : -1;
+		var nFlag = a2d.slice(0, 1) - b2d.slice(0, 1);
+		if (nFlag == 0) nFlag = a2d.slice(1, 2) - b2d.slice(1, 2);
+		return nFlag;
+	}
+	
+	var InDir = prompt("文本资源地址：","d:\\temp\\反编\\txt");
+	if(InDir.charAt(InDir.length) != "\\") InDir += "\\";
+	if (!FolderExits(InDir)) {
+		alert("输入的文件夹不存在，退出!");
+		Quit();
+	}
+	WshShell = new ActiveXObject( "WScript.Shell" );
+	var sCD = WshShell.CurrentDirectory;
+	WshShell.CurrentDirectory = InDir;
+	WshShell.Run("cmd /k del output.txt & exit", 0, true);
+	WshShell.Run("cmd /k dir /b *.txt > output.tmp & exit", 0, true);
+
+	editor.OpenFile(InDir + "output.tmp", eeEncodingSystemDefault, eeOpenAllowNewWindow);
+	if(document.selection.Text == "") document.selection.SelectAll();
+	var s = document.selection.Text;
+	var ss = s.split("\r\n");
+	editor.ExecuteCommandByID(4116);
+	WshShell.Run("cmd /k del output.tmp & exit", 0, true);
+
+	ss.sort(sortNumber);
+	var out = ss.join("\r\n");
+	var cmdString = "cmd /k type " ;
+	var i;
+	for(i = 0; i < ss.length; i++)
+	{
+		if(ss[i] == "") continue;
+		cmdString += (ss[i] + " ");
+		if(i!=0 && i%100==0)
+		{
+			cmdString += " >> output.txt & exit";
+			WshShell.Run(cmdString, 0, true);
+			cmdString = "cmd /k type " ;
+		}
+		if(i == ss.length -1 && i%100 !=0)
+		{
+			cmdString += " >> output.txt & exit";
+			WshShell.Run(cmdString, 0, true);
+		}
+	}
+	WshShell.CurrentDirectory = sCD;
+	editor.OpenFile(InDir + "output.txt", eeEncodingSystemDefault, eeOpenAllowNewWindow);
+	document.selection.SelectAll();
+	document.selection.Text = 
+		document.selection.Text
+			.replace(/\r\n[\s\t　]*\r\n/ig,"\r\n")
+			.replace(/([^\r\n])(document.write)/ig,"$1\r\n$2")
+			.replace(/document.write\s*\(\'(.*)\'\)/ig,"$1")
+			.replace(/(\r\n).+\'>\s*/ig,"\r\n\r\n$1")
+			.replace(/^.+\'>\s*/ig,"")
+			.replace(/<\/b>[^\u4e00-\u9fa5]+(\r\n)/ig,"$1")
+			.replace(/<p>/ig,"\r\n")
+		//	.replace(/<img src=.*>\s*<BR><font .*><b>(.*)</b><br>/,"$1\r\n");
+	document.selection.StartOfDocument();
+}
+
+function batchDeCompileHP() {
+	function FoldersTree(sPath) {
+		if (!FolderExits(sPath)) {
+			alert("输入的文件夹不存在，退出!");
+			Quit();
+		}
+		var oFso, oFolder, oFiles, oSubFolders, oCount;
+		oFso = new ActiveXObject("Scripting.FileSystemObject");
+		oFolder = oFso.GetFolder(sPath);
+		oFiles = new Enumerator(oFolder.files);
+		oCount = 0;
+		fileType = ".txt";
+		for (; ! oFiles.atEnd(); oFiles.moveNext()) {
+			filename = "" + oFiles.item();
+			if (filename.slice( - 4) == fileType) {
+				oCount++;
+			}
+			if (oCount == 5) {
+				break;
+			}
+		}
+		if (oCount == 5) {
+			oCount = 0;
+			deCompileHP(sPath);
+		}
+		oSubFolders = new Enumerator(oFolder.SubFolders);
+		for (; ! oSubFolders.atEnd(); oSubFolders.moveNext()) {
+			FoldersTree("" + oSubFolders.item());
+		}
+	}
+	
+	function FolderExits(Folder) {
+		var FSO = new ActiveXObject("Scripting.FileSystemObject");
+		if (FSO.FolderExists(Folder)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	function sortNumber(a, b) {
+		var a2d = a.match(/\d+/g);
+		var b2d = b.match(/\d+/g);
+		if (a2d == null || b2d == null) if (a == b) return 0;
+		else return a > b ? 1 : -1;
+		var nFlag = a2d.slice(0, 1) - b2d.slice(0, 1);
+		if (nFlag == 0) nFlag = a2d.slice(1, 2) - b2d.slice(1, 2);
+		return nFlag;
+	}
+	
+	function deCompileHP(sPath) {
+		if (sPath.charAt(sPath.length) != "\\") sPath += "\\";
+		WshShell = new ActiveXObject("WScript.Shell");
+		var sCD = WshShell.CurrentDirectory;
+		WshShell.CurrentDirectory = sPath;
+		WshShell.Run("cmd /k del output.txt & exit", 0, true);
+		WshShell.Run("cmd /k dir /b *.txt > output.tmp & exit", 0, true);
+		editor.OpenFile(sPath + "output.tmp", eeEncodingSystemDefault, eeOpenAllowNewWindow);
+		if (document.selection.Text == "") document.selection.SelectAll();
+		var s = document.selection.Text;
+		var ss = s.split("\r\n");
+		editor.ExecuteCommandByID(4116);
+		WshShell.Run("cmd /k del output.tmp & exit", 0, true);
+		ss.sort(sortNumber);
+		var out = ss.join("\r\n");
+		var cmdString = "cmd /k type ";
+		var i;
+		for (i = 0; i < ss.length; i++) {
+			if (ss[i] == "") continue;
+			cmdString += (ss[i] + " ");
+			if (i != 0 && i % 100 == 0) {
+				cmdString += " >> output.txt & exit";
+				WshShell.Run(cmdString, 0, true);
+				cmdString = "cmd /k type ";
+			}
+			if (i == ss.length - 1 && i % 100 != 0) {
+				cmdString += " >> output.txt & exit";
+				WshShell.Run(cmdString, 0, true);
+			}
+		}
+		WshShell.CurrentDirectory = sCD;
+		editor.OpenFile(sPath + "output.txt", eeEncodingSystemDefault, eeOpenAllowNewWindow);
+		document.selection.SelectAll();
+		document.selection.Text = document.selection.Text.replace(/\r\n[\s\t　]*\r\n/ig, "\r\n").replace(/([^\r\n])(document.write)/ig, "$1\r\n$2").replace(/document.write\s*\(\'(.*)\'\)/ig, "$1").replace(/(\r\n).+\'>\s*/ig, "\r\n\r\n$1").replace(/^.+\'>\s*/ig, "").replace(/<\/b>[^\u4e00-\u9fa5]+(\r\n)/ig, "$1").replace(/<p>/ig, "\r\n")
+		//	.replace(/<img src=.*>\s*<BR><font .*><b>(.*)</b><br>/,"$1\r\n");
+		document.selection.StartOfDocument();
+	}
+	var sPath = prompt("文本资源地址：", "D:\\迅雷下载\\《精品网络小说合集V66.0》");
+	FoldersTree(sPath);
+}
+
+function chuangshi()
+{
+	document.selection.Text = document.selection.Text.replace(/\r\n[\s\t　]*\r\n/ig, "\r\n").replace(/\r\n创世更新时间\d{4}.+[\r\n\s　]+/ig, "\r\n　　").replace(/\r\n.+最新章节由创世中文网首发.+\r\n/ig, "\r\n").replace(/\r\n\s+/ig, "\r\n　　").replace(/(\r\n[^　])/ig, "\r\n\r\n$1");
+	document.selection.StartOfDocument();
+	saveTxt();
+}
+
+function yiqikan()
+{
+	document.selection.Text = document.selection.Text
+								.replace(/\r\n([\s\t　]*\r\n)+/ig,"\r\n").replace(/^[\s\t　]*\r\n/ig,"").replace(/\r\n[\s\t　]*$/ig,"")
+								.replace(/\s一起看原创文学网作品www\.17k\.com/ig, "")
+								.replace(/\[类别\].+?\[最后更新时间\].+/ig, "")
+								.replace(/\s\s本书首发17K小说网（www\.17k\.com\)[\r\n]*/ig, "")
+								.replace(/[\t]{6,}\s(.+?)\s\[本章字数.+/ig, "\r\n\r\n$1")
+								.replace(/\t[ ]{8,}(.+)/ig, "\r\n\r\n$1")
+						
+	document.selection.StartOfDocument();
+	saveTxt();
+}
+
+function chuangshivip()
+{
+	var regExpArr = [
+		['^欢迎您[\\s\\S]*?目录字号：\\r\\n',titleFlag],
+		['\\| \\| \\| \\|[\\s\\S]*?目录字号：\\r\\n',titleFlag], 
+		['\\| \\| \\| \\|[\\s\\S]*?创世中文网$',''],
+		['^[\\t　 ]+|[\\t　 ]+$',''],
+		['[\\t　 ]*(\\r\\n)[\\t　 ]*','$1'],
+		['^[\\r\\n]+|[\\r\\n]+$',''],
+		['[\\r\\n]{2,}','\\r\\n'],
+		['(^|\\r\\n)','$1　　'],
+		['　　' + titleFlag,'\\r\\n\\r\\n']
+	];
+	todo(regExpArr);
+}
+
+function qidianvip()
+{
+	var regExpArr = [
+		['^[\\s\\S]*?更新提醒\\r\\n',titleFlag],
+		['\\(未完待续。[\\s\\S]*?点击阅读下一章\\r\\n',"\\r\\n" + titleFlag], 
+		['\\(未完待续。[\\s\\S]*?打赏\\r\\n',""], 
+		['^[\\t　 ]+|[\\t　 ]+$',''],
+		['[\\t　 ]*(\\r\\n)[\\t　 ]*','$1'],
+		['^[\\r\\n]+|[\\r\\n]+$',''],
+		['[\\r\\n]{2,}','\\r\\n'],
+		['(^|\\r\\n)','$1　　'],
+		['　　' + titleFlag,'\\r\\n\\r\\n']
+	];
+	todo(regExpArr);
+}
+
+function zongheng()
+{
+	var regExpArr = [
+		['^(书名.+)[\\r\\n]+','$1\\r\\n' + titleFlag],
+		['本书纵横中文网首发.+[\\r\\n\\s\\t　 ]+(.+\\r\\n)(.+\\r\\n)\\r\\n\\r\\n\\r\\n',titleFlag+'$1'+titleFlag+'$2'],
+		['本书纵横中文网首发.+[\\r\\n\\s\\t　 ]+',titleFlag],
+		['^[\\s\\t　 ]+|[\\s\\t　 ]+$',''],
+		['[\\s\\t　 ]*(\\r\\n)[\\s\\t　 ]*','$1'],
+		['^[\\r\\n]+|[\\r\\n]+$',''],
+		['[\\r\\n]{2,}','\\r\\n'],
+		['(^|\\r\\n)','$1　　'],
+		['　　' + titleFlag,'\\r\\n\\r\\n'],
+		['^　+(.*?)\\r\\n','$1\\r\\n\\r\\n']
+	];
+	todo(regExpArr);
+	document.selection.StartOfDocument();
+	saveTxt();
+}
+
+function formateCode() {
+	var indentCount = 0;var StyleBlock = [];var ScriptBlock = [];var CommentBlock = [];var style_tag = /<style[\w\W]+?<\/style>/img;var script_tag = /<script[\w\W]+?<\/script>/mig;var comment_tag = /(<\!--[\w\W]*?-->)|(<textarea[\w\W]+?<\/textarea>)|(<pre[\w\W]+?<\/pre>)/img;function FormatHTML(htmlStr) {var reg = /<[^\>]*\/>|<[^\>]+>|<\/[\w]+>/mig;var str = htmlStr.replace(reg, fw);str = str.replace(/<[a-z]+[^>]*>/img, finalHtml);str = str.replace(/(<[a-z]+[^>]*>)[\t\r\n]*([^<]+?)[\t\r\n]*(<\/[^>]*>)/img, finalHtml);str = str.replace(/\n[\s \t\r\n]*\n/igm, '\n');return str;}function finalHtml(mc) {mc = mc.replace(/[\t\r\n]+/img, ' ');mc = mc.replace(/[ ]+/g, ' ');mc = mc.replace(/> </g, '><');return mc;}function fw(mc) {if (mc.indexOf('</') > -1) {indentCount--;var str = getIndent(indentCount) + mc;return str;} else if (mc.indexOf('\/>') > 0 || mc.indexOf('<?') == 0 || mc.indexOf('<!') == 0) {return getIndent(indentCount) + mc;} else {var str = getIndent(indentCount) + mc;indentCount++;return str;}}function formatXML(xmlstr) {var reg = /<[^\>]*\/>|<[\w\!\?\-]+|[^<]*<\/[\w]+>/mig;var indent = 0;function inlineFun(mc) {if (mc.indexOf('</') > -1) {indent--;var str = getIndent(indent) + mc;return str;} else if (mc.indexOf('\/>') > 0 || mc.indexOf('<!') >= 0 || mc.indexOf('<?') >= 0) {return getIndent(indent) + mc;} else {var str = getIndent(indent) + mc;indent++;return str;}}var str = xmlstr.replace(reg, inlineFun);str = str.replace(/^[\s]*\n/gm, '');return str;}function removeBlank(mc) {return mc.replace(/[\t\n\r]*/igm, '');}function getIndent(inCount) {var arr = [];arr.push('\r\n');for (var n = 0; n < inCount; n++) {arr.push('\t');}return arr.join('');}function ProcessStyleBlock(mc) {StyleBlock.push(mc);return '##Style' + (StyleBlock.length - 1);}function ProcessScriptBlock(mc) {if (mc.match(/src=/i)) {return mc;}mc = mc.replace(/<script[^>]*>([\w\W]+?)<\/script>/, '$1');ScriptBlock.push(mc);return '##Script' + (ScriptBlock.length - 1);}function ProcessCommentBlock(mc) {CommentBlock.push(mc);return '##Comment' + (CommentBlock.length - 1);} (function() {var word = document.selection.Text;var currentLine = document.selection.GetActivePointY(eePosView);if (word == '') {document.selection.selectAll();word = document.selection.Text;}word = word.replace(style_tag, ProcessStyleBlock);word = word.replace(script_tag, ProcessScriptBlock);word = word.replace(comment_tag, ProcessCommentBlock);var result;var type = document.ConfigName.toLowerCase().replace(/ /g, '');if (type.indexOf('htm') > -1) {result = FormatHTML(word);} else if (type.indexOf('script') > -1) {result = formatJS(word);} else if (type.indexOf('htm') > -1) {result = formatXML(word);} else if (type.indexOf('css') > -1) {result = formatCss(word);}for (var i = 0; i < StyleBlock.length; i++) {result = result.replace('##Style' + i, formatCss(StyleBlock[i]));}for (var i = 0; i < ScriptBlock.length; i++) {result = result.replace('##Script' + i, '<script type="text/javascript">\r\n' + formatJS(ScriptBlock[i]) + '\r\n</script>');}for (var i = 0; i < CommentBlock.length; i++) {result = result.replace('##Comment' + i, CommentBlock[i]);}document.selection.Text = result;document.selection.SetActivePoint(eePosView, 1, currentLine);})();function formatCss(code) {code = code.replace(/(\s){2,}/ig, '$1');code = code.replace(/(\S)\s*\{/ig, '$1 {');code = code.replace(/\*\/(.[^\}\{]*)}/ig, '\*\/\n$1}');code = code.replace(/\/\*/ig, '\n\/\*');code = code.replace(/;\s*(\S)/ig, ';\n\t$1');code = code.replace(/\}\s*(\S)/ig, '\}\n$1');code = code.replace(/\n\s*\}/ig, '\n\}');code = code.replace(/\{\s*(\S)/ig, '\{\n\t$1');code = code.replace(/(\S)\s*\*\//ig, '$1\*\/');code = code.replace(/\*\/\s*([^\}\{]\S)/ig, '\*\/\n\t$1');code = code.replace(/(\S)\}/ig, '$1\n\}');code = code.replace(/(\n){2,}/ig, '\n');code = code.replace(/:/ig, ': ');code = code.replace(/  /ig, ' ');return code;}function formatJS(code) {return js_beautify(code, 1, '\t');}function js_beautify(js_source_text, indent_size, indent_character, indent_level) {var input, output, token_text, last_type, last_text, last_word, current_mode, modes, indent_string;var whitespace, wordchar, punct, parser_pos, line_starters, in_case;var prefix, token_type, do_block_just_closed, var_line, var_line_tainted;function trim_output() {while (output.length && (output[output.length - 1] === ' ' || output[output.length - 1] === indent_string)) {output.pop();}}function print_newline(ignore_repeated) {ignore_repeated = typeof ignore_repeated === 'undefined' ? true: ignore_repeated;trim_output();if (!output.length) {return;}if (output[output.length - 1] !== "\n" || !ignore_repeated) {output.push("\n");}for (var i = 0; i < indent_level; i++) {output.push(indent_string);}}function print_space() {var last_output = output.length ? output[output.length - 1] : ' ';if (last_output !== ' ' && last_output !== '\n' && last_output !== indent_string) {output.push(' ');}}function print_token() {output.push(token_text);}function indent() {indent_level++;}function unindent() {if (indent_level) {indent_level--;}}function remove_indent() {if (output.length && output[output.length - 1] === indent_string) {output.pop();}}function set_mode(mode) {modes.push(current_mode);current_mode = mode;}function restore_mode() {do_block_just_closed = current_mode === 'DO_BLOCK';current_mode = modes.pop();}function in_array(what, arr) {for (var i = 0; i < arr.length; i++) {if (arr[i] === what) {return true;}}return false;}function get_next_token() {var n_newlines = 0;var c = '';do {if (parser_pos >= input.length) {return ['', 'TK_EOF'];}c = input.charAt(parser_pos);parser_pos += 1;if (c === "\n") {n_newlines += 1;}} while ( in_array ( c , whitespace ));if (n_newlines > 1) {for (var i = 0; i < 2; i++) {print_newline(i === 0);}}var wanted_newline = (n_newlines === 1);if (in_array(c, wordchar)) {if (parser_pos < input.length) {while (in_array(input.charAt(parser_pos), wordchar)) {c += input.charAt(parser_pos);parser_pos += 1;if (parser_pos === input.length) {break;}}}if (parser_pos !== input.length && c.match(/^[0-9]+[Ee]$/) && input.charAt(parser_pos) === '-') {parser_pos += 1;var t = get_next_token(parser_pos);c += '-' + t[0];return [c, 'TK_WORD'];}if (c === 'in') {return [c, 'TK_OPERATOR'];}return [c, 'TK_WORD'];}if (c === '(' || c === '[') {return [c, 'TK_START_EXPR'];}if (c === ')' || c === ']') {return [c, 'TK_END_EXPR'];}if (c === '{') {return [c, 'TK_START_BLOCK'];}if (c === '}') {return [c, 'TK_END_BLOCK'];}if (c === ';') {return [c, 'TK_END_COMMAND'];}if (c === '/') {var comment = '';if (input.charAt(parser_pos) === '*') {parser_pos += 1;if (parser_pos < input.length) {while (! (input.charAt(parser_pos) === '*' && input.charAt(parser_pos + 1) && input.charAt(parser_pos + 1) === '/') && parser_pos < input.length) {comment += input.charAt(parser_pos);parser_pos += 1;if (parser_pos >= input.length) {break;}}}parser_pos += 2;return ['/*' + comment + '*/', 'TK_BLOCK_COMMENT'];}if (input.charAt(parser_pos) === '/') {comment = c;while (input.charAt(parser_pos) !== "\x0d" && input.charAt(parser_pos) !== "\x0a") {comment += input.charAt(parser_pos);parser_pos += 1;if (parser_pos >= input.length) {break;}}parser_pos += 1;if (wanted_newline) {print_newline();}return [comment, 'TK_COMMENT'];}}if (c === "'" || c === '"' || (c === '/' && ((last_type === 'TK_WORD' && last_text === 'return') || (last_type === 'TK_START_EXPR' || last_type === 'TK_END_BLOCK' || last_type === 'TK_OPERATOR' || last_type === 'TK_EOF' || last_type === 'TK_END_COMMAND')))) {var sep = c;var esc = false;c = '';if (parser_pos < input.length) {while (esc || input.charAt(parser_pos) !== sep) {c += input.charAt(parser_pos);if (!esc) {esc = input.charAt(parser_pos) === '\\';} else {esc = false;}parser_pos += 1;if (parser_pos >= input.length) {break;}}}parser_pos += 1;if (last_type === 'TK_END_COMMAND') {print_newline();}return [sep + c + sep, 'TK_STRING'];}if (in_array(c, punct)) {while (parser_pos < input.length && in_array(c + input.charAt(parser_pos), punct)) {c += input.charAt(parser_pos);parser_pos += 1;if (parser_pos >= input.length) {break;}}return [c, 'TK_OPERATOR'];}return [c, 'TK_UNKNOWN'];}indent_character = indent_character || ' ';indent_size = indent_size || 4;indent_string = '';while (indent_size--) {indent_string += indent_character;}input = js_source_text;last_word = '';last_type = 'TK_START_EXPR';last_text = '';output = [];do_block_just_closed = false;var_line = false;var_line_tainted = false;whitespace = "\n\r\t ".split('');wordchar = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_$'.split('');punct = '+ - * / % & ++ -- = += -= *= /= %= == === != !== > < >= <= >> << >>> >>>= >>= <<= && &= | || ! !! , : ? ^ ^= |='.split(' ');line_starters = 'continue,try,throw,return,var,if,switch,case,default,for,while,break,function'.split(',');current_mode = 'BLOCK';modes = [current_mode];indent_level = indent_level || 0;parser_pos = 0;in_case = false;while (true) {var t = get_next_token(parser_pos);token_text = t[0];token_type = t[1];if (token_type === 'TK_EOF') {break;}switch (token_type) {case 'TK_START_EXPR':var_line = false;set_mode('EXPRESSION');if (last_type === 'TK_END_EXPR' || last_type === 'TK_START_EXPR') {} else if (last_type !== 'TK_WORD' && last_type !== 'TK_OPERATOR') {print_space();} else if (in_array(last_word, line_starters) && last_word !== 'function') {print_space();}print_token();break;case 'TK_END_EXPR':print_token();restore_mode();break;case 'TK_START_BLOCK':if (last_word === 'do') {set_mode('DO_BLOCK');} else {set_mode('BLOCK');}if (last_type !== 'TK_OPERATOR' && last_type !== 'TK_START_EXPR') {if (last_type === 'TK_START_BLOCK') {print_newline();} else {print_space();}}print_token();indent();break;case 'TK_END_BLOCK':if (last_type === 'TK_START_BLOCK') {trim_output();unindent();} else {unindent();print_newline();}print_token();restore_mode();break;case 'TK_WORD':if (do_block_just_closed) {print_space();print_token();print_space();break;}if (token_text === 'case' || token_text === 'default') {if (last_text === ':') {remove_indent();} else {unindent();print_newline();indent();}print_token();in_case = true;break;}prefix = 'NONE';if (last_type === 'TK_END_BLOCK') {if (!in_array(token_text.toLowerCase(), ['else', 'catch', 'finally'])) {prefix = 'NEWLINE';} else {prefix = 'SPACE';print_space();}} else if (last_type === 'TK_END_COMMAND' && (current_mode === 'BLOCK' || current_mode === 'DO_BLOCK')) {prefix = 'NEWLINE';} else if (last_type === 'TK_END_COMMAND' && current_mode === 'EXPRESSION') {prefix = 'SPACE';} else if (last_type === 'TK_WORD') {prefix = 'SPACE';} else if (last_type === 'TK_START_BLOCK') {prefix = 'NEWLINE';} else if (last_type === 'TK_END_EXPR') {print_space();prefix = 'NEWLINE';}if (last_type !== 'TK_END_BLOCK' && in_array(token_text.toLowerCase(), ['else', 'catch', 'finally'])) {print_newline();} else if (in_array(token_text, line_starters) || prefix === 'NEWLINE') {if (last_text === 'else') {print_space();} else if ((last_type === 'TK_START_EXPR' || last_text === '=') && token_text === 'function') {} else if (last_type === 'TK_WORD' && (last_text === 'return' || last_text === 'throw')) {print_space();} else if (last_type !== 'TK_END_EXPR') {if ((last_type !== 'TK_START_EXPR' || token_text !== 'var') && last_text !== ':') {if (token_text === 'if' && last_type === 'TK_WORD' && last_word === 'else') {print_space();} else {print_newline();}}} else {if (in_array(token_text, line_starters) && last_text !== ')') {print_newline();}}} else if (prefix === 'SPACE') {print_space();}print_token();last_word = token_text;if (token_text === 'var') {var_line = true;var_line_tainted = false;}break;case 'TK_END_COMMAND':print_token();var_line = false;break;case 'TK_STRING':if (last_type === 'TK_START_BLOCK' || last_type === 'TK_END_BLOCK') {print_newline();} else if (last_type === 'TK_WORD') {print_space();}print_token();break;case 'TK_OPERATOR':var start_delim = true;var end_delim = true;if (var_line && token_text !== ',') {var_line_tainted = true;if (token_text === ':') {var_line = false;}}if (token_text === ':' && in_case) {print_token();print_newline();break;}in_case = false;if (token_text === ',') {if (var_line) {if (var_line_tainted) {print_token();print_newline();var_line_tainted = false;} else {print_token();print_space();}} else if (last_type === 'TK_END_BLOCK') {print_token();print_newline();} else {if (current_mode === 'BLOCK') {print_token();print_newline();} else {print_token();print_space();}}break;} else if (token_text === '--' || token_text === '++') {if (last_text === ';') {start_delim = true;end_delim = false;} else {start_delim = false;end_delim = false;}} else if (token_text === '!' && last_type === 'TK_START_EXPR') {start_delim = false;end_delim = false;} else if (last_type === 'TK_OPERATOR') {start_delim = false;end_delim = false;} else if (last_type === 'TK_END_EXPR') {start_delim = true;end_delim = true;} else if (token_text === '.') {start_delim = false;end_delim = false;} else if (token_text === ':') {if (last_text.match(/^\d+$/)) {start_delim = true;} else {start_delim = false;}}if (start_delim) {print_space();}print_token();if (end_delim) {print_space();}break;case 'TK_BLOCK_COMMENT':print_newline();print_token();print_newline();break;case 'TK_COMMENT':print_space();print_token();print_newline();break;case 'TK_UNKNOWN':print_token();break;}last_type = token_type;last_text = token_text;}return output.join('');}
+}
+
+function cmt(){
+	function GetBlankComment() {if (Filetype.indexOf('htm') > -1 || Filetype.indexOf('ml') > -1) {return "<!--  "+GetCurrentTime()+"-->\r\n";} else if (Filetype.indexOf('css') > -1) {return "/*  " + GetCurrentTime() + "*/\r\n";} else {return "//  " + GetCurrentTime() + "\r\n";}}function escapeRegExp(code) {return code.replace(/([.*+?^${}()|[\]\/\\])/g, '\\$1');}var Filetype;Filetype = document.ConfigName.toLowerCase().replace(/ /g, '');var cursorFix = 3;if (Filetype.indexOf('htm') > -1 || Filetype.indexOf('ml') > -1) {cursorFix = 5;}var start_tag = '//';var end_tag;function SetCommentTag() {if (Filetype.indexOf('htm') > -1 || Filetype.indexOf('ml') > -1) {start_tag = '<!--';end_tag='-->';} else if (Filetype.indexOf('css') > -1) {start_tag = "/*";end_tag = '*/';} else {start_tag = '//';end_tag = '';}}(function() {var word = document.selection.Text;SetCommentTag();if (word == '') {document.selection.SelectLine();var str = document.selection.Text;if (str.replace(/\s/g, '') == '') {str = str.replace(/[\r\n]*/g, '');var bc = GetBlankComment();str = str + bc;document.selection.Text = str;document.selection.CharLeft(false, bc.length - cursorFix);return;}else {str = str.replace(/[\r\n]*/g, '');str = str.replace(/^([\s]*)([\w\W]+)/, '$1' + start_tag + '$2' + end_tag + '\r\n');var cp = str.indexOf(start_tag);document.selection.Text = str;document.selection.CharLeft(false, str.length - cursorFix);document.selection.StartOfLine();document.selection.CharRight(false, cp + start_tag.length);return;}}else {word = start_tag + word.replace(/\r*\n/g, end_tag + '\r\n' + start_tag) + end_tag;document.selection.Text = word;return;}})();function GetCurrentTime() {var d1 = new Date();var cmtstr = d1.getFullYear() + '-' + (d1.getMonth() + 1) + '-' + d1.getDate() + ' ' + d1.getHours() + ':' + d1.getMinutes() + ':' + d1.getSeconds();cmtstr = cmtstr.replace(/([^\d])(\d)/img, '$10$2');cmtstr = cmtstr.replace(/([^\d])\d([\d]{2})/img, '$1$2');return cmtstr;}
+}
+
+function dcmt()
+{
+	function JS_deComment(code) {var reg = /(^[\s]*)([\/]{2,})/gm;return code.replace(reg, '$1');}function CSS_deComment(code) {var reg = /\/\*([\w\W]*?)\*\//gm;return code.replace(reg, '$1');}function HTML_deComment(code) {var reg = /<!--([\w\W]*?)-->/gm;return code.replace(reg, '$1');} (function() {var word = document.selection.Text;var isCurrentLine = 0;if (word == '') {document.selection.SelectLine();word = document.selection.Text;isCurrentLine = 1;}var Filetype = document.ConfigName.toLowerCase().replace(/ /g, '');if (Filetype.indexOf('htm') > -1 || Filetype.indexOf('ml') > -1) {word = HTML_deComment(word);} else if (Filetype.indexOf('css') > -1) {word = CSS_deComment(word);} else {word = JS_deComment(word);}document.selection.Text = word;if (isCurrentLine) {document.selection.CharLeft(false, 2);document.selection.StartOfLine();document.selection.WordRight(false, 0);} else {document.selection.StartOfLine();}})();
+}
+
+function copyPathOfFile()
+{
+	document.CopyPath();
+}
+
+function openPathOfFile()
+{
+	WshShell = new ActiveXObject( "WScript.Shell" );
+	if(document.Path == "" && logFlag)
+	{
+		OutputBar.Clear();
+		OutputBar.writeln( "请保存文件后再打开文件所在文件夹!" );
+		OutputBar.Visible = true;
+		return;
+	}
+	WshShell.Run("cmd /k explorer.exe " + document.Path +" & exit", 0, true);
+}
+
+function copyNameOfFile()
+{
+	clipboardData.setData('text', document.Name); 
+}
+
+
+function copyFullNameOfFile()
+{
+	document.CopyFullName();
+}
+
+function oneHalfWidthSpace()
+{
+	document.selection.Text = document.selection.Text
+	.replace(/(\r\n[\t　 ]*?第.{1,7}[部集卷章节回])[:：\t　 ]*/ig, "$1 ")
+ 	.replace(/(^[\t　 ]*第.{1,7}[部集卷章节回])[:：\t　 ]*/ig, "$1 ");
+	document.selection.StartOfDocument();
+}
+function oneFullWidthSpace()
+{
+	document.selection.Text = document.selection.Text.replace(/(\r\n[\s\t　]*第.{1,7}[部集卷章节回])[:：\s\t　]*/ig, "$1　").replace(/(^[\s\t　]*第.{1,7}[部集卷章节回])[:：\s\t　]*/ig, "$1　");
+	document.selection.StartOfDocument();
+}
+
+function mergeSameTitleOfChapter()
+{
+	var vArray = [];
+	var cArray = [];
+	var splitFlag_1 = "_splite_1";
+	var splitFlag_2 = "_splite_2";
+	var i = 0;
+	var content = document.selection.Text
+	.replace(/(^[^　].+?)\s*[\(\[（〖【『][上中下一二三四五六七八九十零\\d]{1,2}[\)\]）』〗】]/ig,"$1")
+	.replace(/(\r\n[^　].+?)\s*[\(\[（〖【『][上中下一二三四五六七八九十零\\d]{1,2}[\)\]）』〗】]/ig,"$1")
+	.replace(/(\r\n)([^　].+)(\r\n)/ig,"$1"+splitFlag_1+"$2"+splitFlag_2+"$3");
+	vArray = content.split(splitFlag_1);
+	for(i= vArray.length-1;i > 1;i--)
+	{
+		title = vArray[i].split(splitFlag_2)[0];
+		titlePre = vArray[i-1].split(splitFlag_2)[0];
+		if(title == titlePre)
+		{
+			vArray[i] = vArray[i].split(splitFlag_2)[1];
+		}
+	}
+	i=0
+	content = "";
+	while(i< vArray.length)
+	{
+		content += vArray[i++];
+	}
+	document.selection.Text = content.replace(/_splite_2/ig,"").replace(/(\r\n){2,}(　　)/ig,"$2");
+	document.selection.StartOfDocument();
+}
+
+function todo(regExpArr)
+{
+	if (regExpArr.length < 1) {
+		Quit();
+	}
+	var start = false;
+	if (o.Text == "") {
+		start = true;
+		o.SelectAll();
+	}
+
+	var startTime = new Date();
+	var execution = "o.Text = o.Text";
+	for (i = 0; i < regExpArr.length; i++) {
+		execution += ".replace(/" + regExpArr[i][0] + "/ig,'" + regExpArr[i][1] + "')";
+	}
+	var startTime = new Date();
+	eval(execution);
+	var endTime = new Date();
+	if (logFlag) {
+		OutputBar.clear();
+		OutputBar.writeln("脚本运行时间：" + Math.round((endTime.getTime() - startTime.getTime()) / 1000 + 1) + "秒");
+		OutputBar.Visible = true;
+	}
+	if (start) {
+		o.StartOfDocument();
+	}
+}
+
+function iSwitch(result){
+	switch(result){
+		case 101: 
+			cvHandle.preHandleVolumeChapterNotInOneRow();
+			cvHandle.volumeChapterNotInOneRow();
+			break;
+		case 102: 
+			cvHandle.preHandleVolumeChapterInOneRow();
+			cvHandle.volumeChapterInOneRow();
+			break;
+		case 105: 
+			pickUpTitleOfHP();
+			break;
+		case 106: 
+			insertFileName();
+			break;
+		case 107: 
+			copyFullNameOfFile();
+			break;
+		case 108: 
+			copyPathOfFile();
+			break;
+		case 109: 
+			openPathOfFile();
+			break;
+		case 110: 
+			copyNameOfFile();
+			break;			
+		case 111: 
+			changeTitleToDigital();
+			break;
+		case 112: 
+			changeTitleToCharacters();
+			break;
+		case 113: 
+			document.selection.Text = document.selection.Text.replace(eval("/(\\r\\n)("+titleGroup+")(" + titleNum + ")(" + titleAfter + ")/ig"),"$1第$3$2$4");
+			document.selection.StartOfDocument();
+			break;
+		case 114: 
+			oneHalfWidthSpace();
+			break;
+		case 115: 
+			oneFullWidthSpace();
+			break;
+		case 116: 
+			document.selection.Text = document.selection.Text.replace(eval("/(\\r\\n)(" + titleNum + ")(" + titleAfter + ")/ig"),"$1第$2章 ");
+			document.selection.StartOfDocument();
+			break;
+				
+		case 201: 
+			document.selection.Text = document.selection.Text.replace(/\r\n[\t　 ]+/ig,"\r\n").replace(/^[\t　 ]+/ig,"");
+			document.selection.StartOfDocument();
+			break;
+		case 202: 
+			document.selection.Text = document.selection.Text.replace(/[\t　 ]+\r\n/ig,"\r\n").replace(/[\t　 ]+$/ig,"");
+			document.selection.StartOfDocument();
+			break;
+		case 203: 
+			document.selection.Text = document.selection.Text.replace(/\r\n[\t　 ]+/ig,"\r\n").replace(/[\t　 ]+\r\n/ig,"\r\n").replace(/^[\t　 ]+/ig,"").replace(/[\t　 ]+$/ig,"");
+			document.selection.StartOfDocument();
+			break;
+		case 204: 
+			document.selection.Text = document.selection.Text.replace(/\r\n[\t　 ]+/ig,"\r\n").replace(/[\t　 ]+\r\n/ig,"\r\n").replace(/^[\t　 ]+/ig,"").replace(/[\t　 ]+$/ig,"").replace(/\r\n/ig,"\r\n　　").replace(/^/ig,"　　");
+			document.selection.StartOfDocument();
+			break;
+			
+		case 301: 
+			document.selection.Text = document.selection.Text.replace(/\r\n([\s\t　]*\r\n)+/ig,"\r\n").replace(/^[\s\t　]*\r\n/ig,"").replace(/\r\n[\s\t　]*$/ig,"");
+			document.selection.StartOfDocument();
+			break;
+		case 302: 
+			document.selection.Text = document.selection.Text.replace(/\r\n([\s\t　]*\r\n)+/ig,"\r\n").replace(/^[\s\t　]*\r\n/ig,"").replace(/\r\n[\s\t　]*$/ig,"").replace(/\r\n/ig,"\r\n\r\n").replace(/^/ig,"\r\n");
+			document.selection.StartOfDocument();
+			break;
+		
+		case 401: 
+			regularTitlehp();
+			break;
+		case 402: 
+			saveToCloud();
+			break;
+		case 403: 
+			irregularTitlehp();
+			break;
+						
+		case 501: 
+			deCompileHP();
+			break;
+		case 502: 
+			delRepeatTitle();
+			break;
+		case 503: 
+			batchDeCompileHP();
+			break;
+		case 504: 
+			mergeSameTitleOfChapter();
+			break;
+			
+		case 601: 
+			document.selection.Text = document.selection.Text.replace(/\r\n[\s\t　]*\r\n/ig,"\r\n")
+							 .replace(/\r\n　　.+欢迎广大书友光临阅读，最新、最快、最火的连载作品尽在起点原创.+\r\n/ig,"\r\n")
+							 .replace(/(\r\n.+\r\n)更新时间\d{4}.+\r\n　/ig,"\r\n\r\n$1　　")
+							 .replace(/\r\n.+【安卓版】http.+[\r\n]+/ig,"");
+			document.selection.StartOfDocument();
+			saveTxt();
+			break;
+		case 602: 
+			zongheng();
+			break;
+		case 603: 
+			chuangshi();
+			break;
+		case 604: 
+			yiqikan();
+			break;
+		case 605: 
+			qidianvip();
+			break;
+		case 606: 
+			chuangshivip();
+			break;
+			
+		case 701: 
+			formateCode();
+			document.selection.StartOfDocument();
+			break;
+		case 702: 
+			cmt();
+			document.selection.StartOfDocument();
+			break;
+		case 703: 
+			dcmt();
+			document.selection.StartOfDocument();
+			break;
+
+		default:
+			break;
+	}
+}
+
+menu= CreatePopupMenu();
+原创网站排版 = CreatePopupMenu();
+标题处理相关 = CreatePopupMenu();
+空格处理 = CreatePopupMenu();
+空行处理 = CreatePopupMenu();
+排版专用 = CreatePopupMenu();
+标题处理 = CreatePopupMenu();
+hp相关 = CreatePopupMenu();
+codeStyle = CreatePopupMenu();
+fo = CreatePopupMenu();
+menu.AddPopup( "排版模式相关", 排版专用 );
+menu.Add( "", 0, eeMenuSeparator );
+排版专用.Add( "[HP]排版模式(规则标题)", 401 );
+排版专用.Add( "[HP]排版模式(不规则标题)", 403 );
+排版专用.Add( "", 0, eeMenuSeparator );
+排版专用.Add( "手机阅读模式", 402);
+menu.AddPopup( "[HP]排版相关", hp相关);
+menu.Add( "", 0, eeMenuSeparator );
+hp相关.Add( "[HP]排版模式", 401 );
+hp相关.Add( "反编文本合并", 501 );
+hp相关.Add( "合集反编批量合并", 503 );
+hp相关.Add( "", 0, eeMenuSeparator );
+hp相关.Add( "章节名提取", 105 );
+hp相关.Add( "删除重复章节名", 502 );
+hp相关.Add( "合并同名章节[上下]", 504 );
+hp相关.Add( "", 0, eeMenuSeparator );
+hp相关.Add( "汉字 → 数字", 111 );
+hp相关.Add( "数字 → 汉字", 112 );
+hp相关.Add( "", 0, eeMenuSeparator );
+hp相关.Add( "同行转分行", 101 );
+hp相关.Add( "分行转同行", 102 );
+menu.AddPopup( "原创网站排版", 原创网站排版 );
+menu.Add( "", 0, eeMenuSeparator );
+原创网站排版.Add( "起点公众版", 601 );
+原创网站排版.Add( "纵横公众版", 602);
+原创网站排版.Add( "创世公众版", 603);
+原创网站排版.Add( "17K公众版", 604);
+原创网站排版.Add( "", 0, eeMenuSeparator );
+原创网站排版.Add( "起点VIP原版", 605 );
+原创网站排版.Add( "创世VIP原版", 606);
+menu.AddPopup( "标题处理相关", 标题处理相关 );
+menu.Add( "", 0, eeMenuSeparator );
+标题处理相关.Add( "同行转分行", 101 );
+标题处理相关.Add( "分行转同行", 102 );
+标题处理相关.Add( "", 0, eeMenuSeparator );
+标题处理相关.Add( "标题提取", 105 );
+标题处理相关.Add( "在文首插入文件名", 106 );
+标题处理相关.Add( "", 0, eeMenuSeparator );
+标题处理相关.Add( "复制文件名至剪贴板(包含路径)", 107 );
+标题处理相关.Add( "复制文件名至剪贴板", 110 );
+标题处理相关.Add( "复制文件路径至剪贴板", 108 );
+标题处理相关.Add( "", 0, eeMenuSeparator );
+标题处理相关.Add( "打开文件所在文件夹", 109 );
+标题处理相关.Add( "", 0, eeMenuSeparator );
+标题处理相关.Add( "", 0, eeMenuSeparator );
+标题处理相关.Add( "第一章 → 第1章", 111 );
+标题处理相关.Add( "第1章 → 第一章", 112 );
+标题处理相关.Add( "章一 → 第一章", 113 );
+标题处理相关.Add( "12(一二)[:：、 ]→ 第12(一二)章", 116 );
+标题处理相关.Add( "规范章节后为一个半角空格", 114 );
+标题处理相关.Add( "规范章节后为一个全角空格", 115);
+menu.AddPopup( "空格处理相关", 空格处理 );
+menu.Add( "", 0, eeMenuSeparator );
+空格处理.Add( "删除行首空格", 201 );
+空格处理.Add( "删除行尾空格", 202 );
+空格处理.Add( "删除行首尾空格", 203 );
+空格处理.Add( "规范行首空格", 204 );
+menu.AddPopup( "空行处理相关", 空行处理 );
+menu.Add( "", 0, eeMenuSeparator );
+空行处理.Add( "删除所有空行", 301 );
+空行处理.Add( "段间空一行", 302 );
+menu.AddPopup( "文首文尾相关", fo );
+menu.Add( "", 0, eeMenuSeparator );
+fo.Add( "定位至文首", 801 );
+fo.Add( "定位至文尾", 802 );
+fo.Add( "", 0, eeMenuSeparator );
+fo.Add( "选择至文首", 803 );
+fo.Add( "选择至文尾", 804 );
+fo.Add( "", 0, eeMenuSeparator );
+fo.Add( "复制至文首", 805 );
+fo.Add( "复制至文尾", 806 );
+fo.Add( "", 0, eeMenuSeparator );
+fo.Add( "删除至文首", 807 );
+fo.Add( "删除至文尾", 808 );
+menu.AddPopup( "代码处理相关", codeStyle );
+codeStyle.Add( "[HTML-JS-CSS]格式化", 701 );
+codeStyle.Add( "", 0, eeMenuSeparator );
+codeStyle.Add( "[HTML-JS-CSS]添加注释", 702 );
+codeStyle.Add( "[HTML-JS-CSS]去掉注释", 703);
+result = menu.Track( 1 );
+if( result != 0 ) {
+	if(document.selection.Text == "")
+	{
+		document.selection.SelectAll();
+	}
+
+	if(document.selection.Text.match(/[^\r]\n/g) || document.selection.Text.match(/\r[^\n]/g))
+	{
+	 	if(confirm("排版要求换行方式为CR+LF,是否更换换行方式为CR+LF?"))
+		{
+			editor.ExecuteCommandByID( 4105 );
+		}
+		else
+		{
+			Quit();
+		}
+	}
+	iSwitch(result);
+}
