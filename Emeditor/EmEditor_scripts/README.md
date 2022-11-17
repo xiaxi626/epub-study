@@ -1,4 +1,5 @@
-## 包含以下文件
+## EmEditor
+包含以下文件
 - 暗夜仰望排版宏1.2版.jsee
 - 递增数字序列.jsee
 - 高效脚本.jsee
@@ -11,7 +12,7 @@
 - EmEditor宏（排版脚本）中华太阳系联盟增强版 风遗尘版.jsee
 - txtwork.jsee
 
-## Contains the following files
+Contains the following files
 - Dark Night Look Up Typography Macro Version 1.2.jsee
 - Increment the sequence of numbers.jsee
 - Efficient scripting.jsee
