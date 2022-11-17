@@ -75,7 +75,7 @@ _Jutoh_ 文件夹存放了JinE Jutoh word模板
 
 ![flow-process_diagram_EN](https://github.com/xiaxi626/epub-study/blob/master/image/flow-process_diagram_EN.jpg)
 
-Excerpted from [zhihu](https://zhuanlan.zhihu.com/p/26860836?utm_id=0) author [凤采](https://www.zhihu.com/people/feng-cai-50) Drawn by 飞爱碧玉
+Excerpted from [zhihu](https://zhuanlan.zhihu.com/p/26860836?utm_id=0), author: [凤采](https://www.zhihu.com/people/feng-cai-50), drawing: [飞爱碧玉](https://www.lightnovel.us/cn/)
 
 
 **Typesetting**
