@@ -1,7 +1,7 @@
-## 个人作品集散地
+## epub电子书排版样例
 
 文件夹名为电子书制作者
 
-## A collection of personal works
+## epub e-book layout sample
 
 The folder is named eBook Maker
