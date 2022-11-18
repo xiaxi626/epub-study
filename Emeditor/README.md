@@ -8,7 +8,7 @@
 
 链接：https://pan.baidu.com/s/1C2-r7aWhEVADhg860ETVKQ?pwd=97im
 
-（慎用，如出现章节分割不成功、含有无效内容或者想xml格式不正确、加载失败等，请咨询视频作者。）
+（慎用，如出现章节分割不成功、含有无效内容或者xml格式不正确、加载失败等，请咨询视频作者。）
 
 ## Make eBooks with Sigil and Emeditor
 ### Regular Expression Tool/EmEditor script
@@ -18,4 +18,4 @@ Video tutorial: https://www.bilibili.com/video/BV17G411V777
 
 Link: https://pan.baidu.com/s/1C2-r7aWhEVADhg860ETVKQ?pwd=97im
 
-(Use with caution, if the chapter is not successfully split, contains invalid content, or wants the XML format to be incorrect, the loading fails, etc., please consult the video author.) ）
+(Use with caution, if the chapter is not successfully split, contains invalid content, or the XML format is incorrect, the loading fails, etc., please consult the video author. ）
