@@ -33,5 +33,6 @@ https://github.com/captn3m0/google-sre-ebook
 ### jugyo/eeepub
 
 EeePub is a Ruby ePub generator
+###  Aeroblast/AeroNovel
 
-https://github.com/jugyo/eeepub
+https://github.com/Aeroblast/AeroNovel
