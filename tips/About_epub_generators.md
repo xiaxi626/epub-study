@@ -36,8 +36,8 @@ EeePub is a Ruby ePub generator
 
 https://github.com/jugyo/eeepub
 
-自用 TXT (+拓展标记) 转 EPUB (&少量其他格式) 工具链
-
 ###  Aeroblast/AeroNovel
+
+自用 TXT (+拓展标记) 转 EPUB (&少量其他格式) 工具链
 
 https://github.com/Aeroblast/AeroNovel
