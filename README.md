@@ -34,7 +34,7 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)、[_kepubify_](https://githu
 
 - [ePub电子书排版](https://www.zhihu.com/column/epubmake)
 
-[**sigil吧**](https://jump2.bdimg.com/f?kw=sigil&ie=utf-8)
+[**sigil吧**](https://tieba.baidu.com/f?kw=sigil&ie=utf-8)
 
 跳转链接 [tips/sigil-tieba](https://github.com/xiaxi626/epub-study/tips/sigil-tieba.md)
 
@@ -109,7 +109,7 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)、[_kepubify_](https://githu
 
 - [EPub e-book typesetting](https://www.zhihu.com/column/epubmake)
 
-[**Sigil tieba**](https://jump2.bdimg.com/f?kw=sigil&ie=utf-8)
+[**Sigil tieba**](https://tieba.baidu.com/f?kw=sigil&ie=utf-8)
 
 Jumping links [tips/sigil-tieba](https://github.com/xiaxi626/epub-study/tips/sigil-tieba.md)
 
