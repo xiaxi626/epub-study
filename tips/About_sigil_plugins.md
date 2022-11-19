@@ -54,6 +54,10 @@ https://github.com/Sigil-Ebook/EpubJSReader/
 有关插件本身的直接链接，请参阅插件索引
 https://www.mobileread.com/forums/sh...d.php?t=247431
 
+### [kindlegen plugin for Sigil](https://www.mobileread.com/forums/showthread.php?t=248629&highlight=KindleImport)
+
+这个插件是一个非常简单的 kindlegen 包装器，用于使用 kindlegen 将 epub 转换为 mobi 文件。
+
 ## Introduction to some of the sigil plugins
 
 ### [CheckInternalLinks](https://www.mobileread.com/forums/sh...d.php?t=331788)
@@ -107,3 +111,7 @@ https://github.com/Sigil-Ebook/EpubJSReader/
 
 For direct links to the plugin's themselves, see the Plugin Index
 https://www.mobileread.com/forums/sh...d.php?t=247431
+
+ ### [kindlegen plugin for Sigil](https://www.mobileread.com/forums/showthread.php?t=248629&highlight=KindleImport)
+ 
+ This plugin is a very simple kindlegen wrapper for converting epubs to mobi files with kindlegen.
