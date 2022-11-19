@@ -55,8 +55,16 @@ https://github.com/Sigil-Ebook/EpubJSReader/
 https://www.mobileread.com/forums/sh...d.php?t=247431
 
 ### [kindlegen plugin for Sigil](https://www.mobileread.com/forums/showthread.php?t=248629&highlight=KindleImport)
-
 这个插件是一个非常简单的 kindlegen 包装器，用于使用 kindlegen 将 epub 转换为 mobi 文件。
+
+### [KindleImport](https://www.mobileread.com/forums/showthread.php?t=247087&highlight=KindleImport)
+可以无损导入解密的 mobi 和 azw 格式为 epub
+
+### [PrincePDF](https://www.mobileread.com/forums/showthread.php?t=274972&highlight=PrincePDF)
+导出为 pdf 格式。
+
+### [Grammar check](https://www.mobileread.com/forums/showthread.php?t=276005&highlight=Grammar+check)
+这是一个验证插件，将标志段落中的语法错误。可以检查多种语言的语法，包括中文。
 
 ## Introduction to some of the sigil plugins
 
@@ -112,6 +120,18 @@ https://github.com/Sigil-Ebook/EpubJSReader/
 For direct links to the plugin's themselves, see the Plugin Index
 https://www.mobileread.com/forums/sh...d.php?t=247431
 
- ### [kindlegen plugin for Sigil](https://www.mobileread.com/forums/showthread.php?t=248629&highlight=KindleImport)
+### [kindlegen plugin for Sigil](https://www.mobileread.com/forums/showthread.php?t=248629&highlight=KindleImport)
  
- This plugin is a very simple kindlegen wrapper for converting epubs to mobi files with kindlegen.
+This plugin is a very simple kindlegen wrapper for converting epubs to mobi files with kindlegen.
+
+### [KindleImport](https://www.mobileread.com/forums/showthread.php?t=247087&highlight=KindleImport)
+
+Import Amazon Kindlebooks into Sigil
+
+### [PrincePDF](https://www.mobileread.com/forums/showthread.php?t=274972&highlight=PrincePDF)
+
+This plugin is a very simple prince PDF output wrapper, which allows you to export the currently loaded epub as a .pdf file.
+
+### [Grammar check](https://www.mobileread.com/forums/showthread.php?t=276005&highlight=Grammar+check)
+
+It's a validation plugin that'll flag paragraphs with grammar errors. It can check the grammar of many languages, including Chinese.
