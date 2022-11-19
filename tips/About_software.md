@@ -1,5 +1,5 @@
 ## Jutoh Epubbuilder Dobby Word
-Jutoh 新版本无汉化补丁，可使用旧补丁，使用 Jutoh 后仍需使用Sigi1等软件精排。 Jutoh 软件内的模板不错，精益制作组网站有不少不错的电子书，给的模板也不错。
+Jutoh 新版本无汉化补丁，可使用旧补丁，使用 Jutoh 后仍需使用Sigil等软件精排。 Jutoh 软件内的模板不错，精益制作组网站有不少不错的电子书，给的模板也不错。
 
 Epubbuilder是掌上书苑推出的软件，还行，不过用sigil会提示修复。
 
