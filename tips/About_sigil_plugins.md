@@ -66,6 +66,16 @@ https://www.mobileread.com/forums/sh...d.php?t=247431
 ### [Grammar check](https://www.mobileread.com/forums/showthread.php?t=276005&highlight=Grammar+check)
 这是一个验证插件，将标志段落中的语法错误。可以检查多种语言的语法，包括中文。
 
+### [[Plugin] FolderIn and FolderOut - Folder input and output plugins for Sigil](https://www.mobileread.com/forums/showthread.php?t=293649)
+
+这些插件的目的是为 Sigil 提供以下功能：
+
+文件夹输出 - 将文件从 epub 复制到文件夹，无需任何压缩
+
+文件夹输入 - 从文件夹加载 epub 文件
+
+这些插件旨在允许电子书开发人员更轻松地连接到 git 或其他一些版本控制系统。
+
 ## Introduction to some of the sigil plugins
 
 ### [CheckInternalLinks](https://www.mobileread.com/forums/sh...d.php?t=331788)
@@ -135,3 +145,19 @@ This plugin is a very simple prince PDF output wrapper, which allows you to expo
 ### [Grammar check](https://www.mobileread.com/forums/showthread.php?t=276005&highlight=Grammar+check)
 
 It's a validation plugin that'll flag paragraphs with grammar errors. It can check the grammar of many languages, including Chinese.
+
+ mobileread上有一组搭配使用的插件可以实现epub导出为文件夹和文件夹导入为epub
+导出为文件夹后检查目录删除报错文件再重新导入为epub效率应该比重构要高，建议试一试
+https://www.mobileread.com/forums/showthread.php?t=293649
+
+### [[Plugin] FolderIn and FolderOut - Folder input and output plugins for Sigil](https://www.mobileread.com/forums/showthread.php?t=293649)
+
+The purpose of these plugins is to provide the ability for Sigil to:
+
+FolderOut - copy files from an epub to a folder without any zipping
+
+FolderIn - load epub files from a folder
+
+These plugins were designed to allow ebook developers to more easily interface to git or some other 
+
+version control system.
