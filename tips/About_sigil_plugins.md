@@ -76,6 +76,10 @@ https://www.mobileread.com/forums/sh...d.php?t=247431
 
 这些插件旨在允许电子书开发人员更轻松地连接到 git 或其他一些版本控制系统。
 
+### [tagmechanic-sigil-plugin](https://github.com/dougmassay/tagmechanic-sigil-plugin)
+
+Sigil插件，帮助用户基于属性(或缺乏属性)以嵌套安全的方式操作/删除span、div和其他元素。
+
 ## Introduction to some of the sigil plugins
 
 ### [CheckInternalLinks](https://www.mobileread.com/forums/sh...d.php?t=331788)
@@ -161,3 +165,7 @@ FolderIn - load epub files from a folder
 These plugins were designed to allow ebook developers to more easily interface to git or some other 
 
 version control system.
+
+### [tagmechanic-sigil-plugin](https://github.com/dougmassay/tagmechanic-sigil-plugin)
+
+A Sigil plugin that helps users manipulate/remove spans, divs and other elements based on their attributes (or lack thereof) in a nesting-safe manner.
