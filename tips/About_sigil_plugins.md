@@ -80,6 +80,28 @@ https://www.mobileread.com/forums/sh...d.php?t=247431
 
 Sigil插件，帮助用户基于属性(或缺乏属性)以嵌套安全的方式操作/删除span、div和其他元素。
 
+### [Sigil Plugins By SpaceSkyNet](https://github.com/spaceskynet/Sigil-Plugins)
+
+**s2t - t2s (简繁中文转换)**
+
+使用 OpenCC 库进行转换，使用前请先在Python环境上安装OpenCC，或者将s2t-t2s文件夹下的opencc.zip解压放入Sigil程序目录的Lib\site-packages下。
+
+**AliasReplace (别名替换)**
+
+解决译制小说中存在的译名不统一的问题，需要提供一张csv对照表。
+
+格式如下（可提供多行）:
+
+id, target_name, origin_name_1, origin_name_2 ...
+
+Ex: 1, Bob, Pop, Pob, Bop
+
+默认读取插件目录下的NameMap.csv。
+
+**ChapterInspection (分章检查)**
+
+检查各章节的字数是否符合集中趋势，不符合输出异常。
+
 ## Introduction to some of the sigil plugins
 
 ### [CheckInternalLinks](https://www.mobileread.com/forums/sh...d.php?t=331788)
@@ -150,10 +172,6 @@ This plugin is a very simple prince PDF output wrapper, which allows you to expo
 
 It's a validation plugin that'll flag paragraphs with grammar errors. It can check the grammar of many languages, including Chinese.
 
- mobileread上有一组搭配使用的插件可以实现epub导出为文件夹和文件夹导入为epub
-导出为文件夹后检查目录删除报错文件再重新导入为epub效率应该比重构要高，建议试一试
-https://www.mobileread.com/forums/showthread.php?t=293649
-
 ### [[Plugin] FolderIn and FolderOut - Folder input and output plugins for Sigil](https://www.mobileread.com/forums/showthread.php?t=293649)
 
 The purpose of these plugins is to provide the ability for Sigil to:
@@ -169,3 +187,25 @@ version control system.
 ### [tagmechanic-sigil-plugin](https://github.com/dougmassay/tagmechanic-sigil-plugin)
 
 A Sigil plugin that helps users manipulate/remove spans, divs and other elements based on their attributes (or lack thereof) in a nesting-safe manner.
+
+### [Sigil Plugins By SpaceSkyNet](https://github.com/spaceskynet/Sigil-Plugins)
+
+**s2t - t2s**
+
+To convert using the OpenCC library, install OpenCC on your Python environment before using it, or unzip opencc.zip from the s2t-t2s folder and place it under Lib\site-packages in the Sigil program directory.
+
+**AliasReplace**
+
+It is necessary to provide a csv comparison table to solve the problem of inconsistent translation names in translated novels.
+
+The format is as follows (multiple lines are available) :
+
+id, target_name, origin_name_1, origin_name_2 ...
+
+Ex: 1, Bob, Pop, Pob, Bop
+
+By default, NameMap.csv is read from the plug-in directory.
+
+**ChapterInspection**
+
+Check whether the number of words in each section conforms to the central tendency and does not conform to the output "exception".
