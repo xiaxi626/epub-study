@@ -22,6 +22,10 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)、[_kepubify_](https://githu
 
 [**Epub制作宝典：Word+Jutoh**](http://www.jebook.org/index.php/archives/422)
 
+[**多看精排书制作简记**](https://www.daoqinxuan.com/archives/1594)
+
+[**多看电子书制作技巧 - 简书**]( https://www.jianshu.com/p/ce7fa8b83da8)
+
 [**《ePub指南——从入门到放弃》编著：赤霓（第2版）**](https://zhuanlan.zhihu.com/p/29954562)
 
 [**正则表达式教程**](https://github.com/xiaxi626/epub-study/blob/master/tips/About_regular_expression.md)
@@ -96,6 +100,10 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)、[_kepubify_](https://githu
 [**The simple version of epubcheck batch processing can be found in this repository**](https://github.com/xiaxi626/epub-study/tree/master/epubcheck)
 
 [**Epub production book: Word+Jutoh**](http://www.jebook.org/index.php/archives/422)
+
+[**Brief notes on making duokan fine typesetting book**](https://www.daoqinxuan.com/archives/1594)
+
+[**duokan e-book making skills - jianshu**]( https://www.jianshu.com/p/ce7fa8b83da8)
 
 [**EPub Guide - From Getting Started to Giving Up: Red Ni (2nd Edition)**](https://zhuanlan.zhihu.com/p/29954562)
 
