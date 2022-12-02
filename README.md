@@ -34,9 +34,16 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)、[_kepubify_](https://githu
 
 - [如何利用 Sigil 和 EpubCheck 插件检查和修复 EPUB 文件](https://bookfere.com/post/1004.html)
 
+- [Kindle 漫画制作软件 ChainLP 简明教程](https://bookfere.com/post/266.html)
+
 [**知乎**](https://www.zhihu.com)
 
 - [ePub电子书排版](https://www.zhihu.com/column/epubmake)
+- 
+- [如何自制 MOBI/EPUB 格式漫画电子书 | Kindle 漫画制作教程](https://zhuanlan.zhihu.com/p/56388355)
+
+- [Sigil+Chain LP+Matlab制作epub版的漫画电子书](https://zhuanlan.zhihu.com/p/365806061)
+
 
 [**sigil吧**](https://tieba.baidu.com/f?kw=sigil&ie=utf-8)
 
@@ -113,9 +120,15 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)、[_kepubify_](https://githu
 
 - [How to use Sigil and EpubCheck plug-ins to check and repair EPUB files](https://bookfere.com/post/1004.html)
 
+- [A concise tutorial for Kindle comic book maker ChainLP](https://bookfere.com/post/266.html)
+
 [**zhihu**](https://www.zhihu.com)
 
 - [EPub e-book typesetting](https://www.zhihu.com/column/epubmake)
+
+- [How to make a homemade MOBI/EPUB format comic book eBook | Kindle comic book making tutorial](https://zhuanlan.zhihu.com/p/56388355)
+
+- [Sigil+Chain LP+Matlab produces an epub version of the comic book e-book](https://zhuanlan.zhihu.com/p/365806061)
 
 [**Sigil tieba**](https://tieba.baidu.com/f?kw=sigil&ie=utf-8)
 
