@@ -39,7 +39,7 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)、[_kepubify_](https://githu
 [**知乎**](https://www.zhihu.com)
 
 - [ePub电子书排版](https://www.zhihu.com/column/epubmake)
-- 
+
 - [如何自制 MOBI/EPUB 格式漫画电子书 | Kindle 漫画制作教程](https://zhuanlan.zhihu.com/p/56388355)
 
 - [Sigil+Chain LP+Matlab制作epub版的漫画电子书](https://zhuanlan.zhihu.com/p/365806061)
