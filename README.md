@@ -36,6 +36,10 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)、[_kepubify_](https://githu
 
 - [Kindle 漫画制作软件 ChainLP 简明教程](https://bookfere.com/post/266.html)
 
+- [[网友投稿] 用 WebToEpub 将在线电子书转换成 EPUB 文件 – 书伴](https://bookfere.com/post/975.html)
+
+- [EpubPress：把打开的多个网页转成一本电子书 – 书伴](https://bookfere.com/post/565.html)
+
 [**知乎**](https://www.zhihu.com)
 
 - [ePub电子书排版](https://www.zhihu.com/column/epubmake)
@@ -121,6 +125,10 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)、[_kepubify_](https://githu
 - [How to use Sigil and EpubCheck plug-ins to check and repair EPUB files](https://bookfere.com/post/1004.html)
 
 - [A concise tutorial for Kindle comic book maker ChainLP](https://bookfere.com/post/266.html)
+
+- [[netizens' contributions] use webtoepub to convert online e-books into ePub files – Book Companion](https://bookfere.com/post/975.html)
+
+- [Epubpress: turn multiple open web pages into an e-book - Book Companion](https://bookfere.com/post/565.html)
 
 [**zhihu**](https://www.zhihu.com)
 
