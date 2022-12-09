@@ -32,7 +32,7 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)、[_kepubify_](https://githu
 
 标准电子书，为真正爱书的人精心制作的免费电子书。
 
-Github link: https://github.com/standardebooks
+Github 链接：https://github.com/standardebooks
 
 [**正则表达式教程**](https://github.com/xiaxi626/epub-study/blob/master/tips/About_regular_expression.md)
 
