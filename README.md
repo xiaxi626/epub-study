@@ -28,6 +28,12 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)、[_kepubify_](https://githu
 
 [**《ePub指南——从入门到放弃》编著：赤霓（第2版）**](https://zhuanlan.zhihu.com/p/29954562)
 
+[**Standard Ebooks**](https://standardebooks.org)
+
+标准电子书，为真正爱书的人精心制作的免费电子书。
+
+Github link: https://github.com/standardebooks
+
 [**正则表达式教程**](https://github.com/xiaxi626/epub-study/blob/master/tips/About_regular_expression.md)
 
 [**书伴-BOOKFREE**](https://bookfere.com/category/skills/typesetting/page/2)
@@ -117,6 +123,12 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)、[_kepubify_](https://githu
 [**duokan e-book making skills - jianshu**]( https://www.jianshu.com/p/ce7fa8b83da8)
 
 [**EPub Guide - From Getting Started to Giving Up: Red Ni (2nd Edition)**](https://zhuanlan.zhihu.com/p/29954562)
+
+[**Standard Ebooks**](https://standardebooks.org)
+
+Standard Ebooks Free and liberated ebooks, carefully produced for the true book lover
+
+Github link: https://github.com/standardebooks
 
 [**Regular expression tutorial**](https://github.com/xiaxi626/epub-study/blob/master/tips/About_regular_expression.md)
 
