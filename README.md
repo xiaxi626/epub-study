@@ -69,6 +69,7 @@ Github 链接：https://github.com/standardebooks
 - [【Sigil插件】繁简转化工具](https://tieba.baidu.com/p/6882642246 )
 - [请问sigil能制作复杂表格么？](https://jump2.bdimg.com/p/5149499911)
 - [【新手向教程】一步步教你用Sigil制作图文并茂的EPUB电子书。](https://tieba.baidu.com/p/2571469080/)
+- [【 epub 工具】 EPUB 批量修改器](https://tieba.baidu.com/p/8178419523)
 
 [**书苑网文精排社**](https://nicepub.top/)
 
@@ -173,6 +174,8 @@ For more recommendations, see [tips/tieba.md](https://github.com/xiaxi626/epub-s
 - [Can Sigil make complex forms?](https://jump2.bdimg.com/p/5149499911)
 
 - [[tutorial for beginners] step by step, I will teach you how to use Sigil to make ePub e-books with pictures and texts.](https://tieba.baidu.com/p/2571469080/)
+
+- [[ePub tool] ePub batch modifier](https://tieba.baidu.com/p/8178419523)
 
 [**Shuyuan.com fine typesetting Club**](https://nicepub.top/)
 
