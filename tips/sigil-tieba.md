@@ -20,6 +20,8 @@
 
 - [【新手向教程】一步步教你用Sigil制作图文并茂的EPUB电子书。](https://tieba.baidu.com/p/2571469080/)
 
+- [【 epub 工具】 EPUB 批量修改器](https://tieba.baidu.com/p/8178419523)
+
 - [在sigil里怎么用CSS样式引用矢量图标](https://tieba.baidu.com/p/7916325153)
 
 - [如何解决多看文本阴影不显示的问题](https://tieba.baidu.com/p/8094331483)
@@ -51,6 +53,8 @@
 - [Can Sigil make complex forms?](https://tieba.baidu.com/p/5149499911)
 
 - [[tutorial for beginners] step by step, I will teach you how to use Sigil to make ePub e-books with pictures and texts.](https://tieba.baidu.com/p/2571469080/)
+
+- [[ePub tool] ePub batch modifier](https://tieba.baidu.com/p/8178419523)
 
 - [How to use CSS style to reference vector icons in sigil](https://tieba.baidu.com/p/7916325153)
 
