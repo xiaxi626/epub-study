@@ -12,6 +12,12 @@ https://github.com/JeffersonQin/lightnovel_epub
 
 https://github.com/egoist/node-zhihu-epub-generator
 
+### YaoZeyuan/zhihuhelp
+
+项目基于知乎现有接口+TypeScript 构建，为知友提供方便的, 以供自己阅读/自身结集整理为目的的, 将知乎内容转为 Epub 电子书的途径
+
+https://github.com/YaoZeyuan/zhihuhelp
+
 ### 271374667/txtTranslateEPUB
 
 epub generator from txt，可视化小说 epub 生成器，支持一键操作
