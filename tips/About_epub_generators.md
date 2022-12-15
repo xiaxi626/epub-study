@@ -41,3 +41,27 @@ https://github.com/jugyo/eeepub
 自用 TXT (+拓展标记) 转 EPUB (&少量其他格式) 工具链
 
 https://github.com/Aeroblast/AeroNovel
+
+## Some epub generators on Gitee
+
+### Taiyuuki/elepub
+
+一键生成多看阅读滚动式漫画（EPUB格式）的小工具
+
+将漫画图片打包成 epub 的小工具，适配多看阅读，推荐用于条漫，页漫虽然也能用，但如果存在跨页，阅读体验不会好。
+
+https://gitee.com/taiyuuki/elepub
+
+### 尹鹏/ebook-py
+
+a tool to create epub/mobi ebook
+
+ebook-py is a Python tool which, given a set of html files and a plain text file with toc information, creates a MOBI file that you can directly use on your Amazon Kindle (or any other device that supports MOBI documents).
+
+https://gitee.com/ypwx/ebook-py
+
+### Chiro/Dmzj2Epub
+
+把动漫之家缓存的zip转换成epub来阅读
+
+https://gitee.com/chiro2001/Dmzj2Epub
