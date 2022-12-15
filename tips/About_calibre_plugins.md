@@ -34,6 +34,16 @@ Calibre中使用DeDRM插件进行Kindle电子书解锁
 
 下载地址：https://www.mobileread.com/forums/showthread.php?t=178799
 
+### lovedzc / calibre-unpack-image
+
+calibre的插件，用于拆解azw与epub中的图片
+
+为了把纯图片的AZW3（也就是固定Layout的Kindle书）转成高质量的PDF而写的插件。 基本思路是，把AZW3中的图片无损拆解出来，然后手动调用老马的 FreePic2PDF 转成PDF。 本插件实现的功能就是把图片拆到指定目录下，并按照 title 字段命名各目录。 支持批量拆解。
+
+PS: 老马的 FreePic2PDF 请自行下载运行。
+
+下载地址：https://gitee.com/lovedzc/calibre-unpack-image
+
 ## Introduction to some of the sigil plugins
 
 You can go to the official website of calibre for a system understanding, and the developer has a functional introduction for each plugin: http://plugins.calibre-ebook.com/
@@ -68,3 +78,13 @@ Download address: https://www.mobileread.com/forums/showthread.php?t=169744
 UI plugin to split off parts of an epub into a new book.
 
 Download address: https://www.mobileread.com/forums/showthread.php?t=178799
+
+### lovedzc / calibre-unpack-image
+
+Calibre's plugin for disassembling images in AZW and EPUB
+
+A plug-in written to convert image-only AZW3 (i.e., a Kindle book with fixed layout) into a high-quality PDF. The basic idea is to disassemble the pictures in AZW3 losslessly, and then manually call Lao Ma's FreePic2PDF to PDF. The function implemented by this plugin is to disassemble the picture into a specified directory, and name each directory according to the title field. Supports batch disassembly.
+
+PS: Lao Ma's FreePic2PDF please download and run by yourself.
+
+Download address: https://gitee.com/lovedzc/calibre-unpack-image
