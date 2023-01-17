@@ -26,6 +26,8 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)、[_kepubify_](https://githu
 
 [**多看电子书制作技巧 - 简书**]( https://www.jianshu.com/p/ce7fa8b83da8)
 
+[**制作音字同步英文电子书**](https://www.jianshu.com/p/fece2951f6ad)
+
 [**《ePub指南——从入门到放弃》编著：赤霓（第2版）**](https://zhuanlan.zhihu.com/p/29954562)
 
 [**Standard Ebooks**](https://standardebooks.org)
@@ -54,6 +56,9 @@ Github 链接：https://github.com/standardebooks
 
 - [Sigil+Chain LP+Matlab制作epub版的漫画电子书](https://zhuanlan.zhihu.com/p/365806061)
 
+- [如何自己制作有声电子读物？](https://www.zhihu.com/question/490920655)
+
+- [EPUB SMIL音频电子书实验](https://zhuanlan.zhihu.com/p/28993149)
 
 [**sigil吧**](https://tieba.baidu.com/f?kw=sigil&ie=utf-8)
 
@@ -80,6 +85,8 @@ Github 链接：https://github.com/standardebooks
 - [Sigil - MobileRead Forums](https://www.mobileread.com/forums/forumdisplay.php?f=203)
 
     - [Sigil Plugin Index - MobileRead Forums](https://www.mobileread.com/forums/showthread.php?t=247431)
+
+[**免费 EPUB 3 有声电子书**](https://www.readbeyond.it/ebooks.html)
 
 [**Sigil 插件编写入门**](https://spaceskynet.top/posts/1109187256.html)
 
@@ -126,6 +133,8 @@ _EasyPub_、[_Calibre_](https://calibre-ebook.com/)、[_kepubify_](https://githu
 
 [**duokan e-book making skills - jianshu**]( https://www.jianshu.com/p/ce7fa8b83da8)
 
+[**Make English eBooks synchronized with sound and text**](https://www.jianshu.com/p/fece2951f6ad)
+
 [**EPub Guide - From Getting Started to Giving Up: Red Ni (2nd Edition)**](https://zhuanlan.zhihu.com/p/29954562)
 
 [**Standard Ebooks**](https://standardebooks.org)
@@ -153,6 +162,10 @@ Github link: https://github.com/standardebooks
 - [How to make a homemade MOBI/EPUB format comic book eBook | Kindle comic book making tutorial](https://zhuanlan.zhihu.com/p/56388355)
 
 - [Sigil+Chain LP+Matlab produces an epub version of the comic book e-book](https://zhuanlan.zhihu.com/p/365806061)
+
+- [How to make an audio e-book by yourself?](https://www.zhihu.com/question/490920655)
+
+- [EPUB SMIL audio e-book experiment](https://zhuanlan.zhihu.com/p/28993149)
 
 [**Sigil tieba**](https://tieba.baidu.com/f?kw=sigil&ie=utf-8)
 
@@ -189,6 +202,8 @@ For more recommendations, see [tips/tieba.md](https://github.com/xiaxi626/epub-s
 - [Sigil - MobileRead Forums](https://www.mobileread.com/forums/forumdisplay.php?f=203)
 
     - [Sigil Plugin Index - MobileRead Forums](https://www.mobileread.com/forums/showthread.php?t=247431)
+
+[**Free EPUB 3 Audio-eBooks**](https://www.readbeyond.it/ebooks.html)
 
 [**Get started writing Sigil plugins**](https://spaceskynet.top/posts/1109187256.html)
 
