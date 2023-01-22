@@ -44,6 +44,18 @@ PS: 老马的 FreePic2PDF 请自行下载运行。
 
 下载地址：https://gitee.com/lovedzc/calibre-unpack-image
 
+### [元数据资源插件] Kindle（亚马逊）高分辨率封面
+
+从亚马逊下载 Kindle 版本的高分辨率封面
+
+下载地址：https://www.mobileread.com/forums/showthread.php?t=286970
+### [GUI 插件] 生成封面
+
+用户的收藏中经常会有一些没有官方封面可供下载的书籍，比如短篇小说和文章。Calibre包括从图书元数据为您生成封面的功能。然而，目前它提供的对外观的唯一控制是对字体的调整。
+
+这个插件提供了一个增强的替代方案，允许您从自己选择的封面图像和广泛的布局/外观选项中进行选择。 
+
+下载地址：https://www.mobileread.com/forums/showthread.php?t=124219
 ## Introduction to some of the sigil plugins
 
 You can go to the official website of calibre for a system understanding, and the developer has a functional introduction for each plugin: http://plugins.calibre-ebook.com/
@@ -88,3 +100,17 @@ A plug-in written to convert image-only AZW3 (i.e., a Kindle book with fixed lay
 PS: Lao Ma's FreePic2PDF please download and run by yourself.
 
 Download address: https://gitee.com/lovedzc/calibre-unpack-image
+
+### [Metadata Source Plugin] Kindle (Amazon) High-res Covers
+
+Downloads high resolution covers for Kindle editions from Amazon
+
+Download address: https://www.mobileread.com/forums/showthread.php?t=286970
+
+### [GUI Plugin] Generate Cover
+
+Users will often have books in their collection for which there is no official cover available to download, such as short fiction and articles. Calibre includes the ability to generate a cover for you from the book metadata. However currently the only control over its appearance it offers is a tweak for the font.
+
+This plugin offers an enhanced alternative that allows you to select from your own choice of cover images and a wide range of layout/appearance options. 
+
+Download address: https://www.mobileread.com/forums/showthread.php?t=124219
