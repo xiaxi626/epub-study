@@ -48,6 +48,10 @@ Github 链接：https://github.com/standardebooks
 
 - [EpubPress：把打开的多个网页转成一本电子书 – 书伴](https://bookfere.com/post/565.html)
 
+- [如何把 Kindle 电子书转换成增强型排版的 KFX 格式](https://bookfere.com/post/342.html)
+
+- [KindleUnpack：拆解 Kindle 电子书文件的利器](https://bookfere.com/post/187.html#ku_1)
+
 [**知乎**](https://www.zhihu.com)
 
 - [ePub电子书排版](https://www.zhihu.com/column/epubmake)
@@ -154,6 +158,10 @@ Github link: https://github.com/standardebooks
 - [[netizens' contributions] use webtoepub to convert online e-books into ePub files – Book Companion](https://bookfere.com/post/975.html)
 
 - [Epubpress: turn multiple open web pages into an e-book - Book Companion](https://bookfere.com/post/565.html)
+
+- [How to convert a Kindle ebook to an enhanced typo KFX format](https://bookfere.com/post/342.html)
+
+- [KindleUnpack: A handy tool for dismantling Kindle eBook files](https://bookfere.com/post/187.html#ku_1)
 
 [**zhihu**](https://www.zhihu.com)
 
