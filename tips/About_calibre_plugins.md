@@ -56,7 +56,7 @@ PS: 老马的 FreePic2PDF 请自行下载运行。
 这个插件提供了一个增强的替代方案，允许您从自己选择的封面图像和广泛的布局/外观选项中进行选择。 
 
 下载地址：https://www.mobileread.com/forums/showthread.php?t=124219
-## Introduction to some of the sigil plugins
+## Introduction to some of the calibre plugins
 
 You can go to the official website of calibre for a system understanding, and the developer has a functional introduction for each plugin: http://plugins.calibre-ebook.com/
 
