@@ -102,6 +102,16 @@ Ex: 1, Bob, Pop, Pob, Bop
 
 检查各章节的字数是否符合集中趋势，不符合输出异常。
 
+### [wrCisco/SigilPlugin_headersAsTitles](https://github.com/wrCisco/SigilPlugin_headersAsTitles)
+
+该插件将解析每个选定文件的代码以搜索 h1 标签，然后搜索 h2，依此类推，直到 h6。在第一次出现时，它将停止并使用匹配标签的文本来创建/覆盖文档头部的标题标签。如果未找到匹配项，则标题标记将为空。
+
+### [wrCisco/SigilPlugin_fileNamesAsTitles](https://github.com/wrCisco/SigilPlugin_fileNamesAsTitles)
+
+添加/覆盖 xhtml 选定文件的标题标签，为每个文件使用其文件名（不带扩展名）。
+
+如果要覆盖所有 xhtml 文件的标题标签，只需不要在书籍浏览器中选择任何文件（或全部选择它们，它们是一样的）。
+
 ## Introduction to some of the sigil plugins
 
 ### [CheckInternalLinks](https://www.mobileread.com/forums/sh...d.php?t=331788)
@@ -209,3 +219,13 @@ By default, NameMap.csv is read from the plug-in directory.
 **ChapterInspection**
 
 Check whether the number of words in each section conforms to the central tendency and does not conform to the output "exception".
+
+### [wrCisco/SigilPlugin_headersAsTitles](https://github.com/wrCisco/SigilPlugin_headersAsTitles)
+
+The plugin will parse the code of each selected file in search of an h1 tag, then of an h2 and so on until h6. At the first occurrence it will stop and use the text of matched tag to create/overwrite the title tag in the head of the document. If no occurrences will be found the title tag will be empty.
+
+### [wrCisco/SigilPlugin_fileNamesAsTitles](https://github.com/wrCisco/SigilPlugin_fileNamesAsTitles)
+
+Add/overwrite the title tag of xhtml selected files using for each file its filename (without extension).
+
+If you want to overwrite title tags of all xhtml files, just don't select any file in the Book Browser (or select them all, it's the same).
