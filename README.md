@@ -1,4 +1,7 @@
 # epub-study
+
+[English](#test2) | [Chinese](#test1)
+<p><a id="test1"></a></p>
 下图是ePub排版需要掌握的知识，并且我把一般制作流程列出来，供你参考。
 
 ![flow-process_diagram_CN](https://github.com/xiaxi626/epub-study/blob/master/image/flow-process_diagram.png)
@@ -109,6 +112,8 @@ _Jutoh_ 文件夹存放了JinE Jutoh word模板
 _Emeditor_ 文件夹存放 Emeditor 脚本
 
 ---
+<p><a id="test2"></a></p>
+
 The following figure shows the knowledge required for ePub typesetting, and I have listed the general production process for your reference.
 
 ![flow-process_diagram_EN](https://github.com/xiaxi626/epub-study/blob/master/image/flow-process_diagram_EN.jpg)
