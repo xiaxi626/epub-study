@@ -48,6 +48,32 @@ https://github.com/jugyo/eeepub
 
 https://github.com/Aeroblast/AeroNovel
 
+### hmdev/AozoraEpub3
+
+https://github.com/hmdev/AozoraEpub3
+
+青空文庫テキスト→ePub3変換
+
+青空文庫の注記入りテキストファイルをePub3ファイルに変換するツールです。
+・青空文庫txtのテキスト+画像ファイル(またはzip)をePub3に変換
+・Web小説のHTMLを取得して青空文庫txt形式で保存してからePub3に変換
+・画像zip/rarをePub3に変換
+が可能です。
+
+www18.atwiki.jp/hmdev/
+
+### wing-kai/epub-manga-creator
+
+https://github.com/wing-kai/epub-manga-creator
+
+a web GUI for create japanese epub manga
+
+就是个把一堆漫画图片打包成 epub 格式的 web gui
+
+文件结构规范来自 DIgital-Comic-Association (デジタルコミック協議会)
+
+🚀 [click here to use](https://wing-kai.github.io/epub-manga-creator)
+
 ## Some epub generators on Gitee
 
 ### Taiyuuki/elepub
