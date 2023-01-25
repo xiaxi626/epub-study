@@ -6,6 +6,7 @@
 - [关于部分sigil插件的介绍](https://github.com/xiaxi626/epub-study/blob/master/tips/About_sigil_plugins.md)
 - [关于部分calibre插件的介绍](https://github.com/xiaxi626/epub-study/blob/master/tips/About_calibre_plugins.md)
 - [关于github上的一些epub生成器](https://github.com/xiaxi626/epub-study/blob/master/tips/About_epub_generators.md)
+- [关于一些电子书修复工具](https://github.com/xiaxi626/epub-study/blob/master/tips/About_ebook_fix.md)
 - [sigil吧推荐帖](https://github.com/xiaxi626/epub-study/blob/master/tips/sigil-tieba.md)
 
 ## A little tips
@@ -16,4 +17,5 @@ Contains the following
 - [About some sigil plugins](https://github.com/xiaxi626/epub-study/blob/master/tips/About_sigil_plugins.md)
 - [About some calibre plugins](https://github.com/xiaxi626/epub-study/blob/master/tips/About_calibre_plugins.md)
 - [About some epub generators on github](https://github.com/xiaxi626/epub-study/blob/master/tips/About_epub_generators.md)
+- [About some ebook fix tools](https://github.com/xiaxi626/epub-study/blob/master/tips/About_ebook_fix.md)
 - [sigil-tieba recommended posts](https://github.com/xiaxi626/epub-study/blob/master/tips/sigil-tieba.md)
