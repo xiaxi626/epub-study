@@ -18,6 +18,12 @@ https://github.com/egoist/node-zhihu-epub-generator
 
 https://github.com/YaoZeyuan/zhihuhelp
 
+### ystyle/kaf-cli
+
+把txt文本转成epub和mobi电子书的命令行工具(原TmdTextEpub) 
+
+https://github.com/ystyle/kaf-cli
+
 ### 271374667/txtTranslateEPUB
 
 epub generator from txt，可视化小说 epub 生成器，支持一键操作
@@ -61,6 +67,12 @@ https://github.com/hmdev/AozoraEpub3
 が可能です。
 
 www18.atwiki.jp/hmdev/
+
+### whiteleaf7/narou
+
+Narou.rb - 小説家になろうのダウンローダ＆縦書き整形＆管理アプリ。Kindle（などの電子書籍端末）でなろうを読む場合に超便利です！ 
+
+https://github.com/whiteleaf7/narou
 
 ### wing-kai/epub-manga-creator
 
