@@ -56,6 +56,12 @@ PS: 老马的 FreePic2PDF 请自行下载运行。
 这个插件提供了一个增强的替代方案，允许您从自己选择的封面图像和广泛的布局/外观选项中进行选择。 
 
 下载地址：https://www.mobileread.com/forums/showthread.php?t=124219
+
+### Leseratte10/acsm-calibre-plugin
+
+用于 ACSM->EPUB 和 ACSM->PDF 转换的 Calibre 插件。
+
+下载地址：https://github.com/Leseratte10/acsm-calibre-plugin/releases
 ## Introduction to some of the calibre plugins
 
 You can go to the official website of calibre for a system understanding, and the developer has a functional introduction for each plugin: http://plugins.calibre-ebook.com/
@@ -114,3 +120,9 @@ Users will often have books in their collection for which there is no official c
 This plugin offers an enhanced alternative that allows you to select from your own choice of cover images and a wide range of layout/appearance options. 
 
 Download address: https://www.mobileread.com/forums/showthread.php?t=124219
+
+### Leseratte10/acsm-calibre-plugin
+
+Calibre plugin for ACSM->EPUB and ACSM->PDF conversion. 
+
+Download address: https://github.com/Leseratte10/acsm-calibre-plugin/releases
