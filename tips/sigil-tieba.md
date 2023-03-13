@@ -22,6 +22,8 @@
 
 - [【 epub 工具】 EPUB 批量修改器](https://tieba.baidu.com/p/8178419523)
 
+- [【Sigil插件】字体导入插件 Font2CSS](https://tieba.baidu.com/p/8304681294)
+
 - [在sigil里怎么用CSS样式引用矢量图标](https://tieba.baidu.com/p/7916325153)
 
 - [如何解决多看文本阴影不显示的问题](https://tieba.baidu.com/p/8094331483)
@@ -55,6 +57,8 @@
 - [[tutorial for beginners] step by step, I will teach you how to use Sigil to make ePub e-books with pictures and texts.](https://tieba.baidu.com/p/2571469080/)
 
 - [[ePub tool] ePub batch modifier](https://tieba.baidu.com/p/8178419523)
+
+- [[Sigil plugin] Font import plugin Font2CSS](https://tieba.baidu.com/p/8304681294)
 
 - [How to use CSS style to reference vector icons in sigil](https://tieba.baidu.com/p/7916325153)
 
