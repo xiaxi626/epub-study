@@ -8,6 +8,7 @@
 - [关于github上的一些epub生成器](https://github.com/xiaxi626/epub-study/blob/master/tips/About_epub_generators.md)
 - [关于一些电子书修复工具](https://github.com/xiaxi626/epub-study/blob/master/tips/About_ebook_fix.md)
 - [sigil吧推荐帖](https://github.com/xiaxi626/epub-study/blob/master/tips/sigil-tieba.md)
+- [关于制作漫画书](https://github.com/xiaxi626/epub-study/blob/master/tips/About_making_comic_books.md)
 
 ## A little tips
 Contains the following
@@ -19,3 +20,4 @@ Contains the following
 - [About some epub generators on github](https://github.com/xiaxi626/epub-study/blob/master/tips/About_epub_generators.md)
 - [About some ebook fix tools](https://github.com/xiaxi626/epub-study/blob/master/tips/About_ebook_fix.md)
 - [sigil-tieba recommended posts](https://github.com/xiaxi626/epub-study/blob/master/tips/sigil-tieba.md)
+- [About_making_comic_books](https://github.com/xiaxi626/epub-study/blob/master/tips/About_making_comic_books.md)
